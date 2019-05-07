@@ -21,6 +21,8 @@ public:
 	float x;
 	RotateType rotate;
 	float y;
+	int dist;
+	int estimated;
 	unsigned int pre_pad; // 6bit
 												// 000000
 												// ||||||
@@ -47,6 +49,14 @@ public:
 			pre_pad |= 1U << i;
 	}
 
+	//¶‰E“ü—Í‚Í”½‰f‚ª’x‚¢‚Ì‚Å‘‚ß‚É”½‰f
+	void SetDistEstimated(int dist_, const Kumipuyo& kumipuyo_) {
+		dist = dist_;
+		estimated = std::abs(kumipuyo_.desirable_put.column - 1 - static_cast<int>(kumipuyo_.X())
+			- IsLeft() + IsRight())
+			+ std::abs(kumipuyo_.desirable_put.rotate - kumipuyo_.now_rotate);
+	}
+
 	Pad GetPad() const {
 		return Pad(pre_pad);
 	}
@@ -56,13 +66,7 @@ public:
 	}
 
 	bool operator < (const Node& a) const {
-		if (x < a.x) return true;
-		if (x > a.x) return false;
-		if (y < a.y) return true;
-		if (y > a.y) return false;
-		if (rotate < a.rotate) return true;
-		if (rotate > a.rotate) return false;
-		return pre_pad < a.pre_pad;
+		return estimated < a.estimated;
 	}
 
 	inline bool IsUp()   const { return (1U << Command::UP) & pre_pad; }
@@ -98,11 +102,11 @@ private:
 	static bool CanLeftDown(const Kumipuyo &kumipuyo, const Field &field);
 	static Command FasterRotateCommand(RotateType src, RotateType dist);
 
-	static void PushMove(const Field & field_, const Pad & pre_pad, const Node & now_node, std::queue<std::pair<int, Node>>* que, std::map<Node, Node>* pre_node, Kumipuyo now_kumipuyo, Node next_node, const int next_dist);
+	static void PushMove(const Field & field_, const Pad & pre_pad, const Node & now_node, std::priority_queue<Node>* que, std::map<Node, Node>* pre_node, Kumipuyo now_kumipuyo, Node next_node, const int next_dist, bool down);
 
-	static void PushRotate(const Field & field_, const Pad & pre_pad, const Node & now_node, std::queue<std::pair<int, Node>>* que, std::map<Node, Node>* pre_node, Kumipuyo now_kumipuyo, Node next_node, const int next_dist);
+	static void PushRotate(const Field & field_, const Pad & pre_pad, const Node & now_node, std::priority_queue<Node>* que, std::map<Node, Node>* pre_node, Kumipuyo now_kumipuyo, Node next_node, const int next_dist, bool down);
 
-	static void PushMoveAndRotate(const Field & field_, const Pad & pre_pad, const Node & now_node, std::queue<std::pair<int, Node>>* que, std::map<Node, Node>* pre_node, Kumipuyo now_kumipuyo, Node next_node, const int next_dist);
+	static void PushMoveAndRotate(const Field & field_, const Pad & pre_pad, const Node & now_node, std::priority_queue<Node>* que, std::map<Node, Node>* pre_node, Kumipuyo now_kumipuyo, Node next_node, const int next_dist, bool down);
 
 };
 #endif

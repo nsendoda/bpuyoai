@@ -37,6 +37,8 @@ public:
 	void Main() override;
 
 	void Decide();
+	bool KillThink(Score fatal_dose);
+	void Think();
 	void PadDecide();
 	void Operate();
 

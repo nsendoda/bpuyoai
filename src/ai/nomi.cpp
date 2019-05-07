@@ -11,8 +11,8 @@ void Nomi::Init() {
 
 	ai_SetBMainMode(1);
 	ai_SetMainMode(1);
-	ai_SetTable(1, 0, "GR GR GG YG YY YP PP");
-
+//	ai_SetTable(1, 0, "GR GR GG YG YY YP PP");
+	ai_SetTable(1, 0, "GG GR GG YG YY YP PP");
 	for (int i = 0; i < DATABASE_SIZE; i++)
 		RawData::SetDatabase(i, &database[i]);
 
@@ -52,6 +52,11 @@ void Nomi::Main() {
 }
 
 void Nomi::Decide() {
+
+	if (KillThink(100)) {
+		return;
+	}
+
 	int color_count = ColorPuyoCount();
 	if (color_count < DATABASE_SIZE) {
 		PutIndex database_put = database[color_count].BestIndex(state);
@@ -64,6 +69,22 @@ void Nomi::Decide() {
 		ai_SetName("NOT FOUND");
 	}
 
+	Think();
+
+}
+
+bool Nomi::KillThink(Score fatal_dose) {
+	for (PutIndex pi = 0; pi < PUTTYPE_PATTERN; pi++) {
+
+	}
+	return false;
+}
+
+void Nomi::Think() {
+	for (PutIndex pi = 0; pi < PUTTYPE_PATTERN; pi++) {
+
+	}
+	state.now_kumipuyo.desirable_put = PutType::GetPutType(2);
 }
 
 void Nomi::PadDecide() {

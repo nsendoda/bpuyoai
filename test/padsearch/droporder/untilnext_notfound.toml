@@ -1,0 +1,33 @@
+[case]
+field = """
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOGOO
+WOOOGOO
+WOOOYGO
+WOOOYGO
+WOOGGYO
+WOOYGYO
+WWWWWWW"""
+
+[case.now]
+parent = "R"
+child = "R"
+
+[case.next]
+parent = "G"
+child = "G"
+
+[ans]
+put_indexes = []
+
+[ans.chain]
+number = 0
+score = 0
+frame = 0

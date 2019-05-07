@@ -1,0 +1,24 @@
+[case]
+field = """
+WOOOOOO
+WOOOOOO
+WOOOXOO
+WOOXXOO
+WOOXXOO
+WOOXXOO
+WOOXXOO
+WOOXXOO
+WOOXXOO
+WOOXXOO
+WOOXXOO
+WOOXXXO
+WOXXXXO
+WOXXXXO
+WWWWWWW"""
+
+
+
+[ans]
+valid_putindex_min = 0
+valid_putindex_max = 21
+invalid_putindexes = []

@@ -1,0 +1,16 @@
+TestGetIndex.KUMIPUYOTEST 1 0.011592
+TestGetIndex.first 91 8.83187e-05
+TestGetIndex.roundy 0 0
+TestGetIndex.allx 90 7.65222e-05
+TestGetIndex.last 88 8.11136e-05
+TestGetIndex.alwaysfail 0 0
+TestGetIndex.floory 90 7.60444e-05
+Simulate.all 63 0.00016846
+Fall.all 36 0.000231444
+Put.all 31 0.000280871
+PutOnePuyo.all 23 0.000372652
+EliminateOnePuyo.all 20 0.0004903
+CalculatePutIndex.all 18 0.000638611
+CanPut.all 9 0.00151067
+SearchUntilNext.all 1 0.018923
+---

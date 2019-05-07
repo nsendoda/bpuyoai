@@ -1,0 +1,25 @@
+[case]
+field = """
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOXGG
+WOOOXGX
+WOOOXYY
+WOORRPP
+WWWWWWW"""
+
+[case.puttype]
+column = 6
+rotate = "ROTATE_0"
+
+[ans]
+parent_index = 41
+child_index = 48

@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/g/GoogleDrive/produce/project/BpuyoAI_sea/test/add/main.cpp
+gtest/gtest.h
+-
+add.hpp
+/mnt/g/GoogleDrive/produce/project/BpuyoAI_sea/test/add/add.hpp
+

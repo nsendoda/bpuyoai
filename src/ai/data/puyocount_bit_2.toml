@@ -1,0 +1,5301 @@
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 61, 125, 0, 0, 0, 1, 1, 8, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 56, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 7, 28, 0, 0, 0, 0, 0, 0, 0, 1, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 33
+index = [ 0, 0, 1, 0, 0, 12, 0, 0, 1, 1, 0, 0, 0, 36, 0, 0, 0, 7, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 12, 0, 1, 0, 0, 6, 3, 0, 0, 0, 172, 2, 17, 2, 19, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 2, 0, 53, 42, 0, 0, 0, 0, 41, 29, 1, 0, 2, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 6, 0, 2, 0, 122, 164, 0, 0, 2, 0, 147, 170, 9, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 153, 0, 37, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 119, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 34, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 45, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 26
+index = [ 0, 4, 13, 0, 0, 0, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 2, 1, 1, 0, 20, 41, 0, 0, 0, 0, 24, 28, 1, 0, 2, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 174, 0, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 8, 43, 0, 0, 0, 0, 2, 0, 1, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 1, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 54
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 72, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 45
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 25, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 17
+index = [ 0, 1, 6, 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 0, 0, 1, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 24, 0, 4, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 11,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 45
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 28, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 5, 0, 0, 1, 0, 1, 0, 0, 0, 0, 31, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 45
+index = [ 0, 0, 0, 1, 0, 0, 0, 0, 39, 0, 0, 0, 0, 34, 50, 1, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 3, 0, 2, 0, 54, 25, 0, 0, 0, 0, 50, 34, 3, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 14, 0, 0, 0, 0, 1, 36, 0, 0, 0, 0, 0, 0, 19, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 1,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 81, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 54, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 15, 0, 2, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 9,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 1, 0, 0, 0, 1, 53, 0, 0, 1, 0, 51, 49, 2, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 42, 1, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 36, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 9, 30, 0, 0, 0, 0, 0, 2, 1, 1, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 34, 0, 0, 0, 0, 0, 1, 1, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 35, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 54
+index = [ 0, 0, 0, 1, 0, 1, 0, 1, 33, 0, 0, 2, 0, 39, 48, 1, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 1, 0, 0, 0, 0, 8, 0, 1, 1, 0, 0, 0, 0, 0, 6, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 27
+index = [ 0, 1, 0, 0, 0, 0, 86, 0, 17, 0, 0, 0, 0, 1, 9, 0, 4, 0, 0, 0, 0, 58,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 68, 1, 18, 0, 0, 0, 0, 0, 41, 0, 2, 0, 0, 0, 0, 76,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 27
+index = [ 0, 2, 7, 1, 0, 0, 23, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 42, 0, 16, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 44, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 151, 5, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 54
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 54
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 27
+index = [ 1, 0, 0, 0, 1, 0, 0, 0, 0, 2, 9, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 37, 0, 0, 0, 8, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 54
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 37, 0, 0, 0, 13, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 1, 0, 1, 0, 43, 47, 1, 0, 1, 0, 34, 34, 1, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 41, 0, 14, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 18, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 56, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 1, 0, 0, 0, 0, 52, 1, 1, 0, 0, 33, 39, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 6, 0, 2, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 13,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 104, 0, 0, 0, 0, 1, 0, 46, 0, 0, 0, 3,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 45
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 45
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 18
+index = [ 0, 2, 3, 0, 0, 0, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 48, 0, 0, 0, 15, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 14, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 15,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 30, 0, 0, 0, 18, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 2, 0, 0, 0, 0, 29, 0, 0, 1, 0, 43, 47, 3, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 11, 0, 0, 0, 0, 2, 31, 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 1, 43, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 24, 0, 7, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 17,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 39, 1, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 1, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 4, 1, 0, 0, 15, 43, 0, 0, 0, 0, 38, 35, 2, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 2, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 49, 1, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 45
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 0, 3, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 54
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 52, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 140, 2, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 47, 0, 0, 0, 11, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 65, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 35, 0, 0, 0, 0, 40, 33, 3, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 50, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 19, 0, 6, 0, 0, 0, 0, 0, 19, 0, 1, 0, 0, 0, 0, 34,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 35, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 1, 0, 0, 0, 0, 31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 1, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 55, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 18
+index = [ 0, 2, 0, 0, 0, 0, 8, 0, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 3,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 1, 0, 0, 0, 0, 32, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 36, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 16, 0, 4, 0, 0, 0, 0, 0, 16, 0, 1, 0, 0, 0, 0, 14,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 2, 0, 0, 0, 0, 119, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 6, 0, 0, 0, 1, 0, 0, 0, 41, 0, 0, 0, 2, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 2, 0, 0, 0, 25, 31, 0, 0, 1, 0, 43, 43, 3, 0, 2, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 1,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 20, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 2, 0, 0, 0, 0, 51, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 8, 0, 0, 0, 0, 161, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 42, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 58, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 46, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 62, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 2, 0, 0, 0, 0, 44, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 45, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 63, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 35, 1, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 6, 0, 4, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 13,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 37, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 45
+index = [ 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 48, 5, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 23, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 43, 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 11, 0, 1, 0, 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 11,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 26, 0, 5, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 19,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 39, 0, 9, 0, 7, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 54
+index = [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 48, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 41, 1, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 2147487744
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 2147487744
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 46, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 2147487744
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 61, 1, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 4, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 5, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 3, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 11, 34, 0, 0, 0, 0, 0, 1, 1, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 50, 1, 1, 0, 25, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 45
+index = [ 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 25
+index = [ 1, 2, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 72
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 72
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 45
+index = [ 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 27
+index = [ 4, 9, 0, 0, 0, 0, 1, 5, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 72
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 33
+index = [ 0, 1, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 72
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 45
+index = [ 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 72
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 54
+index = [ 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 45
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 1, 1, 0, 0, 0, 2, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 9
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 38, 0, 0, 0, 11, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 25, 0, 0, 1, 1, 1, 1, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 9
+index = [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 576
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 1, 0, 1, 0, 2, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 54
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 54
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 54
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 34, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 576
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 48, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 0, 0, 0, 0, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 45
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 45
+index = [ 0, 0, 0, 3, 0, 0, 0, 0, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 2097160
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 27
+index = [ 1, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 45
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 26, 0, 0, 0, 0, 1, 1, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 9
+index = [ 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 1088
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 14, 0, 3, 0, 0, 1, 0, 0, 9, 0, 1, 0, 0, 0, 0, 16,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 27
+index = [ 0, 0, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 1, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 46, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 35
+index = [ 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 262145
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 17
+index = [ 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 54
+index = [ 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 35
+index = [ 0, 3, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 262145
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 26
+index = [ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 36
+index = [ 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 262145
+field2 = 0
+next = 45
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 45
+index = [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 262145
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 54
+index = [ 0, 1, 0, 0, 0, 0, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 18
+index = [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 63
+index = [ 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 25
+index = [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 262145
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 27
+index = [ 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 26
+index = [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 262145
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 13, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 576
+field2 = 0
+next = 54
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 36864
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 17179901952
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 1688856417741942
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 576
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 524289
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 2147487744
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 54
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 2147487744
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 1, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 27
+index = [ 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 9
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 2147487744
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 524289
+field2 = 0
+next = 27
+index = [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 2147487744
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 9
+field2 = 0
+next = 26
+index = [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 2147487744
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 2147487744
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 25
+index = [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 69632
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 69632
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 69632
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 520
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 6, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 524289
+field2 = 0
+next = 45
+index = [ 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 134218240
+field2 = 0
+next = 9
+index = [ 0, 0, 2, 0, 0, 1, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 37, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 576
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 7905747417211399606
+field2 = 243389843702446624216946552340480
+next = 45
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 1073745920
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 16777280
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 36864
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 37, 0, 0, 0, 0, 2, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 54
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 26
+index = [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 524289
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 524289
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 262145
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 576
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 576
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 16777280
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 54
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 1073745920
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 2147487744
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 3, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 2147487744
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 175922531533888
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 7905747460161236406
+field2 = 10776091193394288776926015258624
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 7905747460161236406
+field2 = 166154134359506052566540834924658688
+next = 36
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 316661496287232
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 7905747455866248630
+field2 = 7975398399384992169267342486597009408
+next = 63
+index = [ 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 72
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 268436400
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 50888651868069206178248992139891537573849603806068736
+field1 = 10540996613548315208
+field2 = 72917742774073573139246928737836466176
+next = 45
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 2593219762407369437476763196112027493003115287153569885954559902220288
+field3 = 98079714615419680483025447181935590325439014920882487296
+field1 = 7039364185462607238
+field2 = 896706681128678766664488251817984
+next = 25
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 23299199289873218119118689741212517735215950700568033373523094668312576
+field3 = 112064163916678051511140652613037010176032400474883751936
+field1 = 6917766523058654609
+field2 = 96849321432157968665344342547138347008
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 164156490112320972728320682747174894477916444001566720
+field1 = 1276775356264284166
+field2 = 9113164787535475411140331263915720704
+next = 44
+index = [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 294003965019690832432355660821047734697984
+field1 = 7905826624092463158
+field2 = 1121540421870370660227146135807983616
+next = 36
+index = [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 16726069322448348763846983766397418781802496
+field1 = 7910251216559706696
+field2 = 72149190119423659102366297818493091840
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 2593223059794019443041715162107554661683114331385294284689745664540672
+field3 = 191936087030186366533090966026766590245085410135900160
+field1 = 8192285690069454214
+field2 = 612832019795923575300987327348736
+next = 44
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 16726069322448348763846983766397418781802496
+field1 = 7910251216559706696
+field2 = 72149190119423659102366297818493091840
+next = 34
+index = [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 6901759511170693677095513873850495382175768570338915584385836902252544
+field3 = 672546614505715796052345502432048873840243524600053366784
+field1 = 10540996613548315208
+field2 = 72917742774073573139246928737836466176
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 294003965019690832432355660821047734697984
+field1 = 7905826624092463158
+field2 = 1124136559158177720472988909880475648
+next = 44
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 7905747460161302982
+field2 = 21016519011559669548868835181854720
+next = 35
+index = [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 338963493710880761247132628853213986469527194001057863696384
+field3 = 84048122937508342630712142999222802728250419657673015296
+field1 = 6917766523058654592
+field2 = 71796202214454481520801313735200210944
+next = 17
+index = [ 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 12554203470773361527671578846415332832204710888928069025792
+field3 = 164156490112320972728320682747174894477916444001566720
+field1 = 1276775356264284166
+field2 = 9112556314009425821742232571478016000
+next = 34
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 35077244270341597322462813836208231017303620190208
+field1 = 8230016666682233416
+field2 = 2468322888971037952174915452634398720
+next = 41
+index = [ 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 35077243921892453595421827249712633007172971659264
+field1 = 8230016666682233416
+field2 = 2468322888971037952174915452634398720
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 2593223059794019443041715162107554661683114331385294284689745664540672
+field3 = 191936087030185856109540584619071395183174262483582976
+field1 = 8192285690069454214
+field2 = 689683337434759982766724959174656
+next = 34
+index = [ 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 14809884687210866800166542652487075164580904394662803176027062272
+field3 = 672546614505715796052345502432048873840243524600053366784
+field1 = 10540996613548315208
+field2 = 72917742774073573139246928737836466176
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 16726069322448348763846983766397418781802496
+field1 = 7910251216559706696
+field2 = 71983036619950544618253321935958048768
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 1149376588236520226185164701814652939160300333417103360
+field1 = 7910884398115623494
+field2 = 72900450564024763077143940732544876544
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 338963493710880761247132628853213986469527194001057863696384
+field3 = 84048122937508342630712142999222802728250419657673015296
+field1 = 6917766523058654592
+field2 = 71796202214454481520801313735200210944
+next = 36
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 338963493710880761247132628853213986469527194001057863696384
+field3 = 84048122937508342630712142999222802728250419657673015296
+field1 = 6917766523058654592
+field2 = 71796202214454481520801313735200210944
+next = 63
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 306008709600100687236994734381373737784989827917621682503680
+field3 = 598842875929746941690444625453194202734463412315116011520
+field1 = 866383283305340976
+field2 = 64929353411871866404358462288005431296
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 6901759511170693677095513873850495382175768570338915584385836902252544
+field3 = 672546614505715796052345502432048873840243524600053366784
+field1 = 10540996613548315208
+field2 = 72917742774073573139246928737836466176
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 16726069322448348763846983766397418781802496
+field1 = 7910251216559706696
+field2 = 72149190119423659102366297818493091840
+next = 45
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 306008709600100687236994734381373737784989827917621682503680
+field3 = 598842875929746941690444625453194202734463412315116011520
+field1 = 866383283305340976
+field2 = 67585213255012430736351811160401510400
+next = 34
+index = [ 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 262145
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 262145
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 9
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 262145
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 18
+index = [ 0, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 17179901952
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 36864
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 38, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 7905747460161236406
+field2 = 21267688498438952724140625063026098176
+next = 34
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 7905747460161236406
+field2 = 21267688498438952724140625063026098176
+next = 36
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 7905747460161236406
+field2 = 21267688498438952724140625063026098176
+next = 54
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 7905747460161236406
+field2 = 21267688498438952724140625063026098176
+next = 44
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 8589967360
+field2 = 0
+next = 9
+index = [ 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 262145
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 74766790688768
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 74766790688768
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 69632
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 1073748992
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 262145
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 9
+index = [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 262145
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 262145
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 262145
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 262145
+field2 = 0
+next = 54
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 262145
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 262145
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 262145
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 16777280
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 7905747460159925681
+field2 = 1947119810682250411844789556215808
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 1073745920
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 1073745920
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 1073745920
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 2147487744
+field2 = 0
+next = 45
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 1, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 524289
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 17179901952
+field2 = 0
+next = 17
+index = [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 17179901952
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 9
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 9
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 17179901952
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 7905747460161052086
+field2 = 273813590740751889587491930374144
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 72
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 268632576
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 4608
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 524289
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 45
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 17179901952
+field2 = 0
+next = 25
+index = [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 72
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 524289
+field2 = 0
+next = 36
+index = [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 17179901952
+field2 = 0
+next = 54
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 69632
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 69632
+field2 = 0
+next = 35
+index = [ 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 8589967360
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 13510816062041142
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 6442652208
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 13510816062013494
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 268632966
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 7905747460161236406
+field2 = 332307633832620536679516717459701760
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 7905747460161236406
+field2 = 332307633832620536679516717459701760
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 7905747460161236406
+field2 = 86201301906973938165979855978496
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 17
+index = [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 36864
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 36864
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 16777280
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 16777280
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 16777280
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 16777280
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 16777280
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 69632
+field2 = 0
+next = 18
+index = [ 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 16777280
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 16777280
+field2 = 0
+next = 45
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 16777280
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 16777280
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 16777280
+field2 = 0
+next = 54
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 16777280
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 16777280
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 16777280
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 16777280
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 1420563996747722166
+field2 = 3597115094373362565120
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 36864
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 262145
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 17
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 54
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 524289
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 524289
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 72
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 268632576
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 16726069322448348763846983766397418781802496
+field1 = 7910251216559706696
+field2 = 71983036619950544618253321935958048768
+next = 34
+index = [ 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 23299199289873218119118689741212517735215950700568033373523094668312576
+field3 = 112064163916678084178247877023129502659994713924632051712
+field1 = 6917766523059178881
+field2 = 96849321432157968665344342547138347008
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 338963493710880761247132628853213986469527194001057863696384
+field3 = 84048122937508342630712142999222802728250419657673015296
+field1 = 6917766523058654592
+field2 = 71796202214454481520801313735200210944
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 338963493710880761247132628853213986469527194001057863696384
+field3 = 84048122937508342630712142999222802728250419657673015296
+field1 = 6917766523058654592
+field2 = 71837739321672159913600156209130766336
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 33280
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 45
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 17179901952
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 1073745920
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 4194312
+field2 = 0
+next = 26
+index = [ 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 7041056331706101174
+field2 = 38689241789506580662714368
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 576
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 2147487744
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 2147487744
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 2147487744
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 2147487744
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 2147487744
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 2147487744
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 2147487744
+field2 = 0
+next = 54
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 54
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 45
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 69632
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 63
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 69632
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 69632
+field2 = 0
+next = 45
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 69632
+field2 = 0
+next = 54
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 17
+field4 = 0
+field3 = 0
+field1 = 1073745920
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 69632
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 25
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,]
+
+[[turn]]
+now = 26
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 45
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 2147487744
+field2 = 0
+next = 9
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,]
+
+[[turn]]
+now = 18
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 17179901952
+field2 = 0
+next = 34
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 18
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 268435968
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 8704
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 8256
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 35
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 69632
+field2 = 0
+next = 36
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 69632
+field2 = 0
+next = 33
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 33554496
+field2 = 0
+next = 25
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 69632
+field2 = 0
+next = 17
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 27
+field4 = 0
+field3 = 0
+field1 = 69632
+field2 = 0
+next = 26
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 35
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 45
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,]
+
+[[turn]]
+now = 9
+field4 = 0
+field3 = 0
+field1 = 136
+field2 = 0
+next = 27
+index = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,]
+

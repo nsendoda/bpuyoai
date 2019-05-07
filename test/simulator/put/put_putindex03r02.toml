@@ -1,0 +1,46 @@
+[case]
+field = """
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WORROOO
+WWWWWWW"""
+
+[case.now]
+parent = "R"
+child = "P"
+
+[case.puttype]
+column = 2
+rotate = "ROTATE_0"
+
+[ans]
+field = """
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOOOOOO
+WOPOOOO
+WOROOOO
+WORROOO
+WWWWWWW"""
+
+lowest_empty_rows = [100, 1, 4, 2, 1, 1, 1]
+frame = 57

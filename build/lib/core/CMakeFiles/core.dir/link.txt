@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcore.a  CMakeFiles/core.dir/kumipuyo.cpp.o CMakeFiles/core.dir/field.cpp.o CMakeFiles/core.dir/puttype.cpp.o
+/usr/bin/ranlib libcore.a

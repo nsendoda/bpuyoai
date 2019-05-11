@@ -42,6 +42,10 @@ int Bpuyo::Ojama(Player player_) {
 	return ai_GetYokokuOjama(player_);
 }
 
+Mode Bpuyo::GetMode(Player player_) {
+	return static_cast<Mode>(ai_GetPlayerMode(player_));
+}
+
 int Bpuyo::Turn(Player player) {
 	return ai_GetCount2(player);
 }

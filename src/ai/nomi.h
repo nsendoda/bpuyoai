@@ -4,9 +4,10 @@
 #include "ai.h"
 #include "../../puyo_ai.h"
 #include "bitdatabase.h"
-#include "../toml.h"
+#include "nomithink.h"
 #include "../debug.h"
 
+#include "../ojama.h"
 #include "../state.h"
 #include "../pad.h"
 #include "../padsearch.h"
@@ -24,7 +25,7 @@
 class Nomi : public AI {
 public:
 
-	static const int DATABASE_SIZE = 17;
+	static const int DATABASE_SIZE = 13;
 
 	Nomi();
 	~Nomi() {}
@@ -37,8 +38,6 @@ public:
 	void Main() override;
 
 	void Decide();
-	bool KillThink(Score fatal_dose);
-	void Think();
 	void PadDecide();
 	void Operate();
 

@@ -7,7 +7,7 @@
 // @arg next_nodeはコピーされたものを使う。
 // PushLeftについても同様
 void PadSearch::PushMove(const Field& field_, const Pad& pre_pad, const Node& now_node,
-	std::priority_queue<Node>* que, std::map<Node, Node >* pre_node,
+	std::priority_queue<Node, std::vector<Node>, NodeCompare>* que, std::map<Node, Node, NodeDistinct>* pre_node,
 	Kumipuyo now_kumipuyo, Node next_node, const int next_dist, bool down) {
 
 	// 前フレームで左右移動回転を行わない時
@@ -61,7 +61,7 @@ void PadSearch::PushMove(const Field& field_, const Pad& pre_pad, const Node& no
 // PushRotateLeftについても同様
 
 void PadSearch::PushRotate(const Field& field_, const Pad& pre_pad, const Node& now_node,
-	std::priority_queue<Node>* que, std::map<Node, Node >* pre_node,
+	std::priority_queue<Node, std::vector<Node>, NodeCompare>* que, std::map<Node, Node, NodeDistinct >* pre_node,
 	Kumipuyo now_kumipuyo, Node next_node, const int next_dist, bool down) {
 
 
@@ -133,7 +133,7 @@ void PadSearch::PushRotate(const Field& field_, const Pad& pre_pad, const Node& 
 // 移動して、回転して、不正なら、先行壁蹴り。先行壁蹴りの結果が不正なら移動のみ行う。先行浮き上がりは不正には倣い
 
 void PadSearch::PushMoveAndRotate(const Field& field_, const Pad& pre_pad, const Node& now_node,
-	std::priority_queue<Node>* que, std::map<Node, Node >* pre_node,
+	std::priority_queue<Node, std::vector<Node>, NodeCompare>* que, std::map<Node, Node, NodeDistinct >* pre_node,
 	Kumipuyo now_kumipuyo, Node next_node, const int next_dist, bool down) {
 
 	// 前フレームで左右移動回転を行わない時
@@ -225,11 +225,11 @@ std::vector<Pad> PadSearch::DropOrder(const Kumipuyo &kumipuyo_,
 	const Field &field_, const Pad &previous_pad_) {
 
 	// ノード追加のためのキュー
-	std::priority_queue<Node> que;
+	std::priority_queue<Node, std::vector<Node>, NodeCompare> que;
 	// 各ノードまでの最短経路
-	std::map < Node, int > dist;
+	std::map < Node, int, NodeDistinct > dist;
 	// 経路復元
-	std::map<Node, Node > pre_nodes;
+	std::map<Node, Node, NodeDistinct > pre_nodes;
 	Node start_n(kumipuyo_.X(), kumipuyo_.now_rotate, kumipuyo_.Y());
 	start_n.SetPad(previous_pad_);
 	start_n.SetDistEstimated(0, kumipuyo_);
@@ -240,7 +240,7 @@ std::vector<Pad> PadSearch::DropOrder(const Kumipuyo &kumipuyo_,
 		node = que.top(), que.pop();
 
 		// USED CHECK
-		int ct = dist.count(node);
+//		int ct = dist.count(node);
 		auto it = dist.find(node);
 		if (it != dist.end()) { continue; }
 
@@ -261,11 +261,12 @@ std::vector<Pad> PadSearch::DropOrder(const Kumipuyo &kumipuyo_,
 		if (kumipuyo_.desirable_put.column - 1 == next_node.x &&  kumipuyo_.desirable_put.rotate == next_node.rotate) {
 			std::vector<Pad> ans;
 			ans.push_back(node.GetPad());
- 			while (!node.Equal(start_n)) {
+			while (!node.Equal(start_n)) {
 				ans.push_back(pre_nodes[node].GetPad());
 				node = pre_nodes[node];
 			}
 			std::reverse(ans.begin(), ans.end());
+
 			return ans;
 		}
 

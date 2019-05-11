@@ -3,6 +3,7 @@
 
 #include "field.h"
 #include "kumipuyo.h"
+#include "mode.h"
 #include "../puyo_ai.h"
 #include "types.h"
 
@@ -14,6 +15,7 @@ public:
   // Bぷよのフィールドを取得して盤面に反映
   static void NowField(Field *field_, Player player_);
 	static int Ojama(Player player_);
+	static Mode GetMode(Player player_);
 	static int Turn(Player player_);
 
 };

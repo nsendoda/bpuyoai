@@ -372,7 +372,7 @@ MawashiState::MawashiStateType MawashiState::PutDecide() {
 			Simulator::Put(state_.now_kumipuyo, &first_field, first_p);
 
 			Chain c(Simulator::Simulate(&first_field));
-			int rest_ojama = OjamaSimulator::DropOnceRoughly(&first_field, state_.ojama);
+			int rest_ojama = OjamaSimulator::DropOnceRoughly(&first_field, state_.ojamas.SumOjama());
 			pre_frame += c.frame;
 
 

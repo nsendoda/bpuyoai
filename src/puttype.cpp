@@ -2,6 +2,10 @@
 
 PutType::PutType() {}
 
+PutType::PutType(PutIndex i) {
+	SetPutType(i);
+}
+
 PutType::PutType(int column, RotateType rotate)
     : column(column), rotate(rotate) {}
 

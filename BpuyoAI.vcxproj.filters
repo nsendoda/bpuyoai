@@ -75,6 +75,9 @@
     <ClCompile Include="src\ai\bitdatabase.cpp">
       <Filter>Header Files\ai</Filter>
     </ClCompile>
+    <ClCompile Include="src\ai\nomithink.cpp">
+      <Filter>Header Files\ai</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="puyo_ai.h">
@@ -162,6 +165,18 @@
       <Filter>Header Files\ai\data</Filter>
     </ClInclude>
     <ClInclude Include="src\ai\bitdata.h">
+      <Filter>Header Files\ai</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ojama.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ojamatable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\mode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ai\nomithink.h">
       <Filter>Header Files\ai</Filter>
     </ClInclude>
   </ItemGroup>

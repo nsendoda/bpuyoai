@@ -12,8 +12,9 @@ public:
   Column column;
   RotateType rotate;
 
-  PutType();
-  PutType(int column, RotateType rotate);
+	PutType();
+	PutType(PutIndex i);
+	PutType(int column, RotateType rotate);
   ~PutType();
 
   void SetPutType(int index);

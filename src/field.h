@@ -51,7 +51,10 @@ public:
   static const int FIELD_START = 8;           // 1段目の1列目
   static const int FIELD_END = 97;            // 13段目の6列目
   static const int FIELD_DEATH = 87;
+
   static const int PUYO_APPEAR_COLUMN = 3;
+	static const int VISIBLE_COLUMN = 6;
+	static const int VISIBLE_ROW = 12;
 
 	static constexpr int LOWEST_EMPTY_ROWS_MAX = 14; // 13段目までぷよが埋まってる
 	static constexpr int LOWEST_EMPTY_ROWS_MIN = 1;  // 1段目に何もぷよがない

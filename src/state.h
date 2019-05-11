@@ -3,6 +3,9 @@
 
 #include "field.h"
 #include "kumipuyo.h"
+#include "ojama.h"
+#include "ojamatable.h"
+#include "simulator.h"
 #include "bpuyo.h"
 
 /// 各プレイヤーの状態を記述するクラス
@@ -11,7 +14,7 @@ public:
   Field field;
   Kumipuyo now_kumipuyo, next_kumipuyo;
   int turn;
-  int ojama;
+	OjamaTable ojamas;
 	// 操作可能になってから経過したフレーム, [0, ...
 	int hand_frame;
 
@@ -26,13 +29,19 @@ public:
 
 	// 手ごとの更新
 	// 先行入力フレームでは正しくセットされないので呼ばないこと
-	void Update();
+	void UpdateUnitHand();
 
 	// フレーム毎の更新
-	bool UpdateFrame();
+	bool UpdateUnitFrame();
+
+	void DetectOjama(const State & enemy_);
+
+	Mode GetMode() const;
+
+	Player GetPlayer() const;
 
 private:
-  int player_;
+  Player player_;
   bool TurnChanged();
 };
 

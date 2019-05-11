@@ -103,6 +103,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\ai\bitdatabase.cpp" />
     <ClCompile Include="src\ai\nomi.cpp" />
+    <ClCompile Include="src\ai\nomithink.cpp" />
     <ClCompile Include="src\ai\researcher.cpp" />
     <ClCompile Include="src\ai\sea.cpp" />
     <ClCompile Include="src\bpuyo.cpp" />
@@ -125,6 +126,7 @@
     <ClInclude Include="src\ai\bitdatabase.h" />
     <ClInclude Include="src\ai\data\puyocount_bit_raw.h" />
     <ClInclude Include="src\ai\nomi.h" />
+    <ClInclude Include="src\ai\nomithink.h" />
     <ClInclude Include="src\ai\researcher.h" />
     <ClInclude Include="src\ai\sea.h" />
     <ClInclude Include="src\bpuyo.h" />
@@ -135,7 +137,10 @@
     <ClInclude Include="src\field.h" />
     <ClInclude Include="src\kumipuyo.h" />
     <ClInclude Include="src\mawashistate.h" />
+    <ClInclude Include="src\mode.h" />
+    <ClInclude Include="src\ojama.h" />
     <ClInclude Include="src\ojamasimulator.h" />
+    <ClInclude Include="src\ojamatable.h" />
     <ClInclude Include="src\pad.h" />
     <ClInclude Include="src\padsearch.h" />
     <ClInclude Include="src\puttype.h" />

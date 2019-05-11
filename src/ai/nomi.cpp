@@ -12,43 +12,53 @@ void Nomi::Init() {
 	ai_SetBMainMode(1);
 	ai_SetMainMode(1);
 //	ai_SetTable(1, 0, "GR GR GG YG YY YP PP");
-	ai_SetTable(1, 0, "GG GR GG YG YY YP PP");
+	ai_SetTable(1, 0, "GR GR GG YG YY YP PP");
 	for (int i = 0; i < DATABASE_SIZE; i++)
 		RawData::SetDatabase(i, &database[i]);
-
-
 
 }
 
 void Nomi::PreProcess() {
+
+
+	state.UpdateUnitFrame();
+	enemy.UpdateUnitFrame();
+
 	enemy.DetectTurnChange();
-	enemy.UpdateFrame();
 
 	if (enemy.VisibleStateFirstTurn()) {
-		enemy.Update();
+		enemy.UpdateUnitHand();
 	}
+
+	state.DetectOjama(enemy);
+	enemy.DetectOjama(state);
+
+
+	Debug::Print("preprocess: mymode:%d, enmode: %d, turn: %d\n", ai_GetPlayerMode(MYSELF),
+		ai_GetPlayerMode(ENEMY), ai_GetCount2(ENEMY));
+
 }
 
 void Nomi::Main() {
 
-	state.UpdateFrame();
 
 	if (state.DetectTurnChange()) {
+
 		mawashi_state.Init(ai_GetDropSpeed(MYSELF));
 
 		my_pad.Press(NEUTRAL);
-
+		return;
 	}
-	else if (state.VisibleStateFirstTurn()) {
-		state.Update();
+
+	if (state.VisibleStateFirstTurn()) {
+		
+		state.UpdateUnitHand();
+
 		Decide();
 		PadDecide();
-		Operate();
+		
 	}
-	else {
-		Operate();
-	}
-
+	Operate();
 }
 
 void Nomi::Decide() {
@@ -69,22 +79,8 @@ void Nomi::Decide() {
 		ai_SetName("NOT FOUND");
 	}
 
-	Think();
+	state.now_kumipuyo.desirable_put = NomiThink::Think(state);
 
-}
-
-bool Nomi::KillThink(Score fatal_dose) {
-	for (PutIndex pi = 0; pi < PUTTYPE_PATTERN; pi++) {
-
-	}
-	return false;
-}
-
-void Nomi::Think() {
-	for (PutIndex pi = 0; pi < PUTTYPE_PATTERN; pi++) {
-
-	}
-	state.now_kumipuyo.desirable_put = PutType::GetPutType(2);
 }
 
 void Nomi::PadDecide() {

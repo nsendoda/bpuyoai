@@ -52,8 +52,8 @@ public:
 	//ç∂âEì¸óÕÇÕîΩâfÇ™íxÇ¢ÇÃÇ≈ëÅÇﬂÇ…îΩâf
 	void SetDistEstimated(int dist_, const Kumipuyo& kumipuyo_) {
 		dist = dist_;
-		estimated = std::abs(kumipuyo_.desirable_put.column - 1 - static_cast<int>(kumipuyo_.X())
-			- IsLeft() + IsRight())
+		estimated = dist + std::abs(kumipuyo_.desirable_put.column - 1 - (static_cast<int>(kumipuyo_.X())
+			- IsLeft() + IsRight()))
 			+ std::abs(kumipuyo_.desirable_put.rotate - kumipuyo_.now_rotate);
 	}
 
@@ -65,9 +65,6 @@ public:
 		return x == n.x && rotate == n.rotate && y == n.y && pre_pad == n.pre_pad;
 	}
 
-	bool operator < (const Node& a) const {
-		return estimated < a.estimated;
-	}
 
 	inline bool IsUp()   const { return (1U << Command::UP) & pre_pad; }
 	inline bool IsLeft() const { return (1U << Command::LEFT) & pre_pad; }
@@ -83,6 +80,23 @@ public:
 	void SetRotateRight(bool flag) { if (flag) pre_pad |= (1U << Command::ROTATE_RIGHT); else pre_pad &= ~(1U << Command::ROTATE_RIGHT); }
 	void SetRotateLeft(bool flag) { if (flag) pre_pad |= (1U << Command::ROTATE_LEFT); else pre_pad &= ~(1U << Command::ROTATE_LEFT); }
 
+};
+
+class NodeDistinct {
+public:
+	bool operator()(const Node &a, const Node &b) const {
+		if (a.x != b.x) return a.x < b.x;
+		if (a.rotate != b.rotate) return a.rotate < b.rotate;
+		if (a.y != b.y) return a.y < b.y;
+		return a.pre_pad < b.pre_pad;
+	}
+};
+
+class NodeCompare {
+public:
+	bool operator()(const Node &a, const Node &b) const {
+		return a.estimated > b.estimated;
+	}
 };
 
 class PadSearch {
@@ -102,11 +116,14 @@ private:
 	static bool CanLeftDown(const Kumipuyo &kumipuyo, const Field &field);
 	static Command FasterRotateCommand(RotateType src, RotateType dist);
 
-	static void PushMove(const Field & field_, const Pad & pre_pad, const Node & now_node, std::priority_queue<Node>* que, std::map<Node, Node>* pre_node, Kumipuyo now_kumipuyo, Node next_node, const int next_dist, bool down);
+	static void PushMove(const Field & field_, const Pad & pre_pad, const Node & now_node,
+		std::priority_queue<Node, std::vector<Node>, NodeCompare>* que, std::map<Node, Node, NodeDistinct>* pre_node, Kumipuyo now_kumipuyo, Node next_node, const int next_dist, bool down);
 
-	static void PushRotate(const Field & field_, const Pad & pre_pad, const Node & now_node, std::priority_queue<Node>* que, std::map<Node, Node>* pre_node, Kumipuyo now_kumipuyo, Node next_node, const int next_dist, bool down);
+	static void PushRotate(const Field & field_, const Pad & pre_pad, const Node & now_node,
+		std::priority_queue<Node, std::vector<Node>, NodeCompare>* que, std::map<Node, Node, NodeDistinct>* pre_node, Kumipuyo now_kumipuyo, Node next_node, const int next_dist, bool down);
 
-	static void PushMoveAndRotate(const Field & field_, const Pad & pre_pad, const Node & now_node, std::priority_queue<Node>* que, std::map<Node, Node>* pre_node, Kumipuyo now_kumipuyo, Node next_node, const int next_dist, bool down);
+	static void PushMoveAndRotate(const Field & field_, const Pad & pre_pad, const Node & now_node,
+		std::priority_queue<Node, std::vector<Node>, NodeCompare>* que, std::map<Node, Node, NodeDistinct>* pre_node, Kumipuyo now_kumipuyo, Node next_node, const int next_dist, bool down);
 
 };
 #endif

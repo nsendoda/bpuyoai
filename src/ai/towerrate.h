@@ -6,8 +6,8 @@
 
 // nomiにおけるタワーの評価に使うクラスと比較クラス
 
-struct TowerRate {
-
+class TowerRate {
+public:
 	const int FRAME_PENALTY = 5;
 
 	// 発火点が2連結以上で、発火点が埋まってない
@@ -28,6 +28,9 @@ struct TowerRate {
 
 	PutIndex putindex;
 
+	TowerRate operator =(const TowerRate& a) const {
+		return TowerRate(a);
+	}
 	// potential init
 	TowerRate(int potential_score, int potential_needs, Frame potential_frame) :
 		potential_score(potential_score),
@@ -100,6 +103,7 @@ public:
 
 		// 
 		if (a.Rate() != b.Rate()) return a.Rate() < b.Rate();
+//		if (a.potential_score + a.score != b.potential_score + b.score) return  a.potential_score + a.score < b.potential_score + b.score;
 		if (a.frame != b.frame) return a.frame > b.frame;
 		return a.putindex > b.putindex;
 	}

@@ -246,7 +246,7 @@ bool NomiThink::KillThink(const State& state, Score fatal_dose, FieldIndex * fi)
 PutType NomiThink::Think(const State& state, Score fatal_dose) {
 	int best_score = 0;
 	PutIndex best_put = 0;
-	std::priority_queue<TowerRate, std::vector<TowerRate>, CompareTowerRate> first_que;
+	std::vector<TowerRate> first_que;
 	for (PutIndex pi = 0; pi < PUTTYPE_PATTERN; pi++) {
 		PutType first_put(pi);
 		if (!Simulator::CanPut(first_put, state.field)) continue;
@@ -279,19 +279,14 @@ PutType NomiThink::Think(const State& state, Score fatal_dose) {
 				second_que.push(RateTower(second_field, base, fatal_dose, pi, first_frame + second_frame));
 			}
 		}
-		if( ! second_que.empty()) first_que.push(second_que.top());
+		if( ! second_que.empty()) first_que.push_back(second_que.top());
 	}
-	std::vector<TowerRate> a;
+	if (first_que.size()) {
 
-	if (!first_que.empty()) {
-		auto res = PutType::GetPutType(first_que.top().GetPutIndex());
-		while (!first_que.empty()) {
-			a.push_back(first_que.top());
-			first_que.pop();
-		}
-	std::sort(a.begin(), a.end(), CompareTowerRate());
-		return res;
+		std::sort(first_que.begin(), first_que.end(), CompareTowerRate());
+		return first_que.back().GetPutIndex();
 	}
+
 	return PutType(0);
 }
 

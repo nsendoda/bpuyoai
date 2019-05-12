@@ -2,84 +2,60 @@
 #define BPUYOAI_TOWERBASE_H_
 
 #include "../types.h"
-#include "../chain.h"
 
-// nomiにおけるタワーの評価に使うクラスと比較クラス
+#include <vector>
 
-struct TowerRate {
-	// 発火点が2連結以上で、発火点が埋まってない
-	bool instant_delete;
+// タワーの土台情報を保存するクラス
 
-	int score;
-	// 連鎖フレームと設置フレームの合算
-	Frame frame;
+struct TowerBase {
 
-	// 補完した時の連鎖の得点
-	int potential_score;
-	// 補完に使ったぷよ数
-	int potential_needs;
-	Frame potential_frame;
+	static const FieldIndex NOTEXIST = -1;
 
-	//
-	Score fatal_dose;
+	// 補完を行う列
+	std::vector<Column> complement_column;
 
-	PutIndex putindex;
+	// 土台のIndex
+	std::vector<FieldIndex> base;
 
-	// potential init
-	TowerRate(int potential_score, int potential_needs, Frame potential_frame) :
-		potential_score(potential_score),
-		potential_needs(potential_needs),
-		potential_frame(potential_frame),
-		score(0),
-		frame(0),
-		fatal_dose(10000),
-		putindex(-1),
-		instant_delete(true) {}
-
-	void SetActual(const Chain& c) {
-		score = c.score;
-		frame = c.frame;
+	// @args i, j..タワー土台の縦2連結部分。順番はどうでもよい
+	// @args c..縦2連結部分のColumn
+	// @args ordered..順タワーならtrue, 逆タワーならfalse
+	TowerBase(int i, int j, Column c, bool ordered) {
+		SetBase(i, j, c, ordered);
 	}
-	void SetPutIndex(PutIndex pi) {
-		putindex = pi;
+
+	// リザーブ列（順タワーにおける3列目）が必ず[0]に来るようにSet
+// @args r..リザーブ列
+// @args i, j..タワー土台の縦2連結部分。順番はどうでもよい
+// @args c..縦2連結部分のColumn
+// @args ordered..順タワーならtrue, 逆タワーならfalse
+	TowerBase(int r, int i, int j, Column c, bool ordered) {
+		SetBase(r, i, j, c, ordered);
 	}
-	void SetFatalDose(Score f) {
-		fatal_dose = f;
+
+	inline int GetDirect() const { return direct_incidental_index; }
+private:
+	// 順タワー方向なら3列目→4列目→5列目となる。
+// その場合の値は1
+// 逆タワーは-1
+// 主に補完の時のINDEX合わせに使う。
+	int direct_incidental_index;
+	// リザーブ列がない場合、[0]はNOTEXISTにSet
+	void SetBase(int i, int j, Column c, bool ordered) {
+		if (ordered) SetOrderedTower();
+		else SetReverseTower();
+		base = { NOTEXIST, i, j };
+		complement_column = { NOTEXIST, c, c + direct_incidental_index };
 	}
-	void SetInstantDelete(bool d) {
-		instant_delete = d;
+
+	void SetBase(int r, int i, int j, Column c, bool ordered) {
+		if (ordered) SetOrderedTower();
+		else SetReverseTower();
+		base = { r, i, j };
+		complement_column = { c - direct_incidental_index, c, c + direct_incidental_index };
 	}
+
+	void SetOrderedTower() { direct_incidental_index = 1; }
+	void SetReverseTower() { direct_incidental_index = -1; }
 };
-
-class CompareTowerRate {
-public:
-	// 右に強いのが逝くように
-	bool operator()(const TowerRate &a, const TowerRate &b) const {
-
-		// 既に発火で致死量を超える場合
-		if (a.score > a.fatal_dose && b.score > b.fatal_dose) {
-			if (a.instant_delete != b.instant_delete) return b.instant_delete;
-			return a.frame > b.frame;
-		}
-		if (b.score > b.fatal_dose) return true;
-		if (a.score > a.fatal_dose) return false;
-
-		// 潜在的に致死量を超える場合
-		if (a.potential_score > a.fatal_dose && b.potential_score > b.fatal_dose) {
-			if (a.instant_delete != b.instant_delete) return b.instant_delete;
-			if (a.potential_needs != b.potential_needs) return a.potential_needs > b.potential_needs;
-			return a.potential_frame > b.potential_frame;
-		}
-		if (b.potential_score > b.fatal_dose) return true;
-		if (a.potential_score > a.fatal_dose) return false;
-
-		// 即時発火可能か
-		if (a.instant_delete != b.instant_delete) return b.instant_delete;
-
-		// 
-		if (a.potential_score + a.score != b.potential_score + b.score) return a.potential_score + a.score < b.potential_score + b.score;
-		return a.frame > b.frame;
-	}
-};
-
 #endif

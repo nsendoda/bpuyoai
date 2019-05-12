@@ -90,18 +90,26 @@ void Nomi::Decide() {
 			pre = state.now_kumipuyo;
 		}
 
-		state.now_kumipuyo.desirable_put = ans[state.turn];
+		state.now_kumipuyo.desirable_put = ans[state.turn - 1];
 		return;
 	}
 
 	Score fatal_dose = NomiThink::CalculateFatalDose(state);
 
+	FieldIndex kill_index;
+	if (NomiThink::KillThink(state, fatal_dose, &kill_index)) {
+		state.now_kumipuyo.desirable_put = PutType(kill_index);
+		Debug::Print("kill decide. turn:%d, c:%d, rotate:%d\n", state.turn, state.now_kumipuyo.desirable_put.column, state.now_kumipuyo.desirable_put.rotate);
+		return;
+	}
+
 	state.now_kumipuyo.desirable_put = NomiThink::Think(state, fatal_dose);
 
+	Debug::Print("decide. turn:%d, c:%d, rotate:%d\n", state.turn, state.now_kumipuyo.desirable_put.column, state.now_kumipuyo.desirable_put.rotate);
 }
 
 void Nomi::PadDecide() {
-		pad_orders = PadSearch::DropOrder(state.now_kumipuyo, state.field, my_pad);
+ 		pad_orders = PadSearch::DropOrder(state.now_kumipuyo, state.field, my_pad);
 		if (pad_orders.empty()) {
 //			ai_SetName("KABEGOE");
 			pad_orders = PadSearch::CarefulOrder(state.now_kumipuyo, state.field, my_pad);

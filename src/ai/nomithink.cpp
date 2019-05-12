@@ -19,6 +19,12 @@ std::vector<PutType> NomiThink::ConstantPut(const State& state_, const Kumipuyo&
 		}
 		puyos += unique_s[mp[proto_puyos[i]]];
 	}
+
+	// 3手分まで補完
+	while (puyos.size() < 6) {
+		puyos += 'A';
+	}
+
 	// reverse
 	// 1手目は都合上絶対に反転しない
 	for (int ri = 0; ri < 3; ri++) {
@@ -28,9 +34,7 @@ std::vector<PutType> NomiThink::ConstantPut(const State& state_, const Kumipuyo&
 		}
 	}
 
-	while (puyos.size() < 6) {
-		puyos += 'A';
-	}
+
 
 	std::vector<PutType> ans(FirstConstants(puyos));
 
@@ -176,9 +180,65 @@ Score NomiThink::CalculateFatalDose(const State& state_) {
 	// frameは？putだけでいいかもしれん。
 }
 
-bool NomiThink::KillThink(const State& state, Score fatal_dose) {
-	for (PutIndex pi = 0; pi < PUTTYPE_PATTERN; pi++) {
+// ScoreがFatalDoseを上回る時、trueを返し、fiにFieldIndexをセット
+bool NomiThink::KillThink(const State& state, Score fatal_dose, FieldIndex * fi) {
+	int best_score = 0;
+	PutIndex best_put = 0;
 
+	struct KillRate {
+		Score score;
+		Frame frame;
+		bool first_put_kill;
+		PutIndex pi;
+		Score fatal_dose;
+	};
+	struct CompareKillRate {
+		bool operator () (const KillRate& a, const KillRate& b) const {
+			if (a.score > a.fatal_dose && b.score > b.fatal_dose) {
+				if (a.first_put_kill != b.first_put_kill) return b.first_put_kill;
+				return a.frame > b.frame;
+			}
+			if (b.score > b.fatal_dose) return true;
+			if (a.score > a.fatal_dose) return false;
+			return a.pi < b.pi;
+		}
+	};
+
+	std::priority_queue<KillRate, std::vector<KillRate>, CompareKillRate> first_que;
+	for (PutIndex pi = 0; pi < PUTTYPE_PATTERN; pi++) {
+		PutType first_put(pi);
+		if (!Simulator::CanPut(first_put, state.field)) continue;
+		Field first_field(state.field);
+		Frame first_frame = Simulator::Put(state.now_kumipuyo, &first_field, first_put);
+		Chain first_chain(Simulator::Simulate(&first_field));
+		first_frame += first_chain.frame;
+
+		// DEATH
+		if (first_field[Field::FIELD_DEATH] != Color::EMPTY)  continue;
+
+		first_que.push({ first_chain.score, first_frame, true, pi, fatal_dose });
+
+		std::priority_queue<KillRate, std::vector<KillRate>, CompareKillRate> second_que;
+		for (PutIndex pj = 0; pj < PUTTYPE_PATTERN; pj++) {
+			PutType second_put(pi);
+			if (!Simulator::CanPut(second_put, first_field)) continue;
+
+			Field second_field(first_field);
+			Frame second_frame = Simulator::Put(state.next_kumipuyo, &second_field, second_put);
+			Chain second_chain(Simulator::Simulate(&second_field));
+			second_frame += second_chain.frame;
+
+
+			// DEATH
+			if (second_field[Field::FIELD_DEATH] != Color::EMPTY)  continue;
+
+			second_que.push({ first_chain.score + second_chain.score, first_frame + second_frame, false, pi, fatal_dose });
+		}
+		if (!second_que.empty()) first_que.push(second_que.top());
+	}
+	if (!first_que.empty() && first_que.top().score >= fatal_dose) {
+		(*fi) = first_que.top().pi;
+		return true;
 	}
 	return false;
 }
@@ -191,8 +251,12 @@ PutType NomiThink::Think(const State& state, Score fatal_dose) {
 		PutType first_put(pi);
 		if (!Simulator::CanPut(first_put, state.field)) continue;
 		Field first_field(state.field);
-		Simulator::Put(state.now_kumipuyo, &first_field, first_put);
-		Chain first_chain = Simulator::Simulate(&first_field);
+		Frame first_frame = Simulator::Put(state.now_kumipuyo, &first_field, first_put);
+		Chain first_chain(Simulator::Simulate(&first_field));
+		first_frame += first_chain.frame;
+
+		// DEATH
+		if (first_field[Field::FIELD_DEATH] != Color::EMPTY)  continue;
 
 		std::priority_queue<TowerRate, std::vector<TowerRate>, CompareTowerRate> second_que;
 		for (PutIndex pj = 0; pj < PUTTYPE_PATTERN; pj++) {
@@ -200,20 +264,35 @@ PutType NomiThink::Think(const State& state, Score fatal_dose) {
 			if (!Simulator::CanPut(second_put, first_field)) continue;
 
 			Field second_field(first_field);
-			Simulator::Put(state.next_kumipuyo, &second_field, second_put);
-			Chain second_chain = Simulator::Simulate(&second_field);
+			Frame second_frame = Simulator::Put(state.next_kumipuyo, &second_field, second_put);
+			Chain second_chain(Simulator::Simulate(&second_field));
+			second_frame += second_chain.frame;
+
+			// DEATH
+			if (second_field[Field::FIELD_DEATH] != Color::EMPTY)  continue; 
 
 			TowerBase base(BaseDecide(second_field));
 			if( ! CanFireTower(second_field, base.base[1], -1)){
-				second_que.push(Waruagaki(second_field, fatal_dose, pi));
+				second_que.push(Waruagaki(second_field, fatal_dose, pi, first_frame + second_frame));
 			}
 			else {
-				second_que.push(RateTower(second_field, base, fatal_dose, pi));
+				second_que.push(RateTower(second_field, base, fatal_dose, pi, first_frame + second_frame));
 			}
 		}
-		first_que.push(second_que.top());
+		if( ! second_que.empty()) first_que.push(second_que.top());
 	}
-	return PutType::GetPutType(first_que.top().putindex);
+	std::vector<TowerRate> a;
+
+	if (!first_que.empty()) {
+		auto res = PutType::GetPutType(first_que.top().GetPutIndex());
+		while (!first_que.empty()) {
+			a.push_back(first_que.top());
+			first_que.pop();
+		}
+	std::sort(a.begin(), a.end(), CompareTowerRate());
+		return res;
+	}
+	return PutType(0);
 }
 
 TowerBase NomiThink::BaseDecide(const Field& f) {
@@ -261,7 +340,7 @@ bool NomiThink::CanFireTower(const Field& f, FieldIndex i, FieldIndex pre) {
 }
 
 
-TowerRate NomiThink::Waruagaki(const Field& second_field, Score fatal_dose, PutIndex pi) {
+TowerRate NomiThink::Waruagaki(const Field& second_field, Score fatal_dose, PutIndex pi, Frame puts_frame) {
 	std::priority_queue<TowerRate, std::vector<TowerRate>, CompareTowerRate> third_que;
 	for (Color c : {Color::RED, Color::GREEN, Color::YELLOW, Color::PURPLE}) {
 		// ゾロを生成
@@ -275,6 +354,7 @@ TowerRate NomiThink::Waruagaki(const Field& second_field, Score fatal_dose, PutI
 			Chain third_chain = Simulator::Simulate(&third_field);
 
 			TowerRate res(third_chain.score, 2, third_chain.frame);
+			res.frame = puts_frame;
 			res.SetPutIndex(pi);
 			res.SetInstantDelete(false);
 			res.SetFatalDose(fatal_dose);
@@ -284,13 +364,14 @@ TowerRate NomiThink::Waruagaki(const Field& second_field, Score fatal_dose, PutI
 	return third_que.top();
 }
 
-TowerRate NomiThink::RateTower(const Field& f_, const TowerBase& t_base, Score fatal_dose, PutIndex pi) {
+TowerRate NomiThink::RateTower(const Field& f_, const TowerBase& t_base, Score fatal_dose, PutIndex pi, Frame puts_frame) {
 
 	static const Score ONECHAIN_AND_DROPBONUS = 200;
 
 	Chain actual(ActualChain(f_, t_base));
 	TowerRate rate(VirtualChain(f_, t_base, fatal_dose));
 	// rate
+	actual.frame += puts_frame;
 	rate.SetActual(actual);
 	rate.SetPutIndex(pi);
 	rate.SetInstantDelete(true);

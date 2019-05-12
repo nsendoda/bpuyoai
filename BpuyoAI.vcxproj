@@ -103,6 +103,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\ai\bitdatabase.cpp" />
     <ClCompile Include="src\ai\nomi.cpp" />
+    <ClCompile Include="src\ai\nomimemory.cpp" />
     <ClCompile Include="src\ai\nomithink.cpp" />
     <ClCompile Include="src\ai\researcher.cpp" />
     <ClCompile Include="src\ai\sea.cpp" />
@@ -126,9 +127,12 @@
     <ClInclude Include="src\ai\bitdatabase.h" />
     <ClInclude Include="src\ai\data\puyocount_bit_raw.h" />
     <ClInclude Include="src\ai\nomi.h" />
+    <ClInclude Include="src\ai\nomimemory.h" />
     <ClInclude Include="src\ai\nomithink.h" />
     <ClInclude Include="src\ai\researcher.h" />
     <ClInclude Include="src\ai\sea.h" />
+    <ClInclude Include="src\ai\towerbase.h" />
+    <ClInclude Include="src\ai\towerrate.h" />
     <ClInclude Include="src\bpuyo.h" />
     <ClInclude Include="src\bpuyopad.h" />
     <ClInclude Include="src\chain.h" />

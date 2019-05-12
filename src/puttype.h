@@ -20,6 +20,12 @@ public:
   void SetPutType(int index);
 
   static PutType GetPutType(int index);
+
+	static PutIndex Convert(const PutType& p);
+
+	static const PutIndex REVERSE_PUTS[PUTTYPE_PATTERN];
 };
+
+
 
 #endif

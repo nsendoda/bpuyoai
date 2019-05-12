@@ -15,8 +15,9 @@
 #include "../mawashistate.h"
 #include "../types.h"
 
+#ifdef USE_DATABASE
 #include "data/puyocount_bit_raw.h"
-
+#endif
 
 #include <string>
 #include <iostream>

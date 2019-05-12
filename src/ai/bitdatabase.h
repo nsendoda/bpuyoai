@@ -3,6 +3,7 @@
 
 #include "../state.h"
 #include "../types.h"
+#include "../puttype.h"
 #include "bitdata.h"
 
 #include <map>
@@ -13,12 +14,7 @@ public:
 	static constexpr int VARIABLE_PUYO_SIZE = 21;
 	static constexpr int PUYO_BIT = 3;
 
-	static const PutIndex REVERSE_PUTS[PUTTYPE_PATTERN];
-
-
 	BitDatabase() {}
-
-
 
 	inline void Insert(__int64 f1_, __int64 f2_, __int64 f3_, __int64 f4_, __int64 now_, __int64 next_, const std::vector<PutIndex>& index_ct) {
 		PutIndex best_index = std::distance(index_ct.begin(), std::max_element(index_ct.begin(), index_ct.end()));
@@ -37,12 +33,12 @@ public:
 		std::pair<BitData, bool> bits = Bit(state_.field, state_.now_kumipuyo, state_.next_kumipuyo);
 		auto itr = puyofu_map.find(bits.first);
 		if (itr != puyofu_map.end()) {
-			if (bits.second) return REVERSE_PUTS[itr->second];
+			if (bits.second) return PutType::REVERSE_PUTS[itr->second];
 			return itr->second;
 		}
 		auto second_itr = onlynow_puyofu_map.find(bits.first);
 		if (second_itr != onlynow_puyofu_map.end()) {
-			if (bits.second) return REVERSE_PUTS[second_itr->second];
+			if (bits.second) return PutType::REVERSE_PUTS[second_itr->second];
 			return second_itr->second;
 		}
 

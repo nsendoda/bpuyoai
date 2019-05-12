@@ -73,7 +73,6 @@ Chain Simulator::Simulate(Field *field_, int parent_index, int child_index,
           colorNum++;
         }
         /* 連結しているぷよを消す */
-        /// @todo 関数に書き出す deletelink
         DeleteLink(&field, i, chain_num, linked);
       }
     }

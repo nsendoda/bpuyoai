@@ -55,6 +55,7 @@ public:
   static const int PUYO_APPEAR_COLUMN = 3;
 	static const int VISIBLE_COLUMN = 6;
 	static const int VISIBLE_ROW = 12;
+	static const int VISIBLE_FIELD_END = 90; // 12段目の6列目
 
 	static constexpr int LOWEST_EMPTY_ROWS_MAX = 14; // 13段目までぷよが埋まってる
 	static constexpr int LOWEST_EMPTY_ROWS_MIN = 1;  // 1段目に何もぷよがない
@@ -97,6 +98,18 @@ public:
   inline void InitLowestEmptyRows() {
     std::fill_n(lowest_empty_rows_, COLUMN, 1);
   }
+
+	inline bool ColorEqual(FieldIndex a, FieldIndex b) const {
+		return field_[a] == field_[b] && field_[a] >= Color::RED && field_[b] <= Color::BLUE;
+	}
+
+	inline bool ColorEqual(FieldIndex a, FieldIndex b, FieldIndex c) const {
+		return field_[a] == field_[b] && field_[b] == field_[c] && field_[a] >= Color::RED && field_[b] <= Color::BLUE;
+	}
+
+	inline bool IsColor(FieldIndex a) const {
+		return field_[a] >= Color::RED && field_[a] <= Color::BLUE;
+	}
 
 private:
   // 各列の空ぷよのrowindex. 初期値は1

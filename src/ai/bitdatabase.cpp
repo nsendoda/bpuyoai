@@ -1,14 +1,6 @@
 #include "bitdatabase.h"
 
 
-const PutIndex BitDatabase::REVERSE_PUTS[PUTTYPE_PATTERN] =
-{ 2, 6, 0,
-	5, 10, 3, 1,
-	9, 14, 7, 4,
-	13, 18, 11, 8,
-	17, 21, 15, 12,
-	20, 19, 16 };
-
 std::pair<BitData, bool> BitDatabase::Bit(const Field& field_, const Kumipuyo& now_, const Kumipuyo& next_) const {
 	__int64
 		f1 = 0,

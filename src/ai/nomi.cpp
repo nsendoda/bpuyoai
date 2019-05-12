@@ -13,9 +13,10 @@ void Nomi::Init() {
 	ai_SetMainMode(1);
 //	ai_SetTable(1, 0, "GR GR GG YG YY YP PP");
 	ai_SetTable(1, 0, "GR GR GG YG YY YP PP");
+#ifdef USE_DATABASE
 	for (int i = 0; i < DATABASE_SIZE; i++)
 		RawData::SetDatabase(i, &database[i]);
-
+#endif
 }
 
 void Nomi::PreProcess() {
@@ -30,9 +31,13 @@ void Nomi::PreProcess() {
 		enemy.UpdateUnitHand();
 	}
 
+
+	// お邪魔テーブルを相手の連鎖発火から検知
 	state.DetectOjama(enemy);
 	enemy.DetectOjama(state);
 
+	// 有効スコアを更新
+//	state
 
 	Debug::Print("preprocess: mymode:%d, enmode: %d, turn: %d\n", ai_GetPlayerMode(MYSELF),
 		ai_GetPlayerMode(ENEMY), ai_GetCount2(ENEMY));
@@ -63,11 +68,8 @@ void Nomi::Main() {
 
 void Nomi::Decide() {
 
-	if (KillThink(100)) {
-		return;
-	}
 
-	int color_count = ColorPuyoCount();
+/*	int color_count = ColorPuyoCount();
 	if (color_count < DATABASE_SIZE) {
 		PutIndex database_put = database[color_count].BestIndex(state);
 	Debug::Print("data: %d", database_put);
@@ -77,9 +79,24 @@ void Nomi::Decide() {
 			return;
 		}
 		ai_SetName("NOT FOUND");
+	}*/
+
+	if (state.turn <= 3) {
+		static std::vector<PutType> ans;
+		static Kumipuyo pre(EMPTY, EMPTY);
+
+		if (state.turn < 3) {
+			ans = NomiThink::ConstantPut(state, pre);
+			pre = state.now_kumipuyo;
+		}
+
+		state.now_kumipuyo.desirable_put = ans[state.turn];
+		return;
 	}
 
-	state.now_kumipuyo.desirable_put = NomiThink::Think(state);
+	Score fatal_dose = NomiThink::CalculateFatalDose(state);
+
+	state.now_kumipuyo.desirable_put = NomiThink::Think(state, fatal_dose);
 
 }
 
@@ -99,37 +116,6 @@ void Nomi::Operate() {
 	else {
 		my_pad.Neutral();
 		my_pad.Press(DOWN);
-	}
-}
-
-void Nomi::MakeDatabase(int puyocount) {
-	std::string filename = "C:/Users/nosi/Dropbox/project/BpuyoAI_sea/src/ai/data/puyocount_bit_"
-		+ std::to_string(puyocount) + ".toml";
-	std::ifstream ifs(filename.c_str());
-	toml::ParseResult pr = toml::parse(ifs);
-
-	if (!pr.valid()) {
-		char cdir[255];
-		GetCurrentDirectory(255, cdir);
-		Debug::Print("Current Directory : %s", cdir);
-
-		Debug::Print("%s/n", pr.errorReason);
-		ai_SetName("DAME");
-		return;
-	}
-
-	toml::Value p = pr.value;
-	ai_SetName("NOMI");
-	toml::Array turns = p.get< toml::Array>("turn");
-	for (toml::Value turn : turns) {
-		__int64 f1 = turn.get<__int64>("field1");
-		__int64 f2 = turn.get<__int64>("field2");
-		__int64 f3 = turn.get<__int64>("field3");
-		__int64 f4 = turn.get<__int64>("field4");
-		__int64 now = turn.get<__int64>("now");
-		__int64 next = turn.get<__int64>("next");
-		std::vector <PutIndex> putcts = turn.get<std::vector<PutIndex> >("index");
-		database[puyocount].Insert(f1, f2, f3, f4, now, next, putcts);
 	}
 }
 

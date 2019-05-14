@@ -247,23 +247,22 @@ PutType NomiThink::Think(const State& state, Score fatal_dose) {
 
 	auto RATETOWER = [](const TowerRate &a, const TowerRate &b){
 
+		
 		// 既に発火で致死量を超える場合
 		if (a.score > a.fatal_dose && b.score > b.fatal_dose) {
 			if (a.instant_delete != b.instant_delete) return a.instant_delete < b.instant_delete;
-			return a.frame > b.frame;
+			else return a.frame > b.frame;
 		}
-		if (b.score > b.fatal_dose) return true;
-		if (a.score > a.fatal_dose) return false;
+		if (b.score > b.fatal_dose || a.score > a.fatal_dose) return a.score < b.score;
 
 		// 潜在的に致死量を超える場合
 		if (a.potential_score > a.fatal_dose && b.potential_score > b.fatal_dose) {
 			if (a.instant_delete != b.instant_delete) return a.instant_delete < b.instant_delete;
-			if (a.potential_needs != b.potential_needs) return a.potential_needs > b.potential_needs;
-			if (a.potential_frame > b.potential_frame) return a.potential_frame > b.potential_frame;
-			return a.frame > b.frame;
+			else if (a.potential_needs != b.potential_needs) return a.potential_needs > b.potential_needs;
+			else if (a.potential_frame != b.potential_frame) return a.potential_frame > b.potential_frame;
+			else  return a.frame > b.frame;
 		}
-		if (b.potential_score > b.fatal_dose) return true;
-		if (a.potential_score > a.fatal_dose) return false;
+		if (b.potential_score > b.fatal_dose || a.potential_score > a.fatal_dose) return a.potential_score < b.potential_score;
 
 		// 即時発火可能か
 		if (a.instant_delete != b.instant_delete) return a.instant_delete < b.instant_delete;
@@ -447,13 +446,13 @@ TowerRate NomiThink::VirtualChain(const Field & f_, const TowerBase& t_base, Sco
 //	if (first_chain.score + 40 >= fatal_dose)
 		return TowerRate(first_chain.score, complement_ct, first_chain.frame);
 
-/*	// もう一度補完を行う。
+	// もう一度補完を行う。
 	// @because 2->3を3->4にする。
 	std::fill_n(used, Field::FIELD_SIZE, false);
 	complement_ct += ComplementTower3(&f, used, t_base);
 
 	Chain second_chain(Simulator::Simulate(&f, -1, -1, 1));
-	return TowerRate(second_chain.score, complement_ct, second_chain.frame);*/
+	return TowerRate(second_chain.score, complement_ct, second_chain.frame);
 }
 
 // タワーの土台と土台周りのお邪魔ぷよを消す。

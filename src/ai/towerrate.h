@@ -9,6 +9,7 @@
 class TowerRate {
 public:
 	const int FRAME_PENALTY = 5;
+	const int NEEDS_PENALTY = 300;
 
 	// 発火点が2連結以上で、発火点が埋まってない
 	bool instant_delete;
@@ -79,7 +80,7 @@ public:
 		instant_delete = d;
 	}
 	int Rate() const {
-		return potential_score + score - frame * FRAME_PENALTY;
+		return potential_score + score - frame * FRAME_PENALTY - potential_needs * NEEDS_PENALTY;
 	}
 
 

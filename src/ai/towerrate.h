@@ -23,13 +23,22 @@ public:
 	int potential_needs;
 	Frame potential_frame;
 
+	int putindex;
+
 	//
 	Score fatal_dose;
 
-	PutIndex putindex;
 
-	TowerRate operator =(const TowerRate& a) const {
-		return TowerRate(a);
+	TowerRate operator =(const TowerRate& a)  {
+		this->instant_delete = a.instant_delete;
+		this->score = a.score;
+		this->frame = a.frame;
+		this->potential_score = a.potential_score;
+		this->potential_needs = a.potential_needs;
+		this->potential_frame = a.potential_frame;
+		this->putindex = a.putindex;
+		this->fatal_dose = a.fatal_dose;
+		return *this;
 	}
 	// potential init
 	TowerRate(int potential_score, int potential_needs, Frame potential_frame) :
@@ -40,7 +49,7 @@ public:
 		frame(0),
 		fatal_dose(10000),
 		putindex(-1),
-		instant_delete(true) {}
+		instant_delete(false) {}
 
 	TowerRate(int potential_score, int potential_needs, Frame potential_frame, Score s, Frame f, Score fd, PutIndex pi, bool indel) :
 		potential_score(potential_score),
@@ -52,7 +61,7 @@ public:
 		putindex(pi),
 		instant_delete(indel) {}
 
-	PutIndex GetPutIndex() const {
+	int GetPutIndex() const {
 		return putindex;
 	}
 

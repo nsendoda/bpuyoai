@@ -220,7 +220,7 @@ bool NomiThink::KillThink(const State& state, Score fatal_dose, FieldIndex * fi)
 
 		std::priority_queue<KillRate, std::vector<KillRate>, CompareKillRate> second_que;
 		for (PutIndex pj = 0; pj < PUTTYPE_PATTERN; pj++) {
-			PutType second_put(pi);
+			PutType second_put(pj);
 			if (!Simulator::CanPut(second_put, first_field)) continue;
 
 			Field second_field(first_field);
@@ -260,7 +260,7 @@ PutType NomiThink::Think(const State& state, Score fatal_dose) {
 
 		std::priority_queue<TowerRate, std::vector<TowerRate>, CompareTowerRate> second_que;
 		for (PutIndex pj = 0; pj < PUTTYPE_PATTERN; pj++) {
-			PutType second_put(pi);
+			PutType second_put(pj);
 			if (!Simulator::CanPut(second_put, first_field)) continue;
 
 			Field second_field(first_field);
@@ -283,7 +283,11 @@ PutType NomiThink::Think(const State& state, Score fatal_dose) {
 	}
 	if (first_que.size()) {
 
-		std::sort(first_que.begin(), first_que.end(), CompareTowerRate());
+		std::sort(first_que.begin(), first_que.end(), [](const TowerRate &a, const TowerRate &b) {
+			if (a.Rate() != b.Rate()) return a.Rate() < b.Rate();
+			//		if (a.potential_score + a.score != b.potential_score + b.score) return  a.potential_score + a.score < b.potential_score + b.score;
+			if (a.frame != b.frame) return a.frame > b.frame;
+			return a.putindex > b.putindex; });
 		return first_que.back().GetPutIndex();
 	}
 
@@ -356,6 +360,7 @@ TowerRate NomiThink::Waruagaki(const Field& second_field, Score fatal_dose, PutI
 			third_que.push(res);
 		}
 	}
+	if (third_que.empty()) return TowerRate(0, 0, 0);
 	return third_que.top();
 }
 
@@ -371,6 +376,11 @@ TowerRate NomiThink::RateTower(const Field& f_, const TowerBase& t_base, Score f
 	rate.SetPutIndex(pi);
 	rate.SetInstantDelete(true);
 	rate.SetFatalDose(fatal_dose - ONECHAIN_AND_DROPBONUS);
+
+	// 3連結土台は良いぞ
+	if (f_[t_base.base.at(0)] == f_[t_base.base.at(1)] && f_[t_base.base.at(1)] == f_[t_base.base.at(2)]) {
+		rate.potential_score += 2000;
+	}
 	return rate;
 }
 
@@ -397,16 +407,16 @@ TowerRate NomiThink::VirtualChain(const Field & f_, const TowerBase& t_base, Sco
 	// 一回目の補完で致死を超えていたらそれを採用
 	Field tmp(f);
 	Chain first_chain(Simulator::Simulate(&tmp,-1,-1,1));
-	if (first_chain.score + 40 >= fatal_dose)
+//	if (first_chain.score + 40 >= fatal_dose)
 		return TowerRate(first_chain.score, complement_ct, first_chain.frame);
 
-	// もう一度補完を行う。
+/*	// もう一度補完を行う。
 	// @because 2->3を3->4にする。
 	std::fill_n(used, Field::FIELD_SIZE, false);
 	complement_ct += ComplementTower3(&f, used, t_base);
 
 	Chain second_chain(Simulator::Simulate(&f, -1, -1, 1));
-	return TowerRate(second_chain.score, complement_ct, second_chain.frame);
+	return TowerRate(second_chain.score, complement_ct, second_chain.frame);*/
 }
 
 // タワーの土台と土台周りのお邪魔ぷよを消す。

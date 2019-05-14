@@ -271,8 +271,10 @@ std::vector<Pad> PadSearch::DropOrder(const Kumipuyo &kumipuyo_,
 		}
 
 		PushMove(field_, Pad(node.pre_pad), node, &que, &pre_nodes, kumipuyo_, next_node, next_node.dist, true);
-		PushRotate(field_, Pad(node.pre_pad), node, &que, &pre_nodes, kumipuyo_, next_node, next_node.dist, true);
-		PushMoveAndRotate(field_, Pad(node.pre_pad), node, &que, &pre_nodes, kumipuyo_, next_node, next_node.dist, true);
+		if (node.rotate != kumipuyo_.desirable_put.rotate) {
+			PushRotate(field_, Pad(node.pre_pad), node, &que, &pre_nodes, kumipuyo_, next_node, next_node.dist, true);
+			PushMoveAndRotate(field_, Pad(node.pre_pad), node, &que, &pre_nodes, kumipuyo_, next_node, next_node.dist, true);
+		}
 
 			// ‰½‚à‚µ‚È‚¢
 		if (node.pre_pad != 0) {

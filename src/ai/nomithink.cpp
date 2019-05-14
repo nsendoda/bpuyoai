@@ -295,7 +295,7 @@ PutType NomiThink::Think(const State& state, Score fatal_dose) {
 }
 
 TowerBase NomiThink::BaseDecide(const Field& f) {
-
+	const int C = Field::COLUMN;
 	// 1íiñ⁄ìyë‰Ç∆íÍè„Ç∞ìyë‰
 	for (int d : {0, Field::COLUMN }) {
 
@@ -304,19 +304,25 @@ TowerBase NomiThink::BaseDecide(const Field& f) {
 		// ..vo..
 		// ...o..
 
-		if (f.ColorEqual(d + Field::COLUMN + 4, d + Field::COLUMN * 2 + 4)) {
-			if (f.ColorEqual(d + Field::COLUMN + 4, d + Field::COLUMN * 2 + 3))
-				return TowerBase(d + Field::COLUMN * 2 + 3, d + Field::COLUMN + 4, d + Field::COLUMN * 2 + 4, 4, true);
+		if (f.ColorEqual(d + C + 4, d + C * 2 + 4)) {
+			if (f.ColorEqual(d + C + 4, d + C * 2 + 3))
+				return TowerBase(d + C * 2 + 3, d + C + 4, d + C * 2 + 4, 4, true);
+			// Ç∏ÇÁÇµÉ^ÉèÅ[ÅA2éÆ5éÆÇãñÇ≥Ç»Ç¢
+			if (f.ColorEqual(d + C + 4, d + C + 3) || f.ColorEqual(d + C + 4, d + C + 5) || f.ColorEqual(d + C + 4, d + C * 2 + 5))
+				return TowerBase(0, 0, 0, 0, true);
 			else
-				return TowerBase(d + Field::COLUMN + 4, d + Field::COLUMN * 2 + 4, 4, true);
+				return TowerBase(d + C + 4, d + C * 2 + 4, 4, true);
 		}
 		// ..ov..
 		// ..o...
-		if (f.ColorEqual(d + Field::COLUMN + 3, d + Field::COLUMN * 2 + 3)) {
-			if (f.ColorEqual(d + Field::COLUMN + 3, d + Field::COLUMN * 2 + 4))
-				return TowerBase(d + Field::COLUMN * 2 + 4, d + Field::COLUMN * 2 + 3, d + Field::COLUMN + 3, 3, false);
+		if (f.ColorEqual(d + C + 3, d + C * 2 + 3)) {
+			if (f.ColorEqual(d + C + 3, d + C * 2 + 4))
+				return TowerBase(d + C * 2 + 4, d + C * 2 + 3, d + C + 3, 3, false);
+			// Ç∏ÇÁÇµÉ^ÉèÅ[ÅA2éÆ5éÆÇãñÇ≥Ç»Ç¢
+			if (f.ColorEqual(d + C + 3, d + C + 4) || f.ColorEqual(d + C + 3, d + C + 2) || f.ColorEqual(d + C + 3, d + C * 2 + 2))
+				return TowerBase(0, 0, 0, 0, true);
 			else
-				return TowerBase(d + Field::COLUMN * 2 + 3, d + Field::COLUMN + 3, 3, false);
+				return TowerBase(d + C * 2 + 3, d + C + 3, 3, false);
 		}
 	}
 	// ìyë‰ç\ízé∏îs

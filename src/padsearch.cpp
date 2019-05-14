@@ -194,15 +194,15 @@ void PadSearch::PushMoveAndRotate(const Field& field_, const Pad& pre_pad, const
 			else if (simulation_kumipuyo.now_rotate == RotateType::ROTATE_270) {
 				simulation_kumipuyo.MoveRight();
 			}
+		}
 
-			// 移動を戻す
-			if ( ! is_left[dt]) simulation_kumipuyo.MoveLeft();
-			else simulation_kumipuyo.MoveRight();
+		// 移動を戻す
+		if (!is_left[dt]) simulation_kumipuyo.MoveLeft();
+		else simulation_kumipuyo.MoveRight();
 
-			// ここで正当でないならデスツインなので回転不可
-			if (!Simulator::ValidPosition(simulation_kumipuyo, field_)) {
-				continue;
-			}
+		// ここで正当でないならデスツインなので回転不可
+		if (!Simulator::ValidPosition(simulation_kumipuyo, field_)) {
+			continue;
 		}
 
 		next_dup_node.SetXYROTATE(simulation_kumipuyo);

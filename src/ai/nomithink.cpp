@@ -320,7 +320,7 @@ TowerBase NomiThink::BaseDecide(const Field& f) {
 				return TowerBase(d + C * 2 + 4, d + C * 2 + 3, d + C + 3, 3, false);
 			// ずらしタワー、2式5式を許さない
 			if (f.ColorEqual(d + C + 3, d + C + 4) || f.ColorEqual(d + C + 3, d + C + 2) || f.ColorEqual(d + C + 3, d + C * 2 + 2))
-				return TowerBase(0, 0, 0, 0, true);
+				return TowerBase(0, 0, 0, 0, false);
 			else
 				return TowerBase(d + C * 2 + 3, d + C + 3, 3, false);
 		}
@@ -428,18 +428,32 @@ TowerRate NomiThink::VirtualChain(const Field & f_, const TowerBase& t_base, Sco
 // タワーの土台と土台周りのお邪魔ぷよを消す。
 void NomiThink::BaseDelete(Field* f, const TowerBase& t_base) {
 
-	auto del = [](Field* f, FieldIndex i) {
+	bool used[Field::FIELD_SIZE];
+	std::fill_n(used, Field::FIELD_SIZE, false);
+	std::queue<int> que;
+	for (FieldIndex base : t_base.base) {
+		que.push(base);
+	}
+	while ( ! que.empty()) {
+		int i = que.front();
+		que.pop();
+
+		(*f)[i] = Color::EMPTY;
+		used[i] = true;
+
 		for (int d : {-1, 1, -Field::COLUMN, Field::COLUMN}) {
+			if (used[i + d]) continue;
 			if ((*f)[i + d] == Color::OJAMA) {
 				(*f)[i + d] = Color::EMPTY;
 			}
+			if ((*f)[i + d] == (*f)[i]) que.push(i + d);
 		}
-		(*f)[i] = Color::EMPTY;
-	};
-	for (FieldIndex base : t_base.base) {
-		del(f, base);
 	}
 }
+
+void NomiThink::Del(Field* f, FieldIndex i, bool* used) {
+
+};
 
 
 // first_indexから連結されているぷよの数を返す。
@@ -500,6 +514,7 @@ int NomiThink::ComplementTower3(Field* f, bool* used, const TowerBase& t_base) {
 			FieldIndex ind = r * Field::COLUMN + complement_c;
 
 			if (used[ind]) continue;
+			if ((*f)[ind] == Color::EMPTY) break;
 
 			const int d = t_base.GetDirect();
 

@@ -11,6 +11,8 @@ struct TowerBase {
 
 	static const FieldIndex NOTEXIST = -1;
 
+	Color color;
+
 	// 補完を行う列
 	std::vector<Column> complement_column;
 
@@ -20,8 +22,8 @@ struct TowerBase {
 	// @args i, j..タワー土台の縦2連結部分。順番はどうでもよい
 	// @args c..縦2連結部分のColumn
 	// @args ordered..順タワーならtrue, 逆タワーならfalse
-	TowerBase(int i, int j, Column c, bool ordered) {
-		SetBase(i, j, c, ordered);
+	TowerBase(Color puyo, int i, int j, Column c, bool ordered) {
+		SetBase(puyo, i, j, c, ordered);
 	}
 
 	// リザーブ列（順タワーにおける3列目）が必ず[0]に来るようにSet
@@ -29,8 +31,8 @@ struct TowerBase {
 // @args i, j..タワー土台の縦2連結部分。順番はどうでもよい
 // @args c..縦2連結部分のColumn
 // @args ordered..順タワーならtrue, 逆タワーならfalse
-	TowerBase(int r, int i, int j, Column c, bool ordered) {
-		SetBase(r, i, j, c, ordered);
+	TowerBase(Color puyo, int r, int i, int j, Column c, bool ordered) {
+		SetBase(puyo, r, i, j, c, ordered);
 	}
 
 	inline int GetDirect() const { return direct_incidental_index; }
@@ -41,17 +43,19 @@ private:
 // 主に補完の時のINDEX合わせに使う。
 	int direct_incidental_index;
 	// リザーブ列がない場合、[0]はNOTEXISTにSet
-	void SetBase(int i, int j, Column c, bool ordered) {
+	void SetBase(Color puyo, int i, int j, Column c, bool ordered) {
 		if (ordered) SetOrderedTower();
 		else SetReverseTower();
+		color = puyo;
 		base = { NOTEXIST, i, j };
 		complement_column = { NOTEXIST, c, c + direct_incidental_index };
 	}
 
-	void SetBase(int r, int i, int j, Column c, bool ordered) {
+	void SetBase(Color puyo, int r, int i, int j, Column c, bool ordered) {
 		if (ordered) SetOrderedTower();
 		else SetReverseTower();
 		base = { r, i, j };
+		color = puyo;
 		complement_column = { c - direct_incidental_index, c, c + direct_incidental_index };
 	}
 

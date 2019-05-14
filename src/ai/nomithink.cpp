@@ -305,28 +305,30 @@ TowerBase NomiThink::BaseDecide(const Field& f) {
 		// ...o..
 
 		if (f.ColorEqual(d + C + 4, d + C * 2 + 4)) {
+			Color p = f[d + C + 4];
 			if (f.ColorEqual(d + C + 4, d + C * 2 + 3))
-				return TowerBase(d + C * 2 + 3, d + C + 4, d + C * 2 + 4, 4, true);
+				return TowerBase(p, d + C * 2 + 3, d + C + 4, d + C * 2 + 4, 4, true);
 			// ずらしタワー、2式5式を許さない
 			if (f.ColorEqual(d + C + 4, d + C + 3) || f.ColorEqual(d + C + 4, d + C + 5) || f.ColorEqual(d + C + 4, d + C * 2 + 5))
-				return TowerBase(0, 0, 0, 0, true);
+				return TowerBase(p, 0, 0, 0, 0, true);
 			else
-				return TowerBase(d + C + 4, d + C * 2 + 4, 4, true);
+				return TowerBase(p, d + C + 4, d + C * 2 + 4, 4, true);
 		}
 		// ..ov..
 		// ..o...
 		if (f.ColorEqual(d + C + 3, d + C * 2 + 3)) {
+			Color p = f[d + C + 3];
 			if (f.ColorEqual(d + C + 3, d + C * 2 + 4))
-				return TowerBase(d + C * 2 + 4, d + C * 2 + 3, d + C + 3, 3, false);
+				return TowerBase(p ,d + C * 2 + 4, d + C * 2 + 3, d + C + 3, 3, false);
 			// ずらしタワー、2式5式を許さない
 			if (f.ColorEqual(d + C + 3, d + C + 4) || f.ColorEqual(d + C + 3, d + C + 2) || f.ColorEqual(d + C + 3, d + C * 2 + 2))
-				return TowerBase(0, 0, 0, 0, false);
+				return TowerBase(p,0, 0, 0, 0, false);
 			else
-				return TowerBase(d + C * 2 + 3, d + C + 3, 3, false);
+				return TowerBase(p, d + C * 2 + 3, d + C + 3, 3, false);
 		}
 	}
 	// 土台構築失敗
-	return TowerBase(0, 0, 0, 0, true);
+	return TowerBase(EMPTY, 0, 0, 0, 0, true);
 }
 
 // @note:必ずタワーの発火点のいずれかをiに渡すこと
@@ -429,7 +431,7 @@ TowerRate NomiThink::VirtualChain(const Field & f_, const TowerBase& t_base, Sco
 void NomiThink::BaseDelete(Field* f, const TowerBase& t_base) {
 
 	bool used[Field::FIELD_SIZE];
-	std::fill_n(used, Field::FIELD_SIZE, false);
+	std::fill(used, used + Field::FIELD_SIZE, false);
 	std::queue<int> que;
 	for (FieldIndex base : t_base.base) {
 		que.push(base);
@@ -437,7 +439,7 @@ void NomiThink::BaseDelete(Field* f, const TowerBase& t_base) {
 	while ( ! que.empty()) {
 		int i = que.front();
 		que.pop();
-
+		if (used[i]) continue;
 		(*f)[i] = Color::EMPTY;
 		used[i] = true;
 
@@ -445,16 +447,12 @@ void NomiThink::BaseDelete(Field* f, const TowerBase& t_base) {
 			if (used[i + d]) continue;
 			if ((*f)[i + d] == Color::OJAMA) {
 				(*f)[i + d] = Color::EMPTY;
+				continue;
 			}
-			if ((*f)[i + d] == (*f)[i]) que.push(i + d);
+			if (f->ColorEqual(i, i + d)) que.push(i + d);
 		}
 	}
 }
-
-void NomiThink::Del(Field* f, FieldIndex i, bool* used) {
-
-};
-
 
 // first_indexから連結されているぷよの数を返す。
 // ぷよは消さない。
@@ -495,8 +493,15 @@ int NomiThink::ComplementTower3And2(Field* f, bool* used, const TowerBase& t_bas
 
 			const int d = t_base.GetDirect();
 
-			if(Complement2Connection(f, used, ind, ind + Field::COLUMN, c_i, 0, d)) ct++;
-			if(Complement2Connection(f, used, ind, ind + d, c_i, 1, d)) ct++;
+			// 土台と補完位置が被って正しく補完出来ない場合
+			if (c_i == 1 && r == 2
+				&& t_base.color == (*f)[ind]) {
+				if (Complement2Connection(f, used, ind, ind + Field::COLUMN, c_i, 0, d, true)) ct++;
+				if (Complement2Connection(f, used, ind, ind + d, c_i, 1, d, true)) ct++;
+			}
+
+			if (Complement2Connection(f, used, ind, ind + Field::COLUMN, c_i, 0, d, false)) ct++;
+			if (Complement2Connection(f, used, ind, ind + d, c_i, 1, d, false)) ct++;
 		}
 	}
 	return ct;
@@ -518,12 +523,25 @@ int NomiThink::ComplementTower3(Field* f, bool* used, const TowerBase& t_base) {
 
 			const int d = t_base.GetDirect();
 
-			ct += Complement3Connection(f, used, ind, ind + Field::COLUMN, ind + 2 * Field::COLUMN, c_i, 0, d);
-			ct += Complement3Connection(f, used, ind, ind + Field::COLUMN, ind + d + Field::COLUMN, c_i, 1, d);
-			ct += Complement3Connection(f, used, ind, ind + d, ind + d - Field::COLUMN, c_i, 2, d);
-			ct += Complement3Connection(f, used, ind, ind + d, ind + d + Field::COLUMN, c_i, 3, d);
-			ct += Complement3Connection(f, used, ind, ind + Field::COLUMN, ind + d, c_i, 4, d);
-			ct += Complement3Connection(f, used, ind, ind + d, ind + 2 * d, c_i, 5, d);
+			// 土台と補完位置が被って正しく補完出来ない場合
+			if ( ((c_i == 0 && r == 3) || (c_i == 1 && r == 2))
+				&& t_base.color == (*f)[ind]) {
+				ct += Complement3Connection(f, used, ind, ind + Field::COLUMN, ind + 2 * Field::COLUMN, c_i, 0, d, true);
+				ct += Complement3Connection(f, used, ind, ind + Field::COLUMN, ind + d + Field::COLUMN, c_i, 1, d, true);
+				ct += Complement3Connection(f, used, ind, ind + d, ind + d - Field::COLUMN, c_i, 2, d, true);
+				ct += Complement3Connection(f, used, ind, ind + d, ind + d + Field::COLUMN, c_i, 3, d, true);
+				ct += Complement3Connection(f, used, ind, ind + Field::COLUMN, ind + d, c_i, 4, d, true);
+				ct += Complement3Connection(f, used, ind, ind + d, ind + 2 * d, c_i, 5, d, true);
+				// left, right
+				continue;
+			}
+
+			ct += Complement3Connection(f, used, ind, ind + Field::COLUMN, ind + 2 * Field::COLUMN, c_i, 0, d, false);
+			ct += Complement3Connection(f, used, ind, ind + Field::COLUMN, ind + d + Field::COLUMN, c_i, 1, d, false);
+			ct += Complement3Connection(f, used, ind, ind + d, ind + d - Field::COLUMN, c_i, 2, d, false);
+			ct += Complement3Connection(f, used, ind, ind + d, ind + d + Field::COLUMN, c_i, 3, d, false);
+			ct += Complement3Connection(f, used, ind, ind + Field::COLUMN, ind + d, c_i, 4, d, false);
+			ct += Complement3Connection(f, used, ind, ind + d, ind + 2 * d, c_i, 5, d, false);
 		}
 	}
 	return ct;
@@ -531,23 +549,23 @@ int NomiThink::ComplementTower3(Field* f, bool* used, const TowerBase& t_base) {
 
 // base, j, kの3連結からなるぷよを補完して4連結にする。
 // もし既に4連結以上の場合は補完は行わない。
-bool NomiThink::Complement3Connection(Field* f, bool* used, FieldIndex base, FieldIndex j, FieldIndex k, int c_i, int shape_i, int direct) {
+bool NomiThink::Complement3Connection(Field* f, bool* used, FieldIndex base, FieldIndex j, FieldIndex k, int c_i, int shape_i, int direct, bool base_conflict) {
 	// 13段目のぷよが紛れている、又は色が違えばreturn
 	if (!f->ColorEqual(base, j, k) || j > Field::VISIBLE_FIELD_END || k > Field::VISIBLE_FIELD_END) return false;
 	used[base] = true;
 	used[j] = true;
 	used[k] = true;
 	if (LinkCount(*f, base) >= 4) return false;
-	NomiMemory::ComplementTower3Connection[c_i][shape_i](f, base, direct);
+	NomiMemory::ComplementTower3Connection[c_i][shape_i](f, base, direct, base_conflict);
 	return true;
 }
 
-bool NomiThink::Complement2Connection(Field* f, bool* used, FieldIndex base, FieldIndex j, int c_i, int shape_i, int direct) {
+bool NomiThink::Complement2Connection(Field* f, bool* used, FieldIndex base, FieldIndex j, int c_i, int shape_i, int direct, bool base_conflict) {
 	// 13段目のぷよが紛れている、又は色が違えばreturn
 	if (!f->ColorEqual(base, j) || j > Field::VISIBLE_FIELD_END) return false;
 	used[base] = true;
 	used[j] = true;
 	if (LinkCount(*f, base) >= 4) return false;
-	NomiMemory::ComplementTower2Connection[c_i][shape_i](f, base, direct);
+	NomiMemory::ComplementTower2Connection[c_i][shape_i](f, base, direct, base_conflict);
 	return true;
 }

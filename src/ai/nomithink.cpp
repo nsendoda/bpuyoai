@@ -244,6 +244,35 @@ bool NomiThink::KillThink(const State& state, Score fatal_dose, FieldIndex * fi)
 }
 
 PutType NomiThink::Think(const State& state, Score fatal_dose) {
+
+	auto RATETOWER = [](const TowerRate &a, const TowerRate &b){
+
+		// Šù‚É”­‰Î‚Å’vŽ€—Ê‚ð’´‚¦‚éê‡
+		if (a.score > a.fatal_dose && b.score > b.fatal_dose) {
+			if (a.instant_delete != b.instant_delete) return a.instant_delete < b.instant_delete;
+			return a.frame > b.frame;
+		}
+		if (b.score > b.fatal_dose) return true;
+		if (a.score > a.fatal_dose) return false;
+
+		// öÝ“I‚É’vŽ€—Ê‚ð’´‚¦‚éê‡
+		if (a.potential_score > a.fatal_dose && b.potential_score > b.fatal_dose) {
+			if (a.instant_delete != b.instant_delete) return a.instant_delete < b.instant_delete;
+			if (a.potential_needs != b.potential_needs) return a.potential_needs > b.potential_needs;
+			if (a.potential_frame > b.potential_frame) return a.potential_frame > b.potential_frame;
+			return a.frame > b.frame;
+		}
+		if (b.potential_score > b.fatal_dose) return true;
+		if (a.potential_score > a.fatal_dose) return false;
+
+		// ‘¦Žž”­‰Î‰Â”\‚©
+		if (a.instant_delete != b.instant_delete) return a.instant_delete < b.instant_delete;
+		
+		if (a.Rate() != b.Rate()) return a.Rate() < b.Rate();
+		//		if (a.potential_score + a.score != b.potential_score + b.score) return  a.potential_score + a.score < b.potential_score + b.score;
+		if (a.frame != b.frame) return a.frame > b.frame;
+		return a.putindex > b.putindex;
+	};
 	int best_score = 0;
 	PutIndex best_put = 0;
 	std::vector<TowerRate> first_que;
@@ -258,7 +287,7 @@ PutType NomiThink::Think(const State& state, Score fatal_dose) {
 		// DEATH
 		if (first_field[Field::FIELD_DEATH] != Color::EMPTY)  continue;
 
-		std::priority_queue<TowerRate, std::vector<TowerRate>, CompareTowerRate> second_que;
+		std::vector<TowerRate> second_que;
 		for (PutIndex pj = 0; pj < PUTTYPE_PATTERN; pj++) {
 			PutType second_put(pj);
 			if (!Simulator::CanPut(second_put, first_field)) continue;
@@ -269,25 +298,25 @@ PutType NomiThink::Think(const State& state, Score fatal_dose) {
 			second_frame += second_chain.frame;
 
 			// DEATH
-			if (second_field[Field::FIELD_DEATH] != Color::EMPTY)  continue; 
+			if (second_field[Field::FIELD_DEATH] != Color::EMPTY)  continue;
 
 			TowerBase base(BaseDecide(second_field));
-			if( ! CanFireTower(second_field, base.base[1], -1)){
-				second_que.push(Waruagaki(second_field, fatal_dose, pi, first_frame + second_frame));
+			if (!CanFireTower(second_field, base.base[1], -1)) {
+				second_que.push_back(Waruagaki(second_field, fatal_dose, pi, first_frame + second_frame));
 			}
 			else {
-				second_que.push(RateTower(second_field, base, fatal_dose, pi, first_frame + second_frame));
+				second_que.push_back(RateTower(second_field, base, fatal_dose, pi, first_frame + second_frame));
 			}
 		}
-		if( ! second_que.empty()) first_que.push_back(second_que.top());
+		if (!second_que.empty()) {
+			std::sort(second_que.begin(), second_que.end(), RATETOWER);
+
+			first_que.push_back(second_que.back());
+		}
 	}
 	if (first_que.size()) {
 
-		std::sort(first_que.begin(), first_que.end(), [](const TowerRate &a, const TowerRate &b) {
-			if (a.Rate() != b.Rate()) return a.Rate() < b.Rate();
-			//		if (a.potential_score + a.score != b.potential_score + b.score) return  a.potential_score + a.score < b.potential_score + b.score;
-			if (a.frame != b.frame) return a.frame > b.frame;
-			return a.putindex > b.putindex; });
+		std::sort(first_que.begin(), first_que.end(), RATETOWER);
 		return first_que.back().GetPutIndex();
 	}
 

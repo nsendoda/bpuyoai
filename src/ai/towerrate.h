@@ -82,6 +82,8 @@ public:
 		return potential_score + score - frame * FRAME_PENALTY;
 	}
 
+
+
 };
 
 class CompareTowerRate {

@@ -42,13 +42,15 @@ private:
 
 	static int LinkCount(const Field & field, FieldIndex i);
 
-	static int ComplementTower3And2(Field * f, bool* used, const TowerBase & t_base);
+	static int ComplementTower3And2And1(Field * f, bool* used, const TowerBase & t_base);
 
 	static int ComplementTower3(Field * f, bool * used, const TowerBase & t_base);
 
-	static bool Complement3Connection(Field * f, bool * used, FieldIndex i, FieldIndex j, FieldIndex k, int c_i, int shape_i, int direct, bool base_conflict);
+	static int Complement3Connection(Field * f, bool * used, FieldIndex i, FieldIndex j, FieldIndex k, int c_i, int shape_i, int direct, bool base_conflict);
 
-	static bool Complement2Connection(Field * f, bool * used, FieldIndex base, FieldIndex j, int c_i, int shape_i, int direct, bool base_conflict);
+	static int Complement2Connection(Field * f, bool * used, FieldIndex base, FieldIndex j, int c_i, int shape_i, int direct, bool base_conflict);
+
+	static int Complement1Connection(Field * f, bool * used, FieldIndex base, int c_i, int shape_i, int direct, bool base_conflict);
 
 	static const int dt[4];
 };

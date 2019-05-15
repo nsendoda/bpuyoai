@@ -334,13 +334,18 @@ TowerBase NomiThink::BaseDecide(const Field& f) {
 
 		if (f.ColorEqual(d + C + 4, d + C * 2 + 4)) {
 			Color p = f[d + C + 4];
-			if (f.ColorEqual(d + C + 4, d + C * 2 + 3))
+/*			if (f.ColorEqual(d + C + 4, d + C * 2 + 3))
 				return TowerBase(p, d + C * 2 + 3, d + C + 4, d + C * 2 + 4, 4, true);
 			// ずらしタワー、2式5式を許さない
 			if (f.ColorEqual(d + C + 4, d + C + 3) || f.ColorEqual(d + C + 4, d + C + 5) || f.ColorEqual(d + C + 4, d + C * 2 + 5))
 				return TowerBase(p, 0, 0, 0, 0, true);
 			else
-				return TowerBase(p, d + C + 4, d + C * 2 + 4, 4, true);
+				return TowerBase(p, d + C + 4, d + C * 2 + 4, 4, true);*/
+			// 全て3連結タワーと仮定
+			// ずらしタワー、2式5式を許さない
+			if (f.ColorEqual(d + C + 4, d + C + 3) || f.ColorEqual(d + C + 4, d + C + 5) || f.ColorEqual(d + C + 4, d + C * 2 + 5) || f.ColorEqual(d + C + 4, d + C * 3 + 3))
+				return TowerBase(p, 0, 0, 0, 0, true);
+			return TowerBase(p, d + C * 2 + 3, d + C + 4, d + C * 2 + 4, 4, true);
 		}
 		// ..ov..
 		// ..o...
@@ -413,10 +418,14 @@ TowerRate NomiThink::RateTower(const Field& f_, const TowerBase& t_base, Score f
 	rate.SetInstantDelete(true);
 	rate.SetFatalDose(fatal_dose - ONECHAIN_AND_DROPBONUS);
 
-	// 3連結土台は良いぞ
-	if (f_[t_base.base.at(0)] == f_[t_base.base.at(1)] && f_[t_base.base.at(1)] == f_[t_base.base.at(2)]) {
-		rate.potential_score += 2000;
+
+
+	if (f_[Field::FIELD_DEATH] != EMPTY || f_[Field::FIELD_DEATH - 1] != EMPTY || f_[Field::FIELD_DEATH - 2] != EMPTY
+		|| f_[Field::FIELD_DEATH + 2] != EMPTY
+		|| f_[Field::FIELD_DEATH + 1] != EMPTY) {
+		rate.potential_score -= 2000;
 	}
+
 	return rate;
 }
 
@@ -435,10 +444,14 @@ TowerRate NomiThink::VirtualChain(const Field & f_, const TowerBase& t_base, Sco
 
 	Simulator::FallAll(&f);
 
+	// 念のため
+
+	f.ModifyLowestEmptyRows();
+
 	// 補完
 	bool used[Field::FIELD_SIZE];
 	std::fill_n(used, Field::FIELD_SIZE, false);
-	int complement_ct = ComplementTower3And2(&f, used, t_base);
+	int complement_ct = ComplementTower3And2And1(&f, used, t_base);
 
 	// 一回目の補完で致死を超えていたらそれを採用
 	Field tmp(f);
@@ -506,15 +519,15 @@ int NomiThink::LinkCount(const Field& field, FieldIndex first_index) {
 	return count;
 }
 
-int NomiThink::ComplementTower3And2(Field* f, bool* used, const TowerBase& t_base) {
+int NomiThink::ComplementTower3And2And1(Field* f, bool* used, const TowerBase& t_base) {
 
 	int ct = ComplementTower3(f, used, t_base);
 
-	for (int c_i = 0; c_i < t_base.complement_column.size(); c_i++) {
-		Column complement_c = t_base.complement_column[c_i];
-		// リザーブ列の探査は正当なCOLUMNが代入されている時のみ
-		if (complement_c == TowerBase::NOTEXIST) continue;
-		for (Row r = 1; r <= Field::VISIBLE_ROW; r++) {
+	for (Row r = 1; r <= Field::VISIBLE_ROW; r++) {
+		for (int c_i = 0; c_i < t_base.complement_column.size(); c_i++) {
+			Column complement_c = t_base.complement_column[c_i];
+			// リザーブ列の探査は正当なCOLUMNが代入されている時のみ
+			if (complement_c == TowerBase::NOTEXIST) continue;
 			FieldIndex ind = r * Field::COLUMN + complement_c;
 
 			if (used[ind]) continue;
@@ -524,12 +537,14 @@ int NomiThink::ComplementTower3And2(Field* f, bool* used, const TowerBase& t_bas
 			// 土台と補完位置が被って正しく補完出来ない場合
 			if (c_i == 1 && r == 2
 				&& t_base.color == (*f)[ind]) {
-				if (Complement2Connection(f, used, ind, ind + Field::COLUMN, c_i, 0, d, true)) ct++;
-				if (Complement2Connection(f, used, ind, ind + d, c_i, 1, d, true)) ct++;
+				ct += Complement2Connection(f, used, ind, ind + Field::COLUMN, c_i, 0, d, true);
+				ct += Complement2Connection(f, used, ind, ind + d, c_i, 1, d, true);
 			}
 
-			if (Complement2Connection(f, used, ind, ind + Field::COLUMN, c_i, 0, d, false)) ct++;
-			if (Complement2Connection(f, used, ind, ind + d, c_i, 1, d, false)) ct++;
+			ct += Complement2Connection(f, used, ind, ind + Field::COLUMN, c_i, 0, d, false);
+			ct += Complement2Connection(f, used, ind, ind + d, c_i, 1, d, false);
+
+			ct += Complement1Connection(f, used, ind, c_i, 0, d, false);
 		}
 	}
 	return ct;
@@ -539,15 +554,15 @@ int NomiThink::ComplementTower3And2(Field* f, bool* used, const TowerBase& t_bas
 // @note towerbaseの[0]はリザーブ列であるが、ここにNOTEXISTが代入されていればスキップする。
 int NomiThink::ComplementTower3(Field* f, bool* used, const TowerBase& t_base) {
 	int ct = 0;
-	for (int c_i = 0; c_i < t_base.complement_column.size(); c_i++) {
-		Column complement_c = t_base.complement_column[c_i];
-		// リザーブ列の探査は正当なCOLUMNが代入されている時のみ
-		if (complement_c == TowerBase::NOTEXIST) continue;
-		for (Row r = 1; r <= Field::VISIBLE_ROW; r++) {
+	for (Row r = 1; r <= Field::VISIBLE_ROW; r++) {
+		for (int c_i = 0; c_i < t_base.complement_column.size(); c_i++) {
+			Column complement_c = t_base.complement_column[c_i];
+			// リザーブ列の探査は正当なCOLUMNが代入されている時のみ
+			if (complement_c == TowerBase::NOTEXIST) continue;
+
 			FieldIndex ind = r * Field::COLUMN + complement_c;
 
 			if (used[ind]) continue;
-			if ((*f)[ind] == Color::EMPTY) break;
 
 			const int d = t_base.GetDirect();
 
@@ -577,23 +592,29 @@ int NomiThink::ComplementTower3(Field* f, bool* used, const TowerBase& t_base) {
 
 // base, j, kの3連結からなるぷよを補完して4連結にする。
 // もし既に4連結以上の場合は補完は行わない。
-bool NomiThink::Complement3Connection(Field* f, bool* used, FieldIndex base, FieldIndex j, FieldIndex k, int c_i, int shape_i, int direct, bool base_conflict) {
+int NomiThink::Complement3Connection(Field* f, bool* used, FieldIndex base, FieldIndex j, FieldIndex k, int c_i, int shape_i, int direct, bool base_conflict) {
 	// 13段目のぷよが紛れている、又は色が違えばreturn
-	if (!f->ColorEqual(base, j, k) || j > Field::VISIBLE_FIELD_END || k > Field::VISIBLE_FIELD_END) return false;
+	if (!f->ColorEqual(base, j, k) || j > Field::VISIBLE_FIELD_END || k > Field::VISIBLE_FIELD_END) return 0;
 	used[base] = true;
 	used[j] = true;
 	used[k] = true;
-	if (LinkCount(*f, base) >= 4) return false;
-	NomiMemory::ComplementTower3Connection[c_i][shape_i](f, base, direct, base_conflict);
-	return true;
+	if (LinkCount(*f, base) >= 4) return 0;
+	return NomiMemory::Complement3(f, base, direct, base_conflict, c_i, shape_i);
 }
 
-bool NomiThink::Complement2Connection(Field* f, bool* used, FieldIndex base, FieldIndex j, int c_i, int shape_i, int direct, bool base_conflict) {
+int NomiThink::Complement2Connection(Field* f, bool* used, FieldIndex base, FieldIndex j, int c_i, int shape_i, int direct, bool base_conflict) {
 	// 13段目のぷよが紛れている、又は色が違えばreturn
-	if (!f->ColorEqual(base, j) || j > Field::VISIBLE_FIELD_END) return false;
+	if (!f->ColorEqual(base, j) || j > Field::VISIBLE_FIELD_END) return 0;
 	used[base] = true;
 	used[j] = true;
-	if (LinkCount(*f, base) >= 4) return false;
-	NomiMemory::ComplementTower2Connection[c_i][shape_i](f, base, direct, base_conflict);
-	return true;
+	if (LinkCount(*f, base) >= 4) return 0;
+	return NomiMemory::Complement2(f, base, direct, base_conflict, c_i, shape_i);
+}
+
+int NomiThink::Complement1Connection(Field* f, bool* used, FieldIndex base, int c_i, int shape_i, int direct, bool base_conflict) {
+	// 13段目のぷよが紛れている、又は色が違えばreturn
+	if ( ! f->IsColor(base)) return 0;
+	used[base] = true;
+	if (LinkCount(*f, base) >= 4) return 0;
+	return NomiMemory::Complement1(f, base, direct, base_conflict, c_i, shape_i);
 }

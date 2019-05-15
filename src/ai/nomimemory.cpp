@@ -1,40 +1,63 @@
 #include "nomimemory.h"
 
-const std::function<bool(Field*, FieldIndex, int, bool)> NomiMemory::ComplementTower3Connection[3][6] = {
-	{NomiMemory::Complement3_0_1,
-	NomiMemory::Complement3_0_2,
-	NomiMemory::Complement3_0_3,
-	NomiMemory::Complement3_0_4,
-	NomiMemory::Complement3_0_5,
-	NomiMemory::Complement3_0_6},
-		{NomiMemory::Complement3_1_1,
-	NomiMemory::Complement3_1_2,
-	NomiMemory::Complement3_1_3,
-	NomiMemory::Complement3_1_4,
-	NomiMemory::Complement3_1_5,
-	NomiMemory::Complement3_1_6},
-		{NomiMemory::Complement3_2_1,
-	NomiMemory::Complement3_2_2,
-	NomiMemory::Complement3_2_3,
-	NomiMemory::Complement3_2_4,
-	NomiMemory::Complement3_2_5,
-	NomiMemory::Complement3_2_6},
-};
+int NomiMemory::Complement3(Field* f, FieldIndex base, int direct, bool base_conflict, int c_i, int shape_i) {
 
-const std::function<bool(Field*, FieldIndex, int, bool)> NomiMemory::ComplementTower2Connection[3][2] = {
-	{
-		NomiMemory::Complement2_0_1,
-		NomiMemory::Complement2_0_2
-	},
-		{
-		NomiMemory::Complement2_1_1,
-		NomiMemory::Complement2_1_2
-	},
-		{
-		NomiMemory::Complement2_2_1,
-		NomiMemory::Complement2_2_2
+	if (c_i == 0) {
+		if (shape_i == 0) return Complement3_0_1(f, base, direct, base_conflict);
+		if (shape_i == 1) return Complement3_0_2(f, base, direct, base_conflict);
+		if (shape_i == 2) return Complement3_0_3(f, base, direct, base_conflict);
+		if (shape_i == 3) return Complement3_0_4(f, base, direct, base_conflict);
+		if (shape_i == 4) return Complement3_0_5(f, base, direct, base_conflict);
+		if (shape_i == 5) return Complement3_0_6(f, base, direct, base_conflict);
 	}
-};
+	if (c_i == 1) {
+		if (shape_i == 0) return Complement3_1_1(f, base, direct, base_conflict);
+		if (shape_i == 1) return Complement3_1_2(f, base, direct, base_conflict);
+		if (shape_i == 2) return Complement3_1_3(f, base, direct, base_conflict);
+		if (shape_i == 3) return Complement3_1_4(f, base, direct, base_conflict);
+		if (shape_i == 4) return Complement3_1_5(f, base, direct, base_conflict);
+		if (shape_i == 5) return Complement3_1_6(f, base, direct, base_conflict);
+	}
+	if (c_i == 2) {
+		if (shape_i == 0) return Complement3_2_1(f, base, direct, base_conflict);
+		if (shape_i == 1) return Complement3_2_2(f, base, direct, base_conflict);
+		if (shape_i == 2) return Complement3_2_3(f, base, direct, base_conflict);
+		if (shape_i == 3) return Complement3_2_4(f, base, direct, base_conflict);
+		if (shape_i == 4) return Complement3_2_5(f, base, direct, base_conflict);
+		if (shape_i == 5) return Complement3_2_6(f, base, direct, base_conflict);
+	}
+	return 0;
+}
+
+int NomiMemory::Complement2(Field* f, FieldIndex base, int direct, bool base_conflict, int c_i, int shape_i) {
+
+	if (c_i == 0) {
+		if (shape_i == 0) return Complement2_0_1(f, base, direct, base_conflict);
+		if (shape_i == 1) return Complement2_0_2(f, base, direct, base_conflict);
+	}
+	if (c_i == 1) {
+		if (shape_i == 0) return Complement2_1_1(f, base, direct, base_conflict);
+		if (shape_i == 1) return Complement2_1_2(f, base, direct, base_conflict);
+	}
+	if (c_i == 2) {
+		if (shape_i == 0) return Complement2_2_1(f, base, direct, base_conflict);
+		if (shape_i == 1) return Complement2_2_2(f, base, direct, base_conflict);
+	}
+	return 0;
+}
+
+int NomiMemory::Complement1(Field* f, FieldIndex base, int direct, bool base_conflict, int c_i, int shape_i) {
+	if (c_i == 0) {
+		return Complement1_0_1(f, base, direct, base_conflict);
+	}
+	if (c_i == 1) {
+		return Complement1_1_1(f, base, direct, base_conflict);
+	}
+	if (c_i == 2) {
+		return Complement1_2_1(f, base, direct, base_conflict);
+	}
+	return 0;
+}
 
 // o ぷよの位置
 // b baseとして渡されるぷよの位置
@@ -47,34 +70,34 @@ const std::function<bool(Field*, FieldIndex, int, bool)> NomiMemory::ComplementT
 // ox.
 // o..
 // b..
-bool NomiMemory::Complement3_0_1(Field* f, FieldIndex base, int direct, bool base_conflict) {
+int NomiMemory::Complement3_0_1(Field* f, FieldIndex base, int direct, bool base_conflict) {
 	const FieldIndex com1 = base + 2 * Field::COLUMN + direct;
 	if ((*f)[com1] == EMPTY) {
 		(*f)[com1] = (*f)[base];
-		return true;
+		return com1 / Field::COLUMN - f->GetLowestEmptyRows(com1%Field::COLUMN) + 1;
 	}
-	return false;
+	return 0;
 }
 
 // .x.
 // oox
 // b..
-bool NomiMemory::Complement3_0_2(Field* f, FieldIndex base, int direct, bool base_conflict) {
+int NomiMemory::Complement3_0_2(Field* f, FieldIndex base, int direct, bool base_conflict) {
 	const FieldIndex com1 = base + 2 * Field::COLUMN + direct;
 	const FieldIndex com2 = base + 1 * Field::COLUMN + 2 * direct;
 	for (FieldIndex c : {com1, com2}) {
 		if ((*f)[c] == EMPTY) {
 			(*f)[c] = (*f)[base];
-			return true;
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
 		}
 	}
-	return false;
+	return 0;
 }
 
 // ...
 // box
 // .ox
-bool NomiMemory::Complement3_0_3(Field* f, FieldIndex base, int direct, bool base_conflict) {
+int NomiMemory::Complement3_0_3(Field* f, FieldIndex base, int direct, bool base_conflict) {
 	const FieldIndex com1 = base + 2 * direct;
 	const FieldIndex com2 = base - Field::COLUMN + 2 * direct;
 
@@ -85,46 +108,46 @@ bool NomiMemory::Complement3_0_3(Field* f, FieldIndex base, int direct, bool bas
 	for (FieldIndex c : list) {
 		if ((*f)[c] == EMPTY) {
 			(*f)[c] = (*f)[base];
-			return true;
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
 		}
 	}
-	return false;
+	return 0;
 }
 
 // .x.
 // .ox
 // box
-bool NomiMemory::Complement3_0_4(Field* f, FieldIndex base, int direct, bool base_conflict) {
+int NomiMemory::Complement3_0_4(Field* f, FieldIndex base, int direct, bool base_conflict) {
 	const FieldIndex com1 = base + 2 * Field::COLUMN + direct;
 	const FieldIndex com2 = base +     Field::COLUMN + 2 * direct;
 	const FieldIndex com3 = base +                     2 * direct;
 	for (FieldIndex c : {com1, com2, com3}) {
 		if ((*f)[c] == EMPTY) {
 			(*f)[c] = (*f)[base];
-			return true;
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
 		}
 	}
-	return false;
+	return 0;
 }
 
 // ...
 // o..
 // box
-bool NomiMemory::Complement3_0_5(Field* f, FieldIndex base, int direct, bool base_conflict) {
+int NomiMemory::Complement3_0_5(Field* f, FieldIndex base, int direct, bool base_conflict) {
 	const FieldIndex com1 = base + 2 * direct;
 	for (FieldIndex c : {com1}) {
 		if ((*f)[c] == EMPTY) {
 			(*f)[c] = (*f)[base];
-			return true;
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
 		}
 	}
-	return false;
+	return 0;
 }
 
 // ....
 // xxx.
 // boox
-bool NomiMemory::Complement3_0_6(Field* f, FieldIndex base, int direct, bool base_conflict) {
+int NomiMemory::Complement3_0_6(Field* f, FieldIndex base, int direct, bool base_conflict) {
 	const FieldIndex com1 = base + Field::COLUMN + direct;
 	const FieldIndex com2 = base + Field::COLUMN + 2 * direct;
 	const FieldIndex com3 = base + 3 * direct;
@@ -132,17 +155,17 @@ bool NomiMemory::Complement3_0_6(Field* f, FieldIndex base, int direct, bool bas
 	for (FieldIndex c : {com1, com2, com3, com4}) {
 		if ((*f)[c] == EMPTY) {
 			(*f)[c] = (*f)[base];
-			return true;
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
 		}
 	}
-	return false;
+	return 0;
 }
 
 //-----------------------------------（順タワーからすると）4列目-----------------------------------
 // .o.
 // .ox
 // xbx
-bool NomiMemory::Complement3_1_1(Field* f, FieldIndex base, int direct, bool base_conflict) {
+int NomiMemory::Complement3_1_1(Field* f, FieldIndex base, int direct, bool base_conflict) {
 	const FieldIndex com1 = base - direct;
 	const FieldIndex com2 = base + direct;
 	const FieldIndex com3 = base + Field::COLUMN + direct;
@@ -154,16 +177,16 @@ bool NomiMemory::Complement3_1_1(Field* f, FieldIndex base, int direct, bool bas
 	for (FieldIndex c : list) {
 		if ((*f)[c] == EMPTY) {
 			(*f)[c] = (*f)[base];
-			return true;
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
 		}
 	}
-	return false;
+	return 0;
 }
 
 // .x..
 // xoox
 // xb..
-bool NomiMemory::Complement3_1_2(Field* f, FieldIndex base, int direct, bool base_conflict) {
+int NomiMemory::Complement3_1_2(Field* f, FieldIndex base, int direct, bool base_conflict) {
 	const FieldIndex com1 = base - direct;
 	const FieldIndex com2 = base + Field::COLUMN - direct;
 	const FieldIndex com3 = base + 2 * Field::COLUMN;
@@ -177,16 +200,16 @@ bool NomiMemory::Complement3_1_2(Field* f, FieldIndex base, int direct, bool bas
 
 		if ((*f)[c] == EMPTY) {
 			(*f)[c] = (*f)[base];
-			return true;
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
 		}
 	}
-	return false;
+	return 0;
 }
 
 // .xx.
 // xbox
 // ..ox
-bool NomiMemory::Complement3_1_3(Field* f, FieldIndex base, int direct, bool base_conflict) {
+int NomiMemory::Complement3_1_3(Field* f, FieldIndex base, int direct, bool base_conflict) {
 	const FieldIndex com1 = base - direct;
 	const FieldIndex com2 = base + Field::COLUMN;
 	const FieldIndex com3 = base + Field::COLUMN + direct;
@@ -195,16 +218,16 @@ bool NomiMemory::Complement3_1_3(Field* f, FieldIndex base, int direct, bool bas
 	for (FieldIndex c : {com1, com2, com3, com4, com5}) {
 		if ((*f)[c] == EMPTY) {
 			(*f)[c] = (*f)[base];
-			return true;
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
 		}
 	}
-	return false;
+	return 0;
 }
 
 // ....
 // .xox
 // xbox
-bool NomiMemory::Complement3_1_4(Field* f, FieldIndex base, int direct, bool base_conflict) {
+int NomiMemory::Complement3_1_4(Field* f, FieldIndex base, int direct, bool base_conflict) {
 	const FieldIndex com1 = base - direct;
 	const FieldIndex com2 = base + Field::COLUMN;
 	const FieldIndex com3 = base + 2 * direct;
@@ -212,16 +235,16 @@ bool NomiMemory::Complement3_1_4(Field* f, FieldIndex base, int direct, bool bas
 	for (FieldIndex c : {com1, com2, com3, com4}) {
 		if ((*f)[c] == EMPTY) {
 			(*f)[c] = (*f)[base];
-			return true;
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
 		}
 	}
-	return false;
+	return 0;
 }
 
 // .x..
 // xox.
 // xbox
-bool NomiMemory::Complement3_1_5(Field* f, FieldIndex base, int direct, bool base_conflict) {
+int NomiMemory::Complement3_1_5(Field* f, FieldIndex base, int direct, bool base_conflict) {
 	const FieldIndex com1 = base - direct;
 	const FieldIndex com2 = base + Field::COLUMN - direct;
 	const FieldIndex com3 = base + 2 * direct;
@@ -230,16 +253,16 @@ bool NomiMemory::Complement3_1_5(Field* f, FieldIndex base, int direct, bool bas
 	for (FieldIndex c : {com1, com2, com3, com4, com5}) {
 		if ((*f)[c] == EMPTY) {
 			(*f)[c] = (*f)[base];
-			return true;
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
 		}
 	}
-	return false;
+	return 0;
 }
 
 // ....
 // .xxx
 // xboo
-bool NomiMemory::Complement3_1_6(Field* f, FieldIndex base, int direct, bool base_conflict) {
+int NomiMemory::Complement3_1_6(Field* f, FieldIndex base, int direct, bool base_conflict) {
 	const FieldIndex com1 = base - direct;
 	const FieldIndex com2 = base + Field::COLUMN;
 	const FieldIndex com3 = base + Field::COLUMN + direct;
@@ -247,92 +270,92 @@ bool NomiMemory::Complement3_1_6(Field* f, FieldIndex base, int direct, bool bas
 	for (FieldIndex c : {com1, com2, com3, com4}) {
 		if ((*f)[c] == EMPTY) {
 			(*f)[c] = (*f)[base];
-			return true;
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
 		}
 	}
-	return false;
+	return 0;
 }
 
 //-----------------------------------（順タワーからすると）5列目-----------------------------------
 // .xo
 // .xo
 // ..b
-bool NomiMemory::Complement3_2_1(Field* f, FieldIndex base, int direct, bool base_conflict) {
+int NomiMemory::Complement3_2_1(Field* f, FieldIndex base, int direct, bool base_conflict) {
 	const FieldIndex com1 = base - direct + Field::COLUMN;
 	const FieldIndex com2 = base - direct + 2 * Field::COLUMN;
 	for (FieldIndex c : {com1, com2}) {
 		if ((*f)[c] == EMPTY) {
 			(*f)[c] = (*f)[base];
-			return true;
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
 		}
 	}
-	return false;
+	return 0;
 }
 
 // ....
 // .xoo
 // .xb.
-bool NomiMemory::Complement3_2_2(Field* f, FieldIndex base, int direct, bool base_conflict) {
+int NomiMemory::Complement3_2_2(Field* f, FieldIndex base, int direct, bool base_conflict) {
 	const FieldIndex com1 = base - direct;
 	const FieldIndex com2 = base - direct + Field::COLUMN;
 	for (FieldIndex c : {com1, com2}) {
 		if ((*f)[c] == EMPTY) {
 			(*f)[c] = (*f)[base];
-			return true;
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
 		}
 	}
-	return false;
+	return 0;
 }
 
 // ....
 // .xoo
 // ...b
-bool NomiMemory::Complement3_2_3(Field* f, FieldIndex base, int direct, bool base_conflict) {
+int NomiMemory::Complement3_2_3(Field* f, FieldIndex base, int direct, bool base_conflict) {
 	const FieldIndex com1 = base - 2 * direct + Field::COLUMN;
 	for (FieldIndex c : {com1}) {
 		if ((*f)[c] == EMPTY) {
 			(*f)[c] = (*f)[base];
-			return true;
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
 		}
 	}
-	return false;
+	return 0;
 }
 
 // ....
 // ...o
 // .xbo
-bool NomiMemory::Complement3_2_4(Field* f, FieldIndex base, int direct, bool base_conflict) {
+int NomiMemory::Complement3_2_4(Field* f, FieldIndex base, int direct, bool base_conflict) {
 	const FieldIndex com1 = base - direct;
 	for (FieldIndex c : {com1}) {
 		if ((*f)[c] == EMPTY) {
 			(*f)[c] = (*f)[base];
-			return true;
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
 		}
 	}
-	return false;
+	return 0;
 }
 
 // ....
 // .xo.
 // .xbo
-bool NomiMemory::Complement3_2_5(Field* f, FieldIndex base, int direct, bool base_conflict) {
+int NomiMemory::Complement3_2_5(Field* f, FieldIndex base, int direct, bool base_conflict) {
 	const FieldIndex com1 = base - direct;
 	const FieldIndex com2 = base - direct + Field::COLUMN;
 	for (FieldIndex c : {com1, com2}) {
 		if ((*f)[c] == EMPTY) {
 			(*f)[c] = (*f)[base];
-			return true;
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
 		}
 	}
-	return false;
+	return 0;
 }
 
 // 存在しない。
 // ....
 // ....
 // ..oow
-bool NomiMemory::Complement3_2_6(Field* f, FieldIndex base, int direct, bool base_conflict) {
-	return false;
+int NomiMemory::Complement3_2_6(Field* f, FieldIndex base, int direct, bool base_conflict) {
+	return 0;
 }
 
 //----------------------------------- 2連結補完----------------------------------------------------
@@ -341,7 +364,7 @@ bool NomiMemory::Complement3_2_6(Field* f, FieldIndex base, int direct, bool bas
 // x...
 // ox..
 // bx..
-bool NomiMemory::Complement2_0_1(Field* f, FieldIndex base, int direct, bool base_conflict) {
+int NomiMemory::Complement2_0_1(Field* f, FieldIndex base, int direct, bool base_conflict) {
 	const FieldIndex com1 = base + direct + Field::COLUMN;
 	const FieldIndex com2 = base + direct;
 	const FieldIndex com3 = base + 2 * Field::COLUMN;
@@ -349,32 +372,32 @@ bool NomiMemory::Complement2_0_1(Field* f, FieldIndex base, int direct, bool bas
 	for (FieldIndex c : {com1, com2, com3}) {
 		if ((*f)[c] == EMPTY) {
 			(*f)[c] = (*f)[base];
-			return true;
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
 		}
 	}
-	return false;
+	return 0;
 }
 
 // ....
 // xx..
 // box.
-bool NomiMemory::Complement2_0_2(Field* f, FieldIndex base, int direct, bool base_conflict) {
+int NomiMemory::Complement2_0_2(Field* f, FieldIndex base, int direct, bool base_conflict) {
 	const FieldIndex com1 = base + 2 * direct;
 	const FieldIndex com2 = base + Field::COLUMN;
 	const FieldIndex com3 = base + Field::COLUMN + direct;
 	for (FieldIndex c : {com1, com2, com3}) {
 		if ((*f)[c] == EMPTY) {
 			(*f)[c] = (*f)[base];
-			return true;
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
 		}
 	}
-	return false;
+	return 0;
 }
 
 // .x..
 // xox.
 // xbx.
-bool NomiMemory::Complement2_1_1(Field* f, FieldIndex base, int direct, bool base_conflict) {
+int NomiMemory::Complement2_1_1(Field* f, FieldIndex base, int direct, bool base_conflict) {
 	const FieldIndex com1 = base + direct;
 	const FieldIndex com2 = base - direct;
 	const FieldIndex com3 = base + direct + Field::COLUMN;
@@ -388,16 +411,16 @@ bool NomiMemory::Complement2_1_1(Field* f, FieldIndex base, int direct, bool bas
 	for (FieldIndex c : list) {
 		if ((*f)[c] == EMPTY) {
 			(*f)[c] = (*f)[base];
-			return true;
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
 		}
 	}
-	return false;
+	return 0;
 }
 
 // ....
 // .xx.
 // xbox
-bool NomiMemory::Complement2_1_2(Field* f, FieldIndex base, int direct, bool base_conflict) {
+int NomiMemory::Complement2_1_2(Field* f, FieldIndex base, int direct, bool base_conflict) {
 	const FieldIndex com1 = base + Field::COLUMN;
 	const FieldIndex com2 = base - direct;
 	const FieldIndex com3 = base + direct + Field::COLUMN;
@@ -406,17 +429,17 @@ bool NomiMemory::Complement2_1_2(Field* f, FieldIndex base, int direct, bool bas
 	for (FieldIndex c : {com1, com2, com3, com4}) {
 		if ((*f)[c] == EMPTY) {
 			(*f)[c] = (*f)[base];
-			return true;
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
 		}
 	}
-	return false;
+	return 0;
 }
 
 // ..x.
 // .xox
 // .xbx
 // 左に置きたい。
-bool NomiMemory::Complement2_2_1(Field* f, FieldIndex base, int direct, bool base_conflict) {
+int NomiMemory::Complement2_2_1(Field* f, FieldIndex base, int direct, bool base_conflict) {
 	const FieldIndex com1 = base - direct;
 	const FieldIndex com2 = base - direct + Field::COLUMN;
 	const FieldIndex com4 = base + direct;
@@ -426,16 +449,16 @@ bool NomiMemory::Complement2_2_1(Field* f, FieldIndex base, int direct, bool bas
 	for (FieldIndex c : {com1, com2, com3, com4, com5}) {
 		if ((*f)[c] == EMPTY) {
 			(*f)[c] = (*f)[base];
-			return true;
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
 		}
 	}
-	return false;
+	return 0;
 }
 
 // ....
 // ..xx
 // .xbo
-bool NomiMemory::Complement2_2_2(Field* f, FieldIndex base, int direct, bool base_conflict) {
+int NomiMemory::Complement2_2_2(Field* f, FieldIndex base, int direct, bool base_conflict) {
 	const FieldIndex com1 = base - direct;
 	const FieldIndex com2 = base + Field::COLUMN;
 	const FieldIndex com3 = base + direct + Field::COLUMN;
@@ -443,8 +466,55 @@ bool NomiMemory::Complement2_2_2(Field* f, FieldIndex base, int direct, bool bas
 	for (FieldIndex c : {com1, com2, com3}) {
 		if ((*f)[c] == EMPTY) {
 			(*f)[c] = (*f)[base];
-			return true;
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
 		}
 	}
-	return false;
+	return 0;
+}
+
+// x.
+// ox
+int NomiMemory::Complement1_0_1(Field* f, FieldIndex base, int direct, bool base_conflict) {
+	const FieldIndex com1 = base + direct;
+	const FieldIndex com2 = base + Field::COLUMN;
+
+	for (FieldIndex c : {com1, com2}) {
+		if ((*f)[c] == EMPTY) {
+			(*f)[c] = (*f)[base];
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
+		}
+	}
+	return 0;
+}
+
+// .x.
+// xox
+int NomiMemory::Complement1_1_1(Field* f, FieldIndex base, int direct, bool base_conflict) {
+	const FieldIndex com1 = base + direct;
+	const FieldIndex com2 = base - direct;
+	const FieldIndex com3 = base + Field::COLUMN;
+
+	for (FieldIndex c : {com1, com2, com3}) {
+		if ((*f)[c] == EMPTY) {
+			(*f)[c] = (*f)[base];
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
+		}
+	}
+	
+	return 0;
+}
+
+// ..x
+// .xo
+int NomiMemory::Complement1_2_1(Field* f, FieldIndex base, int direct, bool base_conflict) {
+	const FieldIndex com1 = base - direct;
+	const FieldIndex com2 = base + Field::COLUMN;
+
+	for (FieldIndex c : {com1, com2}) {
+		if ((*f)[c] == EMPTY) {
+			(*f)[c] = (*f)[base];
+			return c / Field::COLUMN - f->GetLowestEmptyRows(c%Field::COLUMN) + 1;
+		}
+	}
+	return 0;
 }

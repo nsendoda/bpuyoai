@@ -4,12 +4,16 @@
 #include "../types.h"
 #include "../chain.h"
 
+#include <cmath>
+
+constexpr double M_PI = 3.141593;
+
 // nomiにおけるタワーの評価に使うクラスと比較クラス
 
 class TowerRate {
 public:
 	const int FRAME_PENALTY = 5;
-	const int NEEDS_PENALTY = 300;
+	const int NEEDS_PENALTY = 15;
 
 	// 発火点が2連結以上で、発火点が埋まってない
 	bool instant_delete;
@@ -80,7 +84,7 @@ public:
 		instant_delete = d;
 	}
 	int Rate() const {
-		return potential_score + score - frame * FRAME_PENALTY - potential_needs * NEEDS_PENALTY;
+		return potential_score * std::sin(M_PI / 4 * (NEEDS_PENALTY - potential_needs) / potential_needs) + score - frame * FRAME_PENALTY;
 	}
 
 

@@ -13,7 +13,7 @@ void Nomi::Init() {
 	ai_SetMainMode(1);
 
 
-	ai_SetTable(1, 0, "GR GR GG YG YY YP PP");
+//	ai_SetTable(1, 0, "GR GR GG YG YY YP PP");
 //	ai_SetTable(1, 0, "GR YG");
 #ifdef USE_DATABASE
 	for (int i = 0; i < DATABASE_SIZE; i++)

@@ -117,7 +117,7 @@ void Nomi::Decide() {
 
 	if (NomiThink::ReactJab(state, fatal_dose, &kill_index)) {
 		state.now_kumipuyo.desirable_put = PutType(kill_index);
-		Debug::Print("kill decide. turn:%d, c:%d, rotate:%d\n", state.turn, state.now_kumipuyo.desirable_put.column, state.now_kumipuyo.desirable_put.rotate);
+		Debug::Print("react decide. turn:%d, c:%d, rotate:%d\n", state.turn, state.now_kumipuyo.desirable_put.column, state.now_kumipuyo.desirable_put.rotate);
 		return;
 	}
 
@@ -127,10 +127,12 @@ void Nomi::Decide() {
 }
 
 void Nomi::PadDecide() {
- 		pad_orders = PadSearch::DropOrder(state.now_kumipuyo, state.field, my_pad);
-		if (pad_orders.empty()) {
-//			ai_SetName("KABEGOE");
-			pad_orders = PadSearch::CarefulOrder(state.now_kumipuyo, state.field, my_pad);
+	pad_orders = PadSearch::DropOrder(state.now_kumipuyo, state.field, my_pad, false);
+
+		Row row_3 = state.field.GetLowestEmptyRows(Field::PUYO_APPEAR_COLUMN);
+		Row put_row = state.field.GetLowestEmptyRows(state.now_kumipuyo.desirable_put.column);
+		if (put_row < 10 && row_3 < 12) {
+			pad_orders = PadSearch::DropOrder(state.now_kumipuyo, state.field, my_pad, true);
 		}
 }
 

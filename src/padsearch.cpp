@@ -214,16 +214,13 @@ void PadSearch::PushMoveAndRotate(const Field& field_, const Pad& pre_pad, const
 	}
 }
 
-// 下を押さずに、目的のPutIndexまで移動する操作列を返す
+// 目的のPutIndexまで移動する操作列を返す
 // 見つからなければ、長さ0のvectorを返す
-std::vector<Pad> PadSearch::CarefulOrder(const Kumipuyo &kumipuyo_,
-	const Field &field_, const Pad &previous_pad_) {
-	return std::vector<Pad>();
-}
+
 
 std::vector<Pad> PadSearch::DropOrder(const Kumipuyo &kumipuyo_,
-	const Field &field_, const Pad &previous_pad_) {
-
+	const Field &field_, const Pad &previous_pad_, bool always_down) {
+	const int MAX_DISTANCE = 14;
 	// ノード追加のためのキュー
 	std::priority_queue<Node, std::vector<Node>, CompareNode> que;
 	// 各ノードまでの最短経路
@@ -238,6 +235,8 @@ std::vector<Pad> PadSearch::DropOrder(const Kumipuyo &kumipuyo_,
 	while (!que.empty()) {
 		Node node;
 		node = que.top(), que.pop();
+
+		if (node.dist > MAX_DISTANCE) continue;
 
 		// USED CHECK
 //		int ct = dist.count(node);
@@ -270,10 +269,12 @@ std::vector<Pad> PadSearch::DropOrder(const Kumipuyo &kumipuyo_,
 			return ans;
 		}
 
-		PushMove(field_, Pad(node.pre_pad), node, &que, &pre_nodes, kumipuyo_, next_node, next_node.dist, true);
+		PushMove(field_, Pad(node.pre_pad), node, &que, &pre_nodes, kumipuyo_, next_node, next_node.dist, always_down);
 		if (node.rotate != kumipuyo_.desirable_put.rotate) {
-			PushRotate(field_, Pad(node.pre_pad), node, &que, &pre_nodes, kumipuyo_, next_node, next_node.dist, true);
-			PushMoveAndRotate(field_, Pad(node.pre_pad), node, &que, &pre_nodes, kumipuyo_, next_node, next_node.dist, true);
+			PushRotate(field_, Pad(node.pre_pad), node, &que, &pre_nodes, kumipuyo_, next_node, next_node.dist, always_down);
+			if (always_down) {
+				PushMoveAndRotate(field_, Pad(node.pre_pad), node, &que, &pre_nodes, kumipuyo_, next_node, next_node.dist, always_down);
+			}
 		}
 
 			// 何もしない
@@ -284,83 +285,4 @@ std::vector<Pad> PadSearch::DropOrder(const Kumipuyo &kumipuyo_,
 
 	}
 	return std::vector<Pad>();
-}
-
-bool PadSearch::CanRightDown(const Kumipuyo &kumipuyo, const Field &field) {
-  int parent_index, child_index;
-  std::tie(parent_index, child_index) = kumipuyo.GetPairIndex();
-
-  bool can_moveright =
-      field[parent_index + 1] == EMPTY && field[child_index + 1] == EMPTY;
-  if (!can_moveright)
-    return false;
-
-  bool parent_can_moveright =
-      ((kumipuyo.YHasPointFive() &&
-        field[parent_index - Field::COLUMN] == EMPTY) ||
-       field[parent_index - 2 * Field::COLUMN] == EMPTY) &&
-      field[parent_index - Field::COLUMN + 1] == EMPTY;
-  bool child_can_moveright =
-      ((kumipuyo.YHasPointFive() &&
-        field[child_index - Field::COLUMN] == EMPTY) ||
-       field[child_index - 2 * Field::COLUMN] == EMPTY) &&
-      field[child_index - Field::COLUMN + 1] == EMPTY;
-  if (kumipuyo.now_rotate == ROTATE_0) {
-    return parent_can_moveright;
-  } else if (kumipuyo.now_rotate == ROTATE_180) {
-    return child_can_moveright;
-  }
-  return parent_can_moveright && child_can_moveright;
-}
-
-bool PadSearch::CanLeftDown(const Kumipuyo &kumipuyo, const Field &field) {
-  int parent_index, child_index;
-  std::tie(parent_index, child_index) = kumipuyo.GetPairIndex();
-
-  bool can_moveright =
-      field[parent_index - 1] == EMPTY && field[child_index - 1] == EMPTY;
-  if (!can_moveright)
-    return false;
-
-  bool parent_can_moveright =
-      ((kumipuyo.YHasPointFive() &&
-        field[parent_index - Field::COLUMN] == EMPTY) ||
-       field[parent_index - 2 * Field::COLUMN] == EMPTY) &&
-      field[parent_index - Field::COLUMN - 1] == EMPTY;
-  bool child_can_moveright =
-      ((kumipuyo.YHasPointFive() &&
-        field[child_index - Field::COLUMN] == EMPTY) ||
-       field[child_index - 2 * Field::COLUMN] == EMPTY) &&
-      field[child_index - Field::COLUMN - 1] == EMPTY;
-  if (kumipuyo.now_rotate == ROTATE_0) {
-    return parent_can_moveright;
-  } else if (kumipuyo.now_rotate == ROTATE_180) {
-    return child_can_moveright;
-  }
-  return parent_can_moveright && child_can_moveright;
-}
-
-
-// srcからdistに最も近くなる回転を返す。
-// 一致時はNEUTRALを返す。
-Command PadSearch::FasterRotateCommand(RotateType src, RotateType dist) {
-	if (src < dist) {
-		if (dist - src < ROTATE_NUMBER + src - dist) {
-			return Command::ROTATE_RIGHT;
-		}
-		else {
-			return Command::ROTATE_LEFT;
-		}
-	}
-	else if (src == dist) {
-		return Command::NEUTRAL;
-	}
-	else {
-		if (src - dist < ROTATE_NUMBER + dist - src) {
-			return Command::ROTATE_LEFT;
-		}
-		else {
-			return Command::ROTATE_RIGHT;
-		}
-	}
 }

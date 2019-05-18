@@ -290,7 +290,6 @@ ChainRate NomiThink::ChainThirdThink(const Field& pre_field, Frame pre_frame, co
 						// 空マスであり、下に床があって、置ける列なら補完
 						if (f[n_fi] == Color::EMPTY && f[n_fi - Field::COLUMN] != Color::EMPTY
 							&& Simulator::CanPut(PutType(n_fi%Field::COLUMN, RotateType::ROTATE_0), f)) {
-							f[n_fi] = f[fi];
 							ok = true;
 							break;
 						}
@@ -299,7 +298,13 @@ ChainRate NomiThink::ChainThirdThink(const Field& pre_field, Frame pre_frame, co
 				}
 
 				if (ok) {
-					Chain ch = Simulator::Simulate(&f);
+					for (FieldIndex li : links[c_i]) {
+						f[li] = Color::EMPTY;
+					}
+					Simulator::FallAll(&f);
+
+					Chain ch = Simulator::Simulate(&f, -1, -1, 1);
+					ch.score += 40;
 					ch.frame += pre_frame;
 					Row crisis_height = std::max(Field::AVAILABLE_ROW - f.GetLowestEmptyRows(3),
 						std::min(Field::AVAILABLE_ROW - f.GetLowestEmptyRows(2), Field::AVAILABLE_ROW - f.GetLowestEmptyRows(4)));

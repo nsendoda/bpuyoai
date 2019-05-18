@@ -101,20 +101,13 @@ public:
 
 class PadSearch {
 public:
-  static std::vector<Pad> DropOrder(const Kumipuyo &kumipuyo,
-                                        const Field &field,
-		                                    const Pad& previous_pad);
-	static std::vector<Pad> CarefulOrder(const Kumipuyo &kumipuyo,
+	static std::vector<Pad> DropOrder(const Kumipuyo &kumipuyo,
 		const Field &field,
-		const Pad& previous_pad);
+		const Pad& previous_pad, bool always_down);
 
 private:
 
 	PadSearch();
-
-	static bool CanRightDown(const Kumipuyo &kumipuyo, const Field &field);
-	static bool CanLeftDown(const Kumipuyo &kumipuyo, const Field &field);
-	static Command FasterRotateCommand(RotateType src, RotateType dist);
 
 	static void PushMove(const Field & field_, const Pad & pre_pad, const Node & now_node,
 		std::priority_queue<Node, std::vector<Node>, CompareNode>* que, std::map<Node, Node, DistinctNode>* pre_node, Kumipuyo now_kumipuyo, Node next_node, const int next_dist, bool down);

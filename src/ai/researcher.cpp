@@ -130,10 +130,10 @@ void Researcher::Main() {
 	}
 #else
 	else if (frame_ct == 1) {
-		pad_orders = PadSearch::DropOrder(state.now_kumipuyo, state.field, my_pad);
+		pad_orders = PadSearch::DropOrder(state.now_kumipuyo, state.field, my_pad, true);
 		if (pad_orders.empty()) {
 			ai_SetName("KABEGOE");
-			pad_orders = PadSearch::CarefulOrder(state.now_kumipuyo, state.field, my_pad);
+			pad_orders = PadSearch::DropOrder(state.now_kumipuyo, state.field, my_pad,false );
 		}
 		else {
 			ai_SetName("DROP");

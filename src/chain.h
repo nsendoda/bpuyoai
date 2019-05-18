@@ -9,9 +9,11 @@ public:
   Score score;
   Frame frame;
 
-  Chain();
-  Chain(int number, int score, int frame);
-  ~Chain();
+	Chain() : number(0), score(-1), frame(10000) {}
+
+	Chain(const Chain& c) : number(c.number), score(c.score), frame(c.frame) {}
+  Chain(int number, Score score, Frame frame) : number(number), score(score), frame(frame) {}
+	~Chain() = default;
 
   Chain &Sum(const Chain &c) {
     number += c.number;

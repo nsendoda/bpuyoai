@@ -48,116 +48,16 @@ std::vector<PutType> NomiThink::ConstantPut(const State& state_, const Kumipuyo&
 }
 
 std::vector<PutType> NomiThink::FirstConstants(const std::string& p) {
-	std::map<std::string, std::vector<PutType> > mp =
-	{ 
-	{"AAAAAA", {PutType(4, ROTATE_180), PutType(1, ROTATE_180), PutType(1, ROTATE_180)}},
-	{"AAAAAB", {PutType(4, ROTATE_180), PutType(1, ROTATE_180), PutType(3, ROTATE_180)}},
-	{"AAAABB", {PutType(4, ROTATE_180), PutType(1, ROTATE_180), PutType(5, ROTATE_180)}},
-	{"AAAABC", {PutType(4, ROTATE_180), PutType(1, ROTATE_180), PutType(5, ROTATE_180)}},
-
-	{"AAABAA", {PutType(4, ROTATE_180), PutType(3, ROTATE_180), PutType(1, ROTATE_180)}},
-	{"AAABAB", {PutType(4, ROTATE_180), PutType(3, ROTATE_180), PutType(3, ROTATE_180)}},
-	{"AAABAC", {PutType(4, ROTATE_180), PutType(3, ROTATE_180), PutType(3, ROTATE_180)}},
-	{"AAABBB", {PutType(4, ROTATE_180), PutType(3, ROTATE_180), PutType(4, ROTATE_90 )}},
-	{"AAABBC", {PutType(4, ROTATE_180), PutType(3, ROTATE_180), PutType(4, ROTATE_0  )}},
-	{"AAABCC", {PutType(4, ROTATE_180), PutType(3, ROTATE_180), PutType(5, ROTATE_180)}},
-	{"AAABCD", {PutType(4, ROTATE_180), PutType(3, ROTATE_180), PutType(5, ROTATE_180)}},
-
-	{"AABBAA", {PutType(4, ROTATE_180), PutType(4, ROTATE_180), PutType(4, ROTATE_180)}},
-	{"AABBAB", {PutType(4, ROTATE_180), PutType(4, ROTATE_270), PutType(3, ROTATE_180)}},
-	{"AABBAC", {PutType(4, ROTATE_180), PutType(3, ROTATE_270), PutType(3, ROTATE_180)}},
-	{"AABBBB", {PutType(4, ROTATE_180), PutType(4, ROTATE_180), PutType(5, ROTATE_180)}},
-	{"AABBBC", {PutType(4, ROTATE_180), PutType(5, ROTATE_180), PutType(4, ROTATE_90 )}},
-	{"AABBCC", {PutType(4, ROTATE_180), PutType(3, ROTATE_270), PutType(5, ROTATE_180)}},
-	{"AABBCD", {PutType(4, ROTATE_180), PutType(3, ROTATE_270), PutType(5, ROTATE_180)}},
-
-	{"AABCAA", {PutType(4, ROTATE_180), PutType(5, ROTATE_180), PutType(5, ROTATE_180)}},
-	{"AABCAB", {PutType(4, ROTATE_180), PutType(4, ROTATE_0  ), PutType(3, ROTATE_180)}},
-	{"AABCAC", {PutType(4, ROTATE_180), PutType(4, ROTATE_180), PutType(3, ROTATE_180)}},
-	{"AABCAD", {PutType(4, ROTATE_180), PutType(5, ROTATE_180), PutType(3, ROTATE_180)}},
-	{"AABCBB", {PutType(4, ROTATE_180), PutType(4, ROTATE_0  ), PutType(3, ROTATE_270)}},
-	{"AABCBC", {PutType(4, ROTATE_180), PutType(5, ROTATE_180), PutType(5, ROTATE_270)}},
-	{"AABCBD", {PutType(4, ROTATE_180), PutType(5, ROTATE_0  ), PutType(4, ROTATE_90 )}},
-	{"AABCCC", {PutType(4, ROTATE_180), PutType(4, ROTATE_180), PutType(3, ROTATE_270)}},
-	{"AABCCD", {PutType(4, ROTATE_180), PutType(5, ROTATE_180), PutType(4, ROTATE_90 )}},
-	{"AABCDD", {PutType(4, ROTATE_180), PutType(5, ROTATE_180), PutType(5, ROTATE_180)}},
-
-	{"ABAAAA", {PutType(4, ROTATE_270), PutType(4, ROTATE_270), PutType(1, ROTATE_180)}},
-	{"ABAAAB", {PutType(4, ROTATE_270), PutType(4, ROTATE_270), PutType(3, ROTATE_180)}},
-	{"ABAAAC", {PutType(4, ROTATE_270), PutType(4, ROTATE_270), PutType(3, ROTATE_180)}},
-	{"ABAABB", {PutType(4, ROTATE_270), PutType(4, ROTATE_270), PutType(4, ROTATE_180)}},
-	{"ABAABC", {PutType(4, ROTATE_270), PutType(4, ROTATE_270), PutType(4, ROTATE_0  )}},
-	{"ABAACC", {PutType(4, ROTATE_270), PutType(4, ROTATE_270), PutType(5, ROTATE_180)}},
-	{"ABAACD", {PutType(4, ROTATE_270), PutType(4, ROTATE_270), PutType(5, ROTATE_180)}},
-
-	{"ABABAA", {PutType(4, ROTATE_90), PutType(4, ROTATE_0), PutType(4, ROTATE_180)}},
-	{"ABABAB", {PutType(4, ROTATE_90), PutType(4, ROTATE_0), PutType(3, ROTATE_180)}},
-	{"ABABAC", {PutType(4, ROTATE_90), PutType(4, ROTATE_0), PutType(3, ROTATE_180)}},
-	{"ABABBB", {PutType(4, ROTATE_90), PutType(4, ROTATE_0), PutType(3, ROTATE_270)}},
-	{"ABABBC", {PutType(4, ROTATE_90), PutType(4, ROTATE_0), PutType(5, ROTATE_0  )}},
-	{"ABABCC", {PutType(4, ROTATE_90), PutType(4, ROTATE_0), PutType(5, ROTATE_180)}},
-	{"ABABCD", {PutType(4, ROTATE_90), PutType(4, ROTATE_0), PutType(5, ROTATE_180)}},
-
-	{"ABACAA", {PutType(4, ROTATE_90), PutType(4, ROTATE_90), PutType(5, ROTATE_180)}},
-	{"ABACAB", {PutType(4, ROTATE_90), PutType(4, ROTATE_90), PutType(3, ROTATE_180)}},
-	{"ABACAC", {PutType(4, ROTATE_90), PutType(4, ROTATE_90), PutType(3, ROTATE_180)}},
-	{"ABACAD", {PutType(4, ROTATE_90), PutType(4, ROTATE_90), PutType(3, ROTATE_180)}},
-	{"ABACBB", {PutType(4, ROTATE_90), PutType(4, ROTATE_90), PutType(6, ROTATE_180)}},
-	{"ABACBC", {PutType(4, ROTATE_90), PutType(4, ROTATE_90), PutType(4, ROTATE_90 )}},
-	{"ABACBD", {PutType(4, ROTATE_90), PutType(4, ROTATE_90), PutType(4, ROTATE_90 )}},
-	{"ABACCC", {PutType(4, ROTATE_90), PutType(4, ROTATE_90), PutType(6, ROTATE_180)}},
-	{"ABACCD", {PutType(4, ROTATE_90), PutType(4, ROTATE_90), PutType(5, ROTATE_0)}},
-	{"ABACDD", {PutType(4, ROTATE_90), PutType(4, ROTATE_90), PutType(5, ROTATE_0)}},
-
-	{"ABBBAA", {PutType(3, ROTATE_90), PutType(3, ROTATE_90), PutType(4, ROTATE_180)}},
-	{"ABBBAB", {PutType(3, ROTATE_90), PutType(3, ROTATE_90), PutType(3, ROTATE_0  )}},
-	{"ABBBAC", {PutType(3, ROTATE_90), PutType(3, ROTATE_90), PutType(4, ROTATE_0  )}},
-	{"ABBBBB", {PutType(3, ROTATE_90), PutType(3, ROTATE_90), PutType(1, ROTATE_180)}},
-	{"ABBBBC", {PutType(3, ROTATE_90), PutType(3, ROTATE_90), PutType(3, ROTATE_180)}},
-	{"ABBBCC", {PutType(3, ROTATE_90), PutType(3, ROTATE_90), PutType(5, ROTATE_180)}},
-	{"ABBBCD", {PutType(3, ROTATE_90), PutType(3, ROTATE_90), PutType(5, ROTATE_180)}},
-
-	{"ABBCAA", {PutType(5, ROTATE_270), PutType(4, ROTATE_90), PutType(4, ROTATE_180)}},
-	{"ABBCAB", {PutType(5, ROTATE_270), PutType(4, ROTATE_90), PutType(3, ROTATE_0  )}},
-	{"ABBCAC", {PutType(5, ROTATE_270), PutType(4, ROTATE_90), PutType(4, ROTATE_90 )}},
-	{"ABBCAD", {PutType(5, ROTATE_270), PutType(4, ROTATE_90), PutType(4, ROTATE_90 )}},
-	{"ABBCBB", {PutType(5, ROTATE_270), PutType(4, ROTATE_90), PutType(5, ROTATE_180)}},
-	{"ABBCBC", {PutType(5, ROTATE_270), PutType(4, ROTATE_90), PutType(3, ROTATE_180)}},
-	{"ABBCBD", {PutType(5, ROTATE_270), PutType(4, ROTATE_90), PutType(3, ROTATE_180)}},
-	{"ABBCCC", {PutType(5, ROTATE_270), PutType(4, ROTATE_90), PutType(6, ROTATE_180)}},
-	{"ABBCCD", {PutType(5, ROTATE_270), PutType(4, ROTATE_90), PutType(5, ROTATE_0  )}},
-	{"ABBCDD", {PutType(5, ROTATE_270), PutType(4, ROTATE_90), PutType(5, ROTATE_180)}},
-
-	// Bが下
-	{"ABCCAA", {PutType(5, ROTATE_180), PutType(4, ROTATE_180), PutType(6, ROTATE_180)}},
-	{"ABCCAB", {PutType(5, ROTATE_180), PutType(4, ROTATE_180), PutType(5, ROTATE_270)}},
-	{"ABCCAC", {PutType(5, ROTATE_180), PutType(4, ROTATE_180), PutType(3, ROTATE_0  )}},
-	{"ABCCAD", {PutType(5, ROTATE_180), PutType(4, ROTATE_180), PutType(5, ROTATE_0  )}},
-	{"ABCCBB", {PutType(5, ROTATE_180), PutType(4, ROTATE_180), PutType(3, ROTATE_90 )}},
-	{"ABCCBC", {PutType(5, ROTATE_180), PutType(4, ROTATE_180), PutType(4, ROTATE_90 )}},
-	{"ABCCBD", {PutType(5, ROTATE_180), PutType(4, ROTATE_180), PutType(4, ROTATE_90 )}},
-	{"ABCCCC", {PutType(5, ROTATE_180), PutType(4, ROTATE_180), PutType(5, ROTATE_180)}},
-	{"ABCCCD", {PutType(5, ROTATE_180), PutType(4, ROTATE_180), PutType(3, ROTATE_180)}},
-	{"ABCCDD", {PutType(5, ROTATE_180), PutType(4, ROTATE_180), PutType(3, ROTATE_270)}},
-
-	{"ABCDAA", {PutType(3, ROTATE_90 ), PutType(2, ROTATE_180), PutType(3, ROTATE_90)}},
-	{"ABCDAB", {PutType(3, ROTATE_90 ), PutType(5, ROTATE_180), PutType(4, ROTATE_180)}},
-	{"ABCDAC", {PutType(3, ROTATE_90 ), PutType(2, ROTATE_0  ), PutType(3, ROTATE_0  )}},
-	{"ABCDAD", {PutType(3, ROTATE_90 ), PutType(2, ROTATE_180), PutType(3, ROTATE_0  )}},
-	{"ABCDBB", {PutType(3, ROTATE_90 ), PutType(5, ROTATE_180), PutType(3, ROTATE_90 )}},
-	{"ABCDBC", {PutType(3, ROTATE_90 ), PutType(5, ROTATE_0  ), PutType(4, ROTATE_0  )}},
-	{"ABCDBD", {PutType(3, ROTATE_90 ), PutType(5, ROTATE_180), PutType(4, ROTATE_0  )}},
-	{"ABCDCC", {PutType(3, ROTATE_90 ), PutType(4, ROTATE_270), PutType(3, ROTATE_90 )}},
-	{"ABCDCD", {PutType(3, ROTATE_90 ), PutType(3, ROTATE_90 ), PutType(4, ROTATE_180)}},
-	{"ABCDDD", {PutType(3, ROTATE_90 ), PutType(3, ROTATE_90 ), PutType(3, ROTATE_90 )}},
-	};
-
-	return mp[p];
+	return NomiMemory::first_const_puts.at(p);
 }
 
 Score NomiThink::CalculateFatalDose(const State& state_, int enemy_all_ojama) {
+	// [11, ..] 落下ボーナスを考慮に入れてない分1段甘めに見積もっている。
+	auto OjamaRow = [](Row emptyrow, Row ojamarow) {
+		return Field::VISIBLE_ROW - emptyrow - ojamarow;
+	};
 	Row ojama_row = enemy_all_ojama / Field::VISIBLE_COLUMN;
-	Row max_need_ojamarow = Field::VISIBLE_ROW - state_.field.GetLowestEmptyRows(Field::PUYO_APPEAR_COLUMN) - ojama_row;
+	Row max_need_ojamarow = OjamaRow(state_.field.GetLowestEmptyRows(Field::PUYO_APPEAR_COLUMN), ojama_row);
 	for (PutIndex pi = 0; pi < PUTTYPE_PATTERN; pi++) {
 		PutType first_put(pi);
 		if (!Simulator::CanPut(first_put, state_.field)) continue;
@@ -174,7 +74,7 @@ Score NomiThink::CalculateFatalDose(const State& state_, int enemy_all_ojama) {
 			Chain second_chain = Simulator::Simulate(&second_field);
 
 			// 最もお邪魔が必要となる3列目の高さを代入
-			Row need_ojamarow = Field::VISIBLE_ROW - second_field.GetLowestEmptyRows(Field::PUYO_APPEAR_COLUMN);
+			Row need_ojamarow = OjamaRow(second_field.GetLowestEmptyRows(Field::PUYO_APPEAR_COLUMN), ojama_row);
 			max_need_ojamarow = std::max(need_ojamarow, max_need_ojamarow);
 		}
 	}
@@ -245,6 +145,194 @@ bool NomiThink::KillThink(const State& state, Score fatal_dose, FieldIndex * fi)
 	return false;
 }
 
+PutType NomiThink::ChainThink(const State& state, Score fatal_dose) {
+	std::vector<ChainRate> rates;
+	for (PutIndex pi = 0; pi < PUTTYPE_PATTERN; pi++) {
+		PutType first_put(pi);
+		if (!Simulator::CanPut(first_put, state.field)) continue;
+		Field first_field(state.field);
+		Frame first_frame = Simulator::Put(state.now_kumipuyo, &first_field, first_put);
+		Chain first_chain(Simulator::Simulate(&first_field));
+		first_frame += first_chain.frame;
+
+		// DEATH
+		if (first_field[Field::FIELD_DEATH] != Color::EMPTY)  continue;
+
+		rates.push_back(ChainSecondThink(first_field, state.next_kumipuyo, first_frame, pi, fatal_dose));
+	}
+	if (rates.empty()) return PutType(0);
+	std::sort(rates.begin(), rates.end(), ChainRate::Compare);
+	return PutType(rates[0].first_pi);
+}
+
+ChainRate NomiThink::ChainSecondThink(const Field& pre_field, const Kumipuyo& next, Frame pre_frame, const PutIndex first_pi, Score fatal_dose) {
+	std::vector<ChainRate> rates;
+	for (PutIndex pi = 0; pi < PUTTYPE_PATTERN; pi++) {
+		PutType put(pi);
+		if (!Simulator::CanPut(put, pre_field)) continue;
+		Field field(pre_field);
+		Frame frame = Simulator::Put(next, &field, put);
+		Chain chain(Simulator::Simulate(&field));
+		frame += chain.frame;
+
+		// DEATH
+		if (field[Field::FIELD_DEATH] != Color::EMPTY) continue;
+
+		rates.push_back(ChainThirdThink(field, pre_frame + frame, first_pi, fatal_dose));
+	}
+	if (rates.empty()) return ChainRate();
+	std::sort(rates.begin(), rates.end(), ChainRate::Compare);
+	return rates[0];
+}
+
+
+struct MyVector {
+	ChainRate crs[60];
+	int _size;
+	MyVector() : _size(0) {}
+
+	void Push(const ChainRate& c) {
+		if (_size >= 60) {
+			return;
+		}
+		crs[_size++] = c;
+	}
+	bool empty() const {
+		return _size == 0;
+	}
+};
+
+ChainRate NomiThink::ChainThirdThink(const Field& pre_field, Frame pre_frame, const PutIndex first_pi, Score fatal_dose) {
+
+	MyVector rates;
+	Field field(pre_field);
+	bool used[Field::FIELD_SIZE] = {};
+
+	std::vector<FieldIndex> links[50];
+	int c_i = 0;
+
+
+	for (Column c = 1; c <= Field::VISIBLE_COLUMN; c++) {
+		for (Row r = 1; r <= Field::VISIBLE_ROW; r++) {
+			FieldIndex fi = r * Field::COLUMN + c;
+			if (field[fi] == EMPTY) break;
+			if (used[fi]) continue;
+			if (SetLink(field, fi, &links[c_i], used)) {
+
+				Field f(field);
+
+				bool ok = false;
+				for (FieldIndex li : links[c_i]) {
+					for (int d : {-1, 1, Field::COLUMN}) {
+						FieldIndex n_fi = fi + d;
+						if (f[n_fi] == Color::EMPTY && f[n_fi - Field::COLUMN] != Color::EMPTY) {
+							f[n_fi] = f[fi];
+							f[n_fi + Field::COLUMN] = f[fi];
+							ok = true;
+							break;
+						}
+					}
+					if (ok) break;
+				}
+
+				if (ok) {
+					Chain ch = Simulator::Simulate(&f);
+					ch.frame += pre_frame;
+					Row crisis_height = std::max(Field::AVAILABLE_ROW - f.GetLowestEmptyRows(3),
+						std::min(Field::AVAILABLE_ROW - f.GetLowestEmptyRows(2), Field::AVAILABLE_ROW - f.GetLowestEmptyRows(4)));
+
+					int empty_count = f.CountEmptyPuyos();
+
+					rates.Push(ChainRate(ch, fatal_dose, crisis_height, empty_count, first_pi));
+					/*Field second_f(f);
+
+					for (Column c = 1; c <= Field::VISIBLE_COLUMN; c++) {
+		for (Row r = 1; r <= Field::VISIBLE_ROW; r++) {
+			FieldIndex fi = r * Field::COLUMN + c;
+		}
+	}*/
+				}
+
+
+				c_i++;
+			}
+		}
+	}
+
+	if (rates.empty()) return ChainRate(Chain(), 100000,15,0,0);
+	std::sort(rates.crs, rates.crs + rates._size, ChainRate::Compare);
+	return rates.crs[0];
+}
+
+bool NomiThink::SetLink(const Field& f, FieldIndex fi, std::vector<FieldIndex>* links, bool* used){
+	used[fi] = true;
+	bool linked = false;
+	for (int d : {-1, 1, Field::COLUMN, -Field::COLUMN}) {
+		if (used[fi + d]) continue;
+		if (f.ColorEqual(fi, fi + d)) {
+			linked = true;
+			if ( ! SetLink(f, fi + d, links, used)) {
+				links->push_back(fi + d);
+			}
+		}
+	}
+	if (linked) links->push_back(fi);
+	return linked;
+}
+
+
+
+
+ChainRate NomiThink::ChainThirdThink2(const Field& pre_field, Frame pre_frame, const PutIndex first_pi, Score fatal_dose) {
+	
+	MyVector rates;
+
+	Field third_field(pre_field);
+
+	for (Column c = 1; c <= Field::VISIBLE_COLUMN; c++) {
+		PutType third_put(c, RotateType::ROTATE_180);
+		if (!Simulator::CanPut(third_put, pre_field)) continue;
+		for (Color puyo : {Color::RED, Color::GREEN, Color::YELLOW, Color::PURPLE}) {
+				// ゾロを生成
+				Kumipuyo virtual_kumi(puyo, puyo);
+
+			Simulator::Put(virtual_kumi, &third_field, third_put);
+
+			Chain third_chain = Simulator::Simulate(&third_field);
+
+			Row crisis_height = std::max(Field::AVAILABLE_ROW - third_field.GetLowestEmptyRows(3),
+				std::min(Field::AVAILABLE_ROW - third_field.GetLowestEmptyRows(2), Field::AVAILABLE_ROW - third_field.GetLowestEmptyRows(4)));
+
+			int empty_count = third_field.CountEmptyPuyos();
+
+			// 前手までのフレームを加算
+			third_chain.frame += pre_frame;
+
+			if (&third_chain == nullptr) {
+				empty_count++;
+			}
+
+			ChainRate cr(third_chain, fatal_dose, crisis_height, empty_count, first_pi);
+
+			rates.Push(cr);
+
+			// UNDO
+			if (third_chain.score > 0) {
+				third_field = pre_field;
+			}
+			else {
+				std::pair<FieldIndex, FieldIndex> put_indexes(Simulator::CalculatePutIndex(third_put, third_field));
+				third_field[put_indexes.first] = Color::EMPTY;
+				third_field[put_indexes.second] = Color::EMPTY;
+			}
+		}
+	}
+	if (rates.empty()) return ChainRate();
+	std::sort(rates.crs, rates.crs + rates._size, ChainRate::Compare);
+	return rates.crs[0];
+}
+
+
 PutType NomiThink::Think(const State& state, Score fatal_dose) {
 
 	auto RATETOWER = [](const TowerRate &a, const TowerRate &b){
@@ -274,8 +362,7 @@ PutType NomiThink::Think(const State& state, Score fatal_dose) {
 		if (a.frame != b.frame) return a.frame > b.frame;
 		return a.putindex > b.putindex;
 	};
-	int best_score = 0;
-	PutIndex best_put = 0;
+
 	std::vector<TowerRate> first_que;
 	for (PutIndex pi = 0; pi < PUTTYPE_PATTERN; pi++) {
 		PutType first_put(pi);

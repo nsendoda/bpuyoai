@@ -136,6 +136,7 @@
     <ClInclude Include="src\ai\ai.h" />
     <ClInclude Include="src\ai\bitdata.h" />
     <ClInclude Include="src\ai\bitdatabase.h" />
+    <ClInclude Include="src\ai\chainrate.h" />
     <ClInclude Include="src\ai\data\puyocount_bit_raw.h" />
     <ClInclude Include="src\ai\nomi.h" />
     <ClInclude Include="src\ai\nomimemory.h" />

@@ -1,6 +1,7 @@
 #ifndef BPUYOAI_NOMIMEMORY_H_
 #define BPUYOAI_NOMIMEMORY_H_
 
+#include "../puttype.h"
 #include "../field.h"
 #include "../types.h"
 
@@ -18,6 +19,8 @@ public:
 
 	// 1->2連結にする。2連結に出来ないなら0を返す。
 	static int Complement1(Field * f, FieldIndex base, int direct, bool base_conflict, int c_i, int shape_i);
+
+	static const std::map<std::string, std::vector<PutType> > first_const_puts;
 
 private:
 	static int Complement3_0_1(Field* f, FieldIndex base, int direct, bool base_conflict);

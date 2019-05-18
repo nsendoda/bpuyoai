@@ -28,26 +28,10 @@ int Field::CountEmptyPuyos() const {
 
 // 12列目までで3列目12段から到達できる空いているマスの数を数える
 int Field::CountMawashiEmptyPuyos() const {
-	int dt[4] = { 1, -1, Field::COLUMN, - Field::COLUMN };
-	std::queue<FieldIndex> que;
 	int ans = 0;
-/*	if (field_[Field::FIELD_DEATH] != Color::EMPTY) return ans;
-	que.push(Field::FIELD_DEATH);
-	bool used[Field::FIELD_SIZE];
-	std::fill(used, used + Field::FIELD_SIZE, false);
-	while (!que.empty()) {
-		FieldIndex index = que.front();
-		used[index] = true;
-		ans++;
-		for (int i = 0; i < 4; i++) {
-			FieldIndex next_index = index + dt[i];
-			// 12段目の6列目より大きいINDEXならcontinue
-			if (next_index > Field::FIELD_END - Field::COLUMN
-				|| used[next_index]
-				|| field_[next_index] != Color::EMPTY) continue;
-			que.push(next_index);
-		}
-	}*/
+	for (int c = 1; c < COLUMN; c++) {
+		ans += std::max(0, 13 - GetLowestEmptyRows(c));
+	}
 	return ans;
 }
 

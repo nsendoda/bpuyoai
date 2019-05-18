@@ -206,5 +206,8 @@
     <ClInclude Include="src\mawashiputsimulator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\ai\chainrate.h">
+      <Filter>Header Files\ai</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

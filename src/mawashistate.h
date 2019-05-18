@@ -8,6 +8,8 @@
 #include "types.h"
 #include "simulator.h"
 #include "ojamasimulator.h"
+#include "mawashiputscore.h"
+#include "mawashiputsimulator.h"
 
 #include <functional>
 #include <vector>
@@ -20,7 +22,7 @@ public:
 		Init(drop_speed_);
 	};
 
-	void Init(Frame drop_speed_) {
+	inline void Init(Frame drop_speed_) {
 		// 0.5段落ちるのにかかる落下フレームを計算するために2で割る
 		// 16 -> 8
 		// 12 -> 6
@@ -48,8 +50,12 @@ public:
 		_mawashistate = Decide();
 	}
 
-	void Excute(const State& state_, BpuyoPad* bpuyopad_){
+	inline void Excute(const State& state_, BpuyoPad* bpuyopad_){
 		_mawashistate(state_, bpuyopad_);
+	}
+
+	inline void SetGiveUp() {
+		_mawashistate = GiveUp();
 	}
 
 private:
@@ -79,9 +85,6 @@ private:
 
 	MawashiStateType _mawashistate;
 
-	bool CanKarumeruMawashi(const Field & field_);
-	bool MawashiState::CanNormalMawashi(const Field& field_);
-
 	// 右回しをするか、左まわしをするかを決める。
 	// また、カルメル式回しができるかどうかを判断する。
 	MawashiStateType Decide();
@@ -103,52 +106,10 @@ private:
 	// 目的の場所へ置く
 	MawashiStateType Put();
 
+	// 負けを認める
+	MawashiStateType GiveUp();
 };
 
-class MawashiPutScore {
-public:
-	MawashiPutScore() : row_3(100), row_2(100), row_4(100), rest_ojama(1000), frame(-1), rest_field_empty_count(0) {}
-	MawashiPutScore(int r3, int r2, int r4, int rest_ojama, int frame, int rest_field_empty_count, PutType p)
-		:
-		row_3(r3),
-		row_2(r2),
-		row_4(r4),
-		rest_ojama(rest_ojama),
-		frame(frame),
-		rest_field_empty_count(rest_field_empty_count),
-		p(p) {}
 
-	// 3列目の高さとデスツインが作られる高さで、高い列の高さを返す
-	int DeadRow() const {
-		return std::max(row_3, MinRow24());
-	}
-	int Row3() const {
-		return row_3;
-	}
-	int MinRow24() const{
-		return std::min(row_2, row_4);
-	}
-	int RestOjama() const {
-		return rest_ojama;
-	}
-	int Frame() const {
-		return frame;
-	}
-	int RestField() const {
-		return rest_field_empty_count;
-	}
-	PutType Put() const {
-		return p;
-	}
-
-private:
-	int row_3;
-	int row_2;
-	int row_4;
-	int rest_ojama;
-	int frame;
-	int rest_field_empty_count;
-	PutType p;
-};
 
 #endif

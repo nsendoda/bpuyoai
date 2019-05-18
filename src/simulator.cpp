@@ -256,6 +256,75 @@ bool Simulator::ValidPosition(const Kumipuyo &kumipuyo, const Field &field) {
 	return field[parent_index] == Color::EMPTY && field[child_index] == Color::EMPTY;
 }
 
+// 1連鎖が終わった状態でSimulateスタート
+// 2連鎖目のみの計算で、3連鎖目以降は計算しない。
+Chain Simulator::Chain2Simulatation(Field *field_) {
+	Field &field = *field_;
+	int chain_num = 1; // 1連鎖終わった状態からスタート
+	int score = 0;
+	int chain_frame = 0;
+
+	bool isDisappeared = false;
+
+	bool color[Color::WALL] = {
+			false }; /* 連結していたぷよの色のindexにtrueが格納される配列 */
+	int colorNum = 0;      /* 連結していたぷよの色の種類 */
+	int disappeardNum = 0; /* この1連鎖で消えたぷよの量の和 */
+	int bonus_chain, bonus_link, bonus_color; /* 各ボーナスの値が格納される */
+
+	bonus_link = 0; /* 連結ボーナス
+										* 4つ以上連結しているぷよを探す.
+										* 見つけたら, そのぷよたちを消す.
+										*/
+	for (Column c = 1; c <= Field::VISIBLE_COLUMN; c++) {
+
+		for (Row r = 1; r <= Field::VISIBLE_ROW; r++) {
+
+			FieldIndex i = c + r * Field::COLUMN;
+			if (field[i] == EMPTY) break;
+
+			if (field[i] == Color::OJAMA) {
+				continue;
+			}
+
+			bool linked[Field::FIELD_SIZE] = {}; // 連結している場所にtrueが格納される配列
+
+
+			/* 連結数を取得する */
+			int linkNum = Simulator::CalculateLinkCount(field, i, linked);
+			/* 4つ以上連結していたら */
+			if (linkNum >= 4) {
+				isDisappeared = true;
+				disappeardNum += linkNum;
+				bonus_link += kBonusLink[linkNum];
+				/* 連結しているぷよの色を保存 */
+				if (!color[field[i]]) {
+					color[field[i]] = true;
+					colorNum++;
+				}
+				/* 連結しているぷよを消す */
+				Simulator::DeleteLink(&field, i, chain_num, linked);
+			}
+		}
+	}
+	if (isDisappeared) {
+		/* ぷよが消えているので, ぷよたちを落下させる. 同時に連鎖時間も取得. */
+		chain_frame += kTimeOneChainAndDrop[Simulator::FallAll(field_)];
+		/* 連鎖数を増やす */
+		chain_num++;
+		/* 得点の計算 */
+		bonus_chain = kBonusChain[chain_num];
+		bonus_color = kBonusColor[colorNum];
+		/* ボーナスの和が0なら, ボーナス全体を1として計算するため,
+			* ここでは連鎖ボーナスを1として代える. */
+		if (bonus_chain + bonus_link + bonus_color == 0) {
+			bonus_chain = 1;
+		}
+		score += 10 * disappeardNum * (bonus_chain + bonus_link + bonus_color);
+	}
+	return Chain(chain_num, score, chain_frame);
+}
+
 // --------------below private------------------- 
 
 void Simulator::DeleteLink(Field *field_, int i, int chain_num, bool linked[]) {

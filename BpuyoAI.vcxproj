@@ -121,6 +121,8 @@
     <ClCompile Include="src\chain.cpp" />
     <ClCompile Include="src\field.cpp" />
     <ClCompile Include="src\kumipuyo.cpp" />
+    <ClCompile Include="src\mawashi.cpp" />
+    <ClCompile Include="src\mawashiputsimulator.cpp" />
     <ClCompile Include="src\mawashistate.cpp" />
     <ClCompile Include="src\ojamasimulator.cpp" />
     <ClCompile Include="src\padsearch.cpp" />
@@ -149,6 +151,9 @@
     <ClInclude Include="src\debug.h" />
     <ClInclude Include="src\field.h" />
     <ClInclude Include="src\kumipuyo.h" />
+    <ClInclude Include="src\mawashi.h" />
+    <ClInclude Include="src\mawashiputscore.h" />
+    <ClInclude Include="src\mawashiputsimulator.h" />
     <ClInclude Include="src\mawashistate.h" />
     <ClInclude Include="src\mode.h" />
     <ClInclude Include="src\ojama.h" />

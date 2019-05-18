@@ -18,7 +18,7 @@
 class NomiThink {
 public:
 	static std::vector<PutType> ConstantPut(const State & state_, const Kumipuyo & pre);
-	static Score CalculateFatalDose(const State & state_);
+	static Score CalculateFatalDose(const State & state_, int enemy_all_ojama);
 	static bool KillThink(const State & state, Score fatal_dose, FieldIndex * fi);
 	static PutType NomiThink::Think(const State& state, Score fatal_dose);
 private:
@@ -26,7 +26,7 @@ private:
 	static std::vector<PutType> FirstConstants(const std::string & p);
 
 
-	static bool CanFireTower(const Field & f, FieldIndex i, FieldIndex pre);
+	static bool CanFireTower(const Field & f, FieldIndex i, FieldIndex pre, FieldIndex out);
 
 	static TowerRate Waruagaki(const Field& second_field, Score fatal_dose, PutIndex pi, Frame puts_frame);
 
@@ -42,7 +42,11 @@ private:
 
 	static int LinkCount(const Field & field, FieldIndex i);
 
-	static int ComplementTower3And2And1(Field * f, bool* used, const TowerBase & t_base);
+	static int ComplementTower1And2And3(Field * f, bool* used, const TowerBase & t_base);
+
+	static int ComplementTower1(Field * f, bool * used, const TowerBase & t_base);
+
+	static int ComplementTower2(Field * f, bool * used, const TowerBase & t_base);
 
 	static int ComplementTower3(Field * f, bool * used, const TowerBase & t_base);
 

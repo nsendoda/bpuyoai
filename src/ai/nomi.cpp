@@ -3,7 +3,7 @@
 Nomi::Nomi() :
 	state(MYSELF),
 	enemy(ENEMY),
-	mawashi_state(ai_GetDropSpeed(MYSELF)){}
+	mawashi(ai_GetDropSpeed(MYSELF)){}
 
 
 
@@ -14,7 +14,7 @@ void Nomi::Init() {
 
 
 //	ai_SetTable(1, 0, "GR GR GG YG YY YP PP");
-//	ai_SetTable(1, 0, "GR YG");
+	ai_SetTable(1, 0, "GR YG");
 #ifdef USE_DATABASE
 	for (int i = 0; i < DATABASE_SIZE; i++)
 		RawData::SetDatabase(i, &database[i]);
@@ -35,23 +35,27 @@ void Nomi::PreProcess() {
 
 
 	// お邪魔テーブルを相手の連鎖発火から検知
-	state.DetectOjama(enemy);
-	enemy.DetectOjama(state);
+	state.DetectOjama(&enemy);
+	enemy.DetectOjama(&state);
+
+	// 相手が連鎖をしていない時は、常にお邪魔量を更新
+	state.UpdateOjama(enemy);
+	enemy.UpdateOjama(state);
+
 
 	// 有効スコアを更新
-//	state
-
-	Debug::Print("preprocess: mymode:%d, enmode: %d, turn: %d\n", ai_GetPlayerMode(MYSELF),
-		ai_GetPlayerMode(ENEMY), ai_GetCount2(ENEMY));
+	Debug::Print("preprocess: mymode:%d, enmode: %d, turn: %d, frame:%d\n", ai_GetPlayerMode(MYSELF),
+		ai_GetPlayerMode(ENEMY), ai_GetCount2(ENEMY), state.hand_frame);
 
 }
 
 void Nomi::Main() {
 
+	Debug::Print("main: frame:%d\n", state.hand_frame);
 
 	if (state.DetectTurnChange()) {
 
-		mawashi_state.Init(ai_GetDropSpeed(MYSELF));
+		mawashi.Init(ai_GetDropSpeed(MYSELF));
 
 		my_pad.Press(NEUTRAL);
 		return;
@@ -61,9 +65,14 @@ void Nomi::Main() {
 		
 		state.UpdateUnitHand();
 
+
 		Decide();
 		PadDecide();
 		
+	}
+	if (mawashi.ShouldMawashi(state, enemy)) {
+		mawashi.Execute(state, &my_pad);
+		return;
 	}
 	Operate();
 }
@@ -96,7 +105,7 @@ void Nomi::Decide() {
 		return;
 	}
 
-	Score fatal_dose = NomiThink::CalculateFatalDose(state);
+	Score fatal_dose = NomiThink::CalculateFatalDose(state, enemy.ojamas.SumOjama());
 
 	FieldIndex kill_index;
 	if (NomiThink::KillThink(state, fatal_dose, &kill_index)) {

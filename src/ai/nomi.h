@@ -12,7 +12,7 @@
 #include "../pad.h"
 #include "../padsearch.h"
 #include "../bpuyopad.h"
-#include "../mawashistate.h"
+#include "../mawashi.h"
 #include "../types.h"
 
 #ifdef USE_DATABASE
@@ -52,7 +52,7 @@ private:
 
 	BpuyoPad my_pad;
 
-	MawashiState mawashi_state;
+	Mawashi mawashi;
 
   std::vector<Pad> pad_orders;
 

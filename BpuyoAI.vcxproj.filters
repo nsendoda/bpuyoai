@@ -81,6 +81,12 @@
     <ClCompile Include="src\ai\nomimemory.cpp">
       <Filter>Header Files\ai</Filter>
     </ClCompile>
+    <ClCompile Include="src\mawashi.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mawashiputsimulator.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="puyo_ai.h">
@@ -190,6 +196,15 @@
     </ClInclude>
     <ClInclude Include="src\ai\towerrate.h">
       <Filter>Header Files\ai</Filter>
+    </ClInclude>
+    <ClInclude Include="src\mawashi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\mawashiputscore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\mawashiputsimulator.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

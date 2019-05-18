@@ -53,6 +53,8 @@ public:
   static const int FIELD_DEATH = 87;
 
   static const int PUYO_APPEAR_COLUMN = 3;
+	static const int AVAILABLE_ROW = 13;
+
 	static const int VISIBLE_COLUMN = 6;
 	static const int VISIBLE_ROW = 12;
 	static const int VISIBLE_FIELD_END = 90; // 12段目の6列目

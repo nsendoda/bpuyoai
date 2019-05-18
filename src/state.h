@@ -34,7 +34,9 @@ public:
 	// フレーム毎の更新
 	bool UpdateUnitFrame();
 
-	void DetectOjama(const State & enemy_);
+	void DetectOjama(State * enemy_);
+
+	void UpdateOjama(const State & enemy_);
 
 	Mode GetMode() const;
 
@@ -42,6 +44,7 @@ public:
 
 private:
   Player player_;
+	bool chain_checked;
   bool TurnChanged();
 };
 

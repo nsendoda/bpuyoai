@@ -53,6 +53,7 @@ std::vector<PutType> NomiThink::FirstConstants(const std::string& p) {
 	{"AAAAAA", {PutType(4, ROTATE_180), PutType(1, ROTATE_180), PutType(1, ROTATE_180)}},
 	{"AAAAAB", {PutType(4, ROTATE_180), PutType(1, ROTATE_180), PutType(3, ROTATE_180)}},
 	{"AAAABB", {PutType(4, ROTATE_180), PutType(1, ROTATE_180), PutType(5, ROTATE_180)}},
+	{"AAAABC", {PutType(4, ROTATE_180), PutType(1, ROTATE_180), PutType(5, ROTATE_180)}},
 
 	{"AAABAA", {PutType(4, ROTATE_180), PutType(3, ROTATE_180), PutType(1, ROTATE_180)}},
 	{"AAABAB", {PutType(4, ROTATE_180), PutType(3, ROTATE_180), PutType(3, ROTATE_180)}},
@@ -105,7 +106,8 @@ std::vector<PutType> NomiThink::FirstConstants(const std::string& p) {
 	{"ABACBC", {PutType(4, ROTATE_90), PutType(4, ROTATE_90), PutType(4, ROTATE_90 )}},
 	{"ABACBD", {PutType(4, ROTATE_90), PutType(4, ROTATE_90), PutType(4, ROTATE_90 )}},
 	{"ABACCC", {PutType(4, ROTATE_90), PutType(4, ROTATE_90), PutType(6, ROTATE_180)}},
-	{"ABACCD", {PutType(4, ROTATE_90), PutType(4, ROTATE_90), PutType(5, ROTATE_0  )}},
+	{"ABACCD", {PutType(4, ROTATE_90), PutType(4, ROTATE_90), PutType(5, ROTATE_0)}},
+	{"ABACDD", {PutType(4, ROTATE_90), PutType(4, ROTATE_90), PutType(5, ROTATE_0)}},
 
 	{"ABBBAA", {PutType(3, ROTATE_90), PutType(3, ROTATE_90), PutType(4, ROTATE_180)}},
 	{"ABBBAB", {PutType(3, ROTATE_90), PutType(3, ROTATE_90), PutType(3, ROTATE_0  )}},
@@ -146,16 +148,16 @@ std::vector<PutType> NomiThink::FirstConstants(const std::string& p) {
 	{"ABCDBC", {PutType(3, ROTATE_90 ), PutType(5, ROTATE_0  ), PutType(4, ROTATE_0  )}},
 	{"ABCDBD", {PutType(3, ROTATE_90 ), PutType(5, ROTATE_180), PutType(4, ROTATE_0  )}},
 	{"ABCDCC", {PutType(3, ROTATE_90 ), PutType(4, ROTATE_270), PutType(3, ROTATE_90 )}},
-	{"ABCDCD", {PutType(3, ROTATE_90 ), PutType(3, ROTATE_180), PutType(4, ROTATE_180)}},
+	{"ABCDCD", {PutType(3, ROTATE_90 ), PutType(3, ROTATE_90 ), PutType(4, ROTATE_180)}},
 	{"ABCDDD", {PutType(3, ROTATE_90 ), PutType(3, ROTATE_90 ), PutType(3, ROTATE_90 )}},
 	};
 
 	return mp[p];
 }
 
-Score NomiThink::CalculateFatalDose(const State& state_) {
-
-	Row max_need_ojamarow = Field::VISIBLE_ROW - state_.field.GetLowestEmptyRows(Field::PUYO_APPEAR_COLUMN);
+Score NomiThink::CalculateFatalDose(const State& state_, int enemy_all_ojama) {
+	Row ojama_row = enemy_all_ojama / Field::VISIBLE_COLUMN;
+	Row max_need_ojamarow = Field::VISIBLE_ROW - state_.field.GetLowestEmptyRows(Field::PUYO_APPEAR_COLUMN) - ojama_row;
 	for (PutIndex pi = 0; pi < PUTTYPE_PATTERN; pi++) {
 		PutType first_put(pi);
 		if (!Simulator::CanPut(first_put, state_.field)) continue;
@@ -298,9 +300,12 @@ PutType NomiThink::Think(const State& state, Score fatal_dose) {
 
 			// DEATH
 			if (second_field[Field::FIELD_DEATH] != Color::EMPTY)  continue;
+			
 
 			TowerBase base(BaseDecide(second_field));
-			if (!CanFireTower(second_field, base.base[1], -1)) {
+
+
+			if (!CanFireTower(second_field, base.base[1], -1, base.cannot_fire_index)) {
 				second_que.push_back(Waruagaki(second_field, fatal_dose, pi, first_frame + second_frame));
 			}
 			else {
@@ -345,19 +350,21 @@ TowerBase NomiThink::BaseDecide(const Field& f) {
 			// ずらしタワー、2式5式を許さない
 			if (f.ColorEqual(d + C + 4, d + C + 3) || f.ColorEqual(d + C + 4, d + C + 5) || f.ColorEqual(d + C + 4, d + C * 2 + 5) || f.ColorEqual(d + C + 4, d + C * 3 + 3))
 				return TowerBase(p, 0, 0, 0, 0, true);
-			return TowerBase(p, d + C * 2 + 3, d + C + 4, d + C * 2 + 4, 4, true);
+			return TowerBase(p, d + C * 2 + 3, d + C + 4, d + C * 2 + 4,
+				d + C * 3 + 4, 4, true);
 		}
 		// ..ov..
 		// ..o...
 		if (f.ColorEqual(d + C + 3, d + C * 2 + 3)) {
 			Color p = f[d + C + 3];
 			if (f.ColorEqual(d + C + 3, d + C * 2 + 4))
-				return TowerBase(p ,d + C * 2 + 4, d + C * 2 + 3, d + C + 3, 3, false);
+				return TowerBase(p ,d + C * 2 + 4, d + C * 2 + 3, d + C + 3,
+					d + C * 3 + 3, 3, false);
 			// ずらしタワー、2式5式を許さない
 			if (f.ColorEqual(d + C + 3, d + C + 4) || f.ColorEqual(d + C + 3, d + C + 2) || f.ColorEqual(d + C + 3, d + C * 2 + 2))
 				return TowerBase(p,0, 0, 0, 0, false);
 			else
-				return TowerBase(p, d + C * 2 + 3, d + C + 3, 3, false);
+				return TowerBase(p, d + C * 2 + 3, d + C + 3, d + C * 3 + 3, 3, false);
 		}
 	}
 	// 土台構築失敗
@@ -368,12 +375,12 @@ TowerBase NomiThink::BaseDecide(const Field& f) {
 // iを壁にすると必ずfalseを返す。
 // @note:必ず3連結以下になるindexを渡すこと。でないと無限ループが発生しうる
 // @args:iは現在のindex, preは前回の位置のFieldIndex
-bool NomiThink::CanFireTower(const Field& f, FieldIndex i, FieldIndex pre) {
+bool NomiThink::CanFireTower(const Field& f, FieldIndex i, FieldIndex pre, FieldIndex out) {
 	if (f[i] == Color::WALL) return false;
 	bool ok = false;
 	for (int d : dt) {
-		if (i + d == pre) continue;
-		if (f[i] == f[i + d]) ok |= CanFireTower(f, i + d, i);
+		if (i + d == pre || i + d == out) continue;
+		if (f[i] == f[i + d]) ok |= CanFireTower(f, i + d, i, out);
 		if (f[i + d] == Color::EMPTY) return true;
 	}
 	return ok;
@@ -434,39 +441,42 @@ Chain NomiThink::ActualChain(const Field& f_, const TowerBase& t_base) {
 	BaseDelete(&f, t_base);
 	Simulator::FallAll(&f);
 	// 2連鎖目開始でタワー発火
-	return Simulator::Simulate(&f, -1, -1, 1);
+	return Simulator::Chain2Simulatation(&f);
 }
 
 TowerRate NomiThink::VirtualChain(const Field & f_, const TowerBase& t_base, Score fatal_dose) {
-	Field f(f_);
+	Field second_tmp(f_);
 	// 土台を消してぷよを落とす
-	BaseDelete(&f, t_base);
+	BaseDelete(&second_tmp, t_base);
 
-	Simulator::FallAll(&f);
+	Simulator::FallAll(&second_tmp);
 
 	// 念のため
 
-	f.ModifyLowestEmptyRows();
+	second_tmp.ModifyLowestEmptyRows();
 
 	// 補完
 	bool used[Field::FIELD_SIZE];
 	std::fill_n(used, Field::FIELD_SIZE, false);
-	int complement_ct = ComplementTower3And2And1(&f, used, t_base);
+	int complement_ct = ComplementTower3(&second_tmp, used, t_base);
 
 	// 一回目の補完で致死を超えていたらそれを採用
-	Field tmp(f);
+	Field tmp(second_tmp);
 	Chain first_chain(Simulator::Simulate(&tmp,-1,-1,1));
-//	if (first_chain.score + 40 >= fatal_dose)
+//	Chain first_chain(Simulator::Chain2Simulatation(&tmp));
+	if (first_chain.score + 40 >= fatal_dose)
 		return TowerRate(first_chain.score, complement_ct, first_chain.frame);
 
-	// もう一度補完を行う。
+	// 致死を越えなければ、2連鎖目のみを考慮に入れて１～３連結の補完を行う。
 	// @because 2->3を3->4にする。
 	std::fill_n(used, Field::FIELD_SIZE, false);
-	complement_ct += ComplementTower3(&f, used, t_base);
+	complement_ct = ComplementTower1And2And3(&second_tmp, used, t_base);
 
-	Chain second_chain(Simulator::Simulate(&f, -1, -1, 1));
+	Chain second_chain(Simulator::Chain2Simulatation(&second_tmp));
 	return TowerRate(second_chain.score, complement_ct, second_chain.frame);
 }
+
+
 
 // タワーの土台と土台周りのお邪魔ぷよを消す。
 void NomiThink::BaseDelete(Field* f, const TowerBase& t_base) {
@@ -519,10 +529,40 @@ int NomiThink::LinkCount(const Field& field, FieldIndex first_index) {
 	return count;
 }
 
-int NomiThink::ComplementTower3And2And1(Field* f, bool* used, const TowerBase& t_base) {
+int NomiThink::ComplementTower1And2And3(Field* f, bool* used, const TowerBase& t_base) {
 
-	int ct = ComplementTower3(f, used, t_base);
+	int ct = 0;
+	ct += ComplementTower1(f, used, t_base);
 
+	ct += ComplementTower2(f, used, t_base);
+
+	ct += ComplementTower3(f, used, t_base);
+
+
+	return ct;
+}
+
+int NomiThink::ComplementTower1(Field* f, bool* used, const TowerBase& t_base) {
+	int ct = 0;
+	for (Row r = 1; r <= Field::VISIBLE_ROW; r++) {
+		for (int c_i = 0; c_i < t_base.complement_column.size(); c_i++) {
+			Column complement_c = t_base.complement_column[c_i];
+			// リザーブ列の探査は正当なCOLUMNが代入されている時のみ
+			if (complement_c == TowerBase::NOTEXIST) continue;
+			FieldIndex ind = r * Field::COLUMN + complement_c;
+
+			if (used[ind]) continue;
+
+			const int d = t_base.GetDirect();
+
+			ct += Complement1Connection(f, used, ind, c_i, 0, d, false);
+		}
+	}
+	return ct;
+}
+
+int NomiThink::ComplementTower2(Field* f, bool* used, const TowerBase& t_base) {
+	int ct = 0;
 	for (Row r = 1; r <= Field::VISIBLE_ROW; r++) {
 		for (int c_i = 0; c_i < t_base.complement_column.size(); c_i++) {
 			Column complement_c = t_base.complement_column[c_i];
@@ -543,8 +583,6 @@ int NomiThink::ComplementTower3And2And1(Field* f, bool* used, const TowerBase& t
 
 			ct += Complement2Connection(f, used, ind, ind + Field::COLUMN, c_i, 0, d, false);
 			ct += Complement2Connection(f, used, ind, ind + d, c_i, 1, d, false);
-
-			ct += Complement1Connection(f, used, ind, c_i, 0, d, false);
 		}
 	}
 	return ct;

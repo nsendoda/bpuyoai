@@ -19,10 +19,13 @@ struct TowerBase {
 	// 土台のIndex
 	std::vector<FieldIndex> base;
 
+	// 発火点に出来ないINDEX
+	FieldIndex cannot_fire_index;
+
 	// @args i, j..タワー土台の縦2連結部分。順番はどうでもよい
 	// @args c..縦2連結部分のColumn
 	// @args ordered..順タワーならtrue, 逆タワーならfalse
-	TowerBase(Color puyo, int i, int j, Column c, bool ordered) {
+	TowerBase(Color puyo, int i, int j,FieldIndex fi, Column c, bool ordered) : cannot_fire_index(fi) {
 		SetBase(puyo, i, j, c, ordered);
 	}
 
@@ -31,7 +34,7 @@ struct TowerBase {
 // @args i, j..タワー土台の縦2連結部分。順番はどうでもよい
 // @args c..縦2連結部分のColumn
 // @args ordered..順タワーならtrue, 逆タワーならfalse
-	TowerBase(Color puyo, int r, int i, int j, Column c, bool ordered) {
+	TowerBase(Color puyo, int r, int i, int j,FieldIndex fi, Column c, bool ordered) : cannot_fire_index(fi) {
 		SetBase(puyo, r, i, j, c, ordered);
 	}
 

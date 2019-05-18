@@ -23,6 +23,11 @@ void BpuyoPad::Neutral() {
 	std::fill(pad, pad + 6, false);
 }
 
+void BpuyoPad::GiveUp()
+{
+	ai_SetPad(1, 0, 0, 0, 1, 1);
+}
+
 void BpuyoPad::Dance(int frame_ct) {
 	if (frame_ct == 0)
 		BpuyoPad::Press(LEFT);

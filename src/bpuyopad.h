@@ -20,6 +20,9 @@ public:
 	// pad‚ð‘S‚Äfalse‚É‚·‚é
   // button ‚Í‰Ÿ‚³‚È‚¢
 	void Neutral();
+
+	// GIVEUP‚·‚é
+	void GiveUp();
 	
 	// ŽÀŒ±—p
 	void Dance(int frame_ct);

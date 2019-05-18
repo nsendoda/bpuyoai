@@ -15,7 +15,7 @@ public:
   static Chain Simulate(Field *field_, int parent_index = -1,
                         int child_index = -1, int chain_num = 0);
 
-  // 浮いているぷよを全て落とす
+  // 浮いているぷよを全て落とすu
   // @ret 最大落下段数
   static Row FallAll(Field *field_);
 
@@ -51,6 +51,8 @@ public:
   static bool CanPut(const PutType &puttype, const Field &field);
 
 	static bool ValidPosition(const Kumipuyo &kumipuyo, const Field &field);
+
+	static Chain Chain2Simulatation(Field * field_);
 
 private:
   static void DeleteLink(Field *field_, int i, int chain_num, bool linked[]);

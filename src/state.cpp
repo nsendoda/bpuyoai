@@ -41,21 +41,37 @@ bool State::UpdateUnitFrame() {
 	return true;
 }
 
-void State::DetectOjama(const State& enemy_) {
-	static bool checked = false;
-	if (enemy_.GetMode() == Mode::CHAIN_CHECK) {
-		checked = true;
-		Field tmp(enemy_.field);
-		Chain res = Simulator::Simulate(&tmp);
+// お邪魔を検出する。
+// @note 連鎖チェック時にフィールドはこの関数が終わった後も消した状態にされるが、
+// 相手のMODEがCHAIN_CHECKの時に必要なフィールドはこの関数の処理以外では連鎖後のフィールドなので、
+// 消してしまって良い。
+void State::DetectOjama(State * enemy_) {
+	if ( ! chain_checked && enemy_->GetMode() == Mode::CHAIN_CHECK) {
+		chain_checked = true;
+		PutType enemy_put = PutType(enemy_->now_kumipuyo.GetColumn(), enemy_->now_kumipuyo.now_rotate);
+		Simulator::Put(enemy_->now_kumipuyo, &enemy_->field, enemy_put);
+		Chain res = Simulator::Simulate(&enemy_->field);
 		int ojama = res.score / Ojama::ONE_SCORE;
 		if (ojama > 0) {
 			ojamas.pre_ojama.Set(ojama, res.frame);
 		}
 	}
-	if (enemy_.GetMode() == Mode::OPERATION) {
-		checked = false;
+	// 操作可能状態になったら再度検出をスタート。
+	if (chain_checked && enemy_->GetMode() == Mode::OPERATION) {
+		chain_checked = false;
 	}
 
+}
+
+// 相手の連鎖が終了している時は、手動で更新
+// 自分にお邪魔ぷよが降っている時はお邪魔ぷよ量は取得しない
+// @because お邪魔落下中はFieldにはお邪魔は落下していないが、Ojamaは落下する分減らされた状態になり、不整合が生じる
+void State::UpdateOjama(const State& enemy_) {
+	if ((enemy_.GetMode() == Mode::OPERATION)
+		&& GetMode() != Mode::OJAMA_DROP) {
+		ojamas.pre_ojama.Set(0, 0);
+		ojamas.instant_quantity = Bpuyo::Ojama(player_);
+	}
 }
 
 Mode State::GetMode() const{

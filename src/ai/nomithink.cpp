@@ -287,9 +287,10 @@ ChainRate NomiThink::ChainThirdThink(const Field& pre_field, Frame pre_frame, co
 				for (FieldIndex li : links[c_i]) {
 					for (int d : {-1, 1, Field::COLUMN}) {
 						FieldIndex n_fi = fi + d;
-						if (f[n_fi] == Color::EMPTY && f[n_fi - Field::COLUMN] != Color::EMPTY) {
+						// 空マスであり、下に床があって、置ける列なら補完
+						if (f[n_fi] == Color::EMPTY && f[n_fi - Field::COLUMN] != Color::EMPTY
+							&& Simulator::CanPut(PutType(n_fi%Field::COLUMN, RotateType::ROTATE_0), f)) {
 							f[n_fi] = f[fi];
-							f[n_fi + Field::COLUMN] = f[fi];
 							ok = true;
 							break;
 						}

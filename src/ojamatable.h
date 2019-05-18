@@ -28,14 +28,14 @@ public:
 
 	// お邪魔を最大30個減らす。
 	// @when ターンが切り替わった時に、お邪魔落下処理と整合性を合わせるために呼ばれる。
-	int Drop() {
+/*	int Drop() {
 		int ans = 0;
 		if (instant_quantity > Ojama::MAX_ONCE) {
 			instant_quantity -= Ojama::MAX_ONCE;
 			return Ojama::MAX_ONCE;
 		}
 		return ans;
-	}
+	}*/
 
 	int SumOjama() const {
 		return instant_quantity + pre_ojama.quantity;
@@ -45,6 +45,18 @@ public:
 	int Change(const Field& field) const {
 		int change = 0;
 		Row min_ojama_drop = SumOjama() / Field::VISIBLE_COLUMN;
+		for (Column c = 1; c <= Field::COLUMN; c++) {
+			int rest_capa = Field::AVAILABLE_ROW - (field.GetLowestEmptyRows(c) - 1) - min_ojama_drop;
+			if (rest_capa < 0) change += std::abs(rest_capa);
+		}
+		return change;
+	}
+
+	// 赤玉で発生するぷよまでの御釣りを返す
+	// 赤玉以下のお邪魔落下（最後のお邪魔落下）の御釣りは含まない
+	int AkadamaChange(const Field& field) const{
+				int change = 0;
+		Row min_ojama_drop = (SumOjama() - SumOjama() % Ojama::MAX_ONCE) / Field::VISIBLE_COLUMN;
 		for (Column c = 1; c <= Field::COLUMN; c++) {
 			int rest_capa = Field::AVAILABLE_ROW - (field.GetLowestEmptyRows(c) - 1) - min_ojama_drop;
 			if (rest_capa < 0) change += std::abs(rest_capa);

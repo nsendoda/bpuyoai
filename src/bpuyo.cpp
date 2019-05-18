@@ -49,3 +49,8 @@ Mode Bpuyo::GetMode(Player player_) {
 int Bpuyo::Turn(Player player) {
 	return ai_GetCount2(player);
 }
+
+Frame Bpuyo::GetDropSpeed(Player player_)
+{
+	return ai_GetDropSpeed(player_);
+}

@@ -17,7 +17,8 @@ public:
 	static int Ojama(Player player_);
 	static Mode GetMode(Player player_);
 	static int Turn(Player player_);
-
+	// 1マス落下するのにかかるフレーム
+	static Frame GetDropSpeed(Player player_);
 };
 
 #endif

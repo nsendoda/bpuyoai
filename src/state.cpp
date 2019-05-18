@@ -29,7 +29,6 @@ void State::UpdateUnitHand() {
 	Bpuyo::NowColor(&now_kumipuyo, player_);
 	Bpuyo::NextColor(&next_kumipuyo, player_);
 	Bpuyo::NowField(&field, player_);
-	ojamas.Drop();
 }
 
 // 1フレームごとに更新すべき情報を更新

@@ -58,12 +58,14 @@ public:
 		_mawashistate = GiveUp();
 	}
 
+	inline void SetQuicklyDrop() {
+		_mawashistate = DecidePutQuickly();
+	}
+
 private:
 
 
 	using MawashiStateType = std::function<void(const State& state, BpuyoPad* bpuyopad_)>;
-
-
 
 	Frame _now_put_delay_frame;
 	Frame _now_delay_rerotate;
@@ -101,10 +103,14 @@ private:
 	MawashiStateType Mawashi();
 
 	// 最終的に置く場所を決める
-	MawashiStateType PutDecide();
+	MawashiStateType DecidePut();
+	MawashiStateType DecidePutQuickly();
 
 	// 目的の場所へ置く
 	MawashiStateType Put();
+
+	// 急いで目的の場所へ置く（下を押す）
+	MawashiStateType PutQuickly();
 
 	// 負けを認める
 	MawashiStateType GiveUp();

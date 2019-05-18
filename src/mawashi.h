@@ -19,7 +19,7 @@ public:
 
 	void Execute(const State& state_, BpuyoPad* bpuyopad_);
 
-	bool AdjustPut(const State& state);
+	bool DecideAdjustPut(const State& state);
 	
 	bool ShouldMawashi(const State& state, const State& enemy);
 
@@ -27,6 +27,7 @@ public:
 private:
 	MawashiState mawashistate;
 	int CountMawashi(const State & state) const;
+	int CountMinMawashi(const State & state) const;
 	int Divide(int a, int b) const;
 
 };

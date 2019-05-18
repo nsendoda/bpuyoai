@@ -229,7 +229,7 @@ MawashiState::MawashiStateType MawashiState::KarumeruMawashi() {
 			if (_mawashi_count == MAX_KAERUMERU_MAWASHI) {
 				// state transition
 				// @note: 次フレームから
-				_mawashistate = PutDecide();
+				_mawashistate = DecidePut();
 			}
 		}
 
@@ -300,7 +300,7 @@ MawashiState::MawashiStateType MawashiState::Mawashi() {
 			if (_mawashi_count == MAX_MAWASHI) {
 				// state transition
 				// @note: 次フレームから
-				_mawashistate = PutDecide();
+				_mawashistate = DecidePut();
 			}
 		}
 
@@ -309,10 +309,20 @@ MawashiState::MawashiStateType MawashiState::Mawashi() {
 }
 
 
-MawashiState::MawashiStateType MawashiState::PutDecide() {
+MawashiState::MawashiStateType MawashiState::DecidePut() {
 	return [&](const State& state_, BpuyoPad* bpuyopad_) {
 		_best_put = MawashiSimulator::BestMawashi(state_, _drop_frame);
 		_mawashistate = Put();
+		_mawashistate(state_, bpuyopad_);
+	};
+}
+
+MawashiState::MawashiStateType MawashiState::DecidePutQuickly()
+{
+	return [&](const State& state_, BpuyoPad* bpuyopad_) {
+		_best_put = MawashiSimulator::BestMawashi(state_, _drop_frame);
+		_mawashistate = PutQuickly();
+		_mawashistate(state_, bpuyopad_);
 	};
 }
 
@@ -352,6 +362,53 @@ MawashiState::MawashiStateType MawashiState::Put() {
 			else if (!bpuyopad_->IsRotateRight() && !bpuyopad_->IsRotateLeft()) {
 				pad.SetRotateRight(true);
 			}
+		}
+
+		bpuyopad_->Press(pad);
+	};
+}
+
+MawashiState::MawashiStateType MawashiState::PutQuickly() {
+
+	return [&](const State& state_, BpuyoPad* bpuyopad_) {
+		float wait_x = _best_put.column - 1;
+
+		Pad pad;
+		// set move
+		if (state_.now_kumipuyo.X() < wait_x
+			&& !bpuyopad_->IsRight()) {
+			pad.SetRight(true);
+		}
+		else if (state_.now_kumipuyo.X() > wait_x
+			&& !bpuyopad_->IsLeft()) {
+			pad.SetLeft(true);
+		}
+
+		// set rotate
+		if (state_.now_kumipuyo.now_rotate != _best_put.rotate) {
+			if ((_best_put.rotate == RotateType::ROTATE_90
+				|| _best_put.rotate == RotateType::ROTATE_0)
+				&& (state_.now_kumipuyo.now_rotate == RotateType::ROTATE_0
+					|| state_.now_kumipuyo.now_rotate == RotateType::ROTATE_270)
+				&& !bpuyopad_->IsRotateRight()) {
+				pad.SetRotateRight(true);
+			}
+			else if ((_best_put.rotate == RotateType::ROTATE_270
+				|| _best_put.rotate == RotateType::ROTATE_0)
+				&& (state_.now_kumipuyo.now_rotate == RotateType::ROTATE_0
+					|| state_.now_kumipuyo.now_rotate == RotateType::ROTATE_90)
+				&& !bpuyopad_->IsRotateLeft()) {
+				pad.SetRotateLeft(true);
+			}
+			else if (!bpuyopad_->IsRotateRight() && !bpuyopad_->IsRotateLeft()) {
+				pad.SetRotateRight(true);
+			}
+		}
+
+		if (state_.now_kumipuyo.GetColumn() == _best_put.column &&
+			state_.now_kumipuyo.now_rotate == _best_put.rotate)
+		{
+			pad.SetDown(true);
 		}
 
 		bpuyopad_->Press(pad);

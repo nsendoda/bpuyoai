@@ -21,8 +21,10 @@ public:
 	static std::vector<PutType> ConstantPut(const State & state_, const Kumipuyo & pre);
 	static Score CalculateFatalDose(const State & state_, int enemy_all_ojama);
 	static bool KillThink(const State & state, Score fatal_dose, FieldIndex * fi);
+	static bool ReactJab(const State & state, Score fatal_dose, FieldIndex * fi);
 	static PutType ChainThink(const State & state, Score fatal_dose);
 	static PutType NomiThink::Think(const State& state, Score fatal_dose);
+
 private:
 
 	static std::vector<PutType> FirstConstants(const std::string & p);

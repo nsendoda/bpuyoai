@@ -15,7 +15,7 @@ void Nomi::Init() {
 
 //	ai_SetTable(1, 0, "GR GR GG YG YY YP PP");
 
-	ai_SetTable(1, 0, "GR YG");
+//	ai_SetTable(1, 0, "GR YG");
 #ifdef USE_DATABASE
 	for (int i = 0; i < DATABASE_SIZE; i++)
 		RawData::SetDatabase(i, &database[i]);
@@ -110,6 +110,12 @@ void Nomi::Decide() {
 
 	FieldIndex kill_index;
 	if (NomiThink::KillThink(state, fatal_dose, &kill_index)) {
+		state.now_kumipuyo.desirable_put = PutType(kill_index);
+		Debug::Print("kill decide. turn:%d, c:%d, rotate:%d\n", state.turn, state.now_kumipuyo.desirable_put.column, state.now_kumipuyo.desirable_put.rotate);
+		return;
+	}
+
+	if (NomiThink::ReactJab(state, fatal_dose, &kill_index)) {
 		state.now_kumipuyo.desirable_put = PutType(kill_index);
 		Debug::Print("kill decide. turn:%d, c:%d, rotate:%d\n", state.turn, state.now_kumipuyo.desirable_put.column, state.now_kumipuyo.desirable_put.rotate);
 		return;

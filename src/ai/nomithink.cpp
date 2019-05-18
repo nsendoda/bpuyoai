@@ -84,9 +84,6 @@ Score NomiThink::CalculateFatalDose(const State& state_, int enemy_all_ojama) {
 
 // ScoreがFatalDoseを上回る時、trueを返し、fiにFieldIndexをセット
 bool NomiThink::KillThink(const State& state, Score fatal_dose, FieldIndex * fi) {
-	int best_score = 0;
-	PutIndex best_put = 0;
-
 	struct KillRate {
 		Score score;
 		Frame frame;
@@ -144,6 +141,71 @@ bool NomiThink::KillThink(const State& state, Score fatal_dose, FieldIndex * fi)
 	}
 	return false;
 }
+
+bool NomiThink::ReactJab(const State & state, Score fatal_dose, FieldIndex * fi) {
+	const Frame ShouldReactFrame = 60;
+	// 2段以上が降ってきて残りフレーム数が少ない時
+	if (state.ojamas.SumOjama() < Field::VISIBLE_COLUMN * 2
+		|| state.ojamas.pre_ojama.rest_drop > ShouldReactFrame) return false;
+
+	struct ReactRate {
+		Score score;
+		Frame frame;
+		PutIndex pi;
+	};
+	struct CompareKillRate {
+		bool operator () (const ReactRate& a, const ReactRate& b) const {
+			if (a.score != b.score) return a.score > b.score;
+			return a.frame < b.frame;
+		}
+	};
+
+	std::vector<ReactRate> rates;
+	for (PutIndex pi = 0; pi < PUTTYPE_PATTERN; pi++) {
+		PutType first_put(pi);
+		if (!Simulator::CanPut(first_put, state.field)) continue;
+		Field first_field(state.field);
+		Frame first_frame = Simulator::Put(state.now_kumipuyo, &first_field, first_put);
+		Chain first_chain(Simulator::Simulate(&first_field));
+		first_frame += first_chain.frame;
+
+		// DEATH
+		if (first_field[Field::FIELD_DEATH] != Color::EMPTY)  continue;
+
+		rates.push_back({ first_chain.score, first_frame, pi });
+
+
+		// 2手目以降で発火が出来ない
+		if (first_frame >= state.ojamas.pre_ojama.rest_drop) continue;
+		std::vector<ReactRate> second_que;
+		for (PutIndex pj = 0; pj < PUTTYPE_PATTERN; pj++) {
+			PutType second_put(pj);
+			if (!Simulator::CanPut(second_put, first_field)) continue;
+
+			Field second_field(first_field);
+			Frame second_frame = Simulator::Put(state.next_kumipuyo, &second_field, second_put);
+			Chain second_chain(Simulator::Simulate(&second_field));
+			second_frame += second_chain.frame;
+
+
+			// DEATH
+			if (second_field[Field::FIELD_DEATH] != Color::EMPTY)  continue;
+
+			second_que.push_back({ first_chain.score + second_chain.score, first_frame + second_frame, pi });
+		}
+		if (!second_que.empty()) {
+			std::sort(second_que.begin(), second_que.end(), CompareKillRate());
+			rates.push_back(second_que[0]);
+		}
+	}
+	if (!rates.empty()) {
+		std::sort(rates.begin(), rates.end(), CompareKillRate());
+		(*fi) = rates[0].pi;
+		return true;
+	}
+	return false;
+}
+
 
 PutType NomiThink::ChainThink(const State& state, Score fatal_dose) {
 	std::vector<ChainRate> rates;

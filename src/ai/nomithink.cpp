@@ -145,22 +145,28 @@ bool NomiThink::KillThink(const State& state, Score fatal_dose, FieldIndex * fi)
 	return false;
 }
 
-bool NomiThink::ReactJab(const State & state, Score fatal_dose, FieldIndex * fi) {
+bool NomiThink::ReactJab(const State & state, Score fatal_dose, FieldIndex * fi, bool deadly) {
 	const Frame ShouldReactFrame = 60;
 	// 2段以上が降ってきて残りフレーム数が少ない時
-	if (state.ojamas.SumOjama() < Field::VISIBLE_COLUMN * 2
-		|| state.ojamas.pre_ojama.rest_drop > ShouldReactFrame) return false;
+	if ( ! deadly && (state.ojamas.SumOjama() < Field::VISIBLE_COLUMN * 2
+		|| state.ojamas.pre_ojama.rest_drop > ShouldReactFrame) ) return false;
 
 	struct ReactRate {
 		Score score;
 		Frame frame;
-		PutIndex pi;
+		Score fatal_dose;
+		FieldIndex pi;
 	};
 	struct CompareKillRate {
 		bool operator () (const ReactRate& a, const ReactRate& b) const {
+			if (a.score > a.fatal_dose && b.score > b.fatal_dose) {
+				return a.frame < b.frame;
+			}
+			if (a.score > a.fatal_dose) return true;
+			if (b.score > b.fatal_dose) return false;
 			if (a.score != b.score) return a.score > b.score;
 			return a.frame < b.frame;
-		}
+		};
 	};
 
 	std::vector<ReactRate> rates;
@@ -175,7 +181,7 @@ bool NomiThink::ReactJab(const State & state, Score fatal_dose, FieldIndex * fi)
 		// DEATH
 		if (first_field[Field::FIELD_DEATH] != Color::EMPTY)  continue;
 
-		rates.push_back({ first_chain.score, first_frame, pi });
+		rates.push_back({ first_chain.score, first_frame, fatal_dose, pi });
 
 
 		// 2手目以降で発火が出来ない
@@ -194,7 +200,7 @@ bool NomiThink::ReactJab(const State & state, Score fatal_dose, FieldIndex * fi)
 			// DEATH
 			if (second_field[Field::FIELD_DEATH] != Color::EMPTY)  continue;
 
-			second_que.push_back({ first_chain.score + second_chain.score, first_frame + second_frame, pi });
+			second_que.push_back({ first_chain.score + second_chain.score, first_frame + second_frame, fatal_dose, pi });
 		}
 		if (!second_que.empty()) {
 			std::sort(second_que.begin(), second_que.end(), CompareKillRate());

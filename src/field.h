@@ -74,6 +74,13 @@ public:
   void OutputIncludeWall() const;
   bool Equals(const Field &target);
 
+	// ojamacount
+	inline int CountOjama() const {
+		int ans = 0;
+		for (FieldIndex fi = Field::FIELD_START; fi <= FIELD_END; fi++) ans += (field_[fi] == Color::OJAMA);
+		return ans;
+	}
+
 	// 13段目までの空いているマスの数を数える
 	int CountEmptyPuyos() const;
 

@@ -116,6 +116,14 @@ void Nomi::Decide() {
 	Score temporary_fatal_dose = NomiThink::CalculateFatalDose(enemy, enemy.ojamas.SumOjama());
 	Score fatal_dose = 4550; // 65
 
+	// 相手がある程度以上お邪魔で埋まっているならその分減らす
+	const int EFFECTIVE_OJAMA = 12;
+	int enemy_field_ojama = enemy.field.CountOjama();
+	if (enemy_field_ojama >= EFFECTIVE_OJAMA) fatal_dose -= enemy_field_ojama * Ojama::ONE_SCORE;
+
+	// とりあえず消しに行かなきゃいけない空きぷよ
+	const int DEADLY_EMPTY = 15;
+
 	FieldIndex kill_index;
 	if (NomiThink::KillThink(state, fatal_dose, &kill_index)) {
 		state.now_kumipuyo.desirable_put = PutType(kill_index);
@@ -124,9 +132,17 @@ void Nomi::Decide() {
 	}
 
 	// 相手は発火を決定したため、発火後の形は既に見えているので、その発火後の致死を送れば良い
-	if (NomiThink::ReactJab(state, temporary_fatal_dose, &kill_index)) {
+	if (NomiThink::ReactJab(state, temporary_fatal_dose, &kill_index, false)) {
 		state.now_kumipuyo.desirable_put = PutType(kill_index);
 		Debug::Print("react decide. turn:%d, c:%d, rotate:%d\n", state.turn, state.now_kumipuyo.desirable_put.column, state.now_kumipuyo.desirable_put.rotate);
+		return;
+	}
+
+	// フィールド状況がまずくなったらとりあえず消しに行く
+	if (state.field.CountMawashiEmptyPuyos() <= DEADLY_EMPTY && 
+		NomiThink::ReactJab(state, temporary_fatal_dose, &kill_index, true)) {
+		state.now_kumipuyo.desirable_put = PutType(kill_index);
+		Debug::Print("make empty decide. turn:%d, c:%d, rotate:%d\n", state.turn, state.now_kumipuyo.desirable_put.column, state.now_kumipuyo.desirable_put.rotate);
 		return;
 	}
 

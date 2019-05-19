@@ -31,11 +31,7 @@ public:
 	{}
 
 	inline int Rate() const {
-#ifdef TYPE_CHAIN
 		return c.score - REQUIRED_PENALTY * required_puyo - c.frame * FRAME_PENALTY;
-#else
-		return c.score - REQUIRED_PENALTY * required_puyo - c.frame * FRAME_PENALTY + c.number == 2 ? NUMBER2_BONUS : 0;
-#endif
 	}
 	
 

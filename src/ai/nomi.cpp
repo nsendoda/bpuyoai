@@ -10,9 +10,9 @@ Nomi::Nomi() :
 void Nomi::Init() {
 
 #ifdef TYPE_CHAIN
-	ai_SetName("NOMI_CHAIN");
-#else
 	ai_SetName("NOMI");
+#else
+	ai_SetName("NOMI_TOWER");
 #endif
 	ai_SetBMainMode(1);
 	ai_SetMainMode(1);

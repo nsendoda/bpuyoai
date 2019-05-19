@@ -20,6 +20,7 @@ enum Color : int { EMPTY = 0, RED, YELLOW, GREEN, PURPLE, BLUE, OJAMA, WALL };
 static const Player MYSELF = 1;
 static const Player ENEMY = 0;
 
+static const int PUYO_DELETE_NUMBER = 4;
 static const int ROTATE_NUMBER = 4;
 static const int PUTTYPE_PATTERN = 22;
 

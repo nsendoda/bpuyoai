@@ -269,8 +269,14 @@ ChainRate NomiThink::ChainThirdThink(const Field& pre_field, Frame pre_frame, co
 	MyVector rates;
 	bool used[Field::FIELD_SIZE] = {};
 
+	const int IMPLEMENTABLE_MIN_CONNECTION = 2;
+	const int FIRSTCHAIN_MAX_CONNECTION = 4;
+
 	std::vector<FieldIndex> links[50];
 	int c_i = 0;
+
+	std::vector<FieldIndex> tmp_link;
+	std::array<bool, Field::FIELD_SIZE> tmp_used = {};
 
 //	auto Complement
 
@@ -280,6 +286,8 @@ ChainRate NomiThink::ChainThirdThink(const Field& pre_field, Frame pre_frame, co
 			if (pre_field[start_fi] == EMPTY) break;
 			if (used[start_fi]) continue;
 			if (SetLink(pre_field, start_fi, &links[c_i], used)) {
+
+				if (links[c_i].size() < IMPLEMENTABLE_MIN_CONNECTION) continue;
 
 				Field f(pre_field);
 
@@ -292,7 +300,25 @@ ChainRate NomiThink::ChainThirdThink(const Field& pre_field, Frame pre_frame, co
 						if (f[n_fi] == Color::EMPTY && f[n_fi - Field::COLUMN] != Color::EMPTY
 							&& Simulator::CanPut(PutType(n_fi%Field::COLUMN, RotateType::ROTATE_0), f)) {
 							ok = true;
-							break;
+							// ただし、補完後が4連結以下であること。
+
+							// ぷよ補完
+							f[n_fi] = f[start_fi];
+
+							// 補完後,何連結になるかを調べる
+							tmp_link.clear();
+							tmp_used.fill(false);
+							SetLink(f, n_fi, &tmp_link, tmp_used.data());
+
+							// 補完UNDO
+							f[n_fi] = Color::EMPTY;
+
+							// 4連結以下
+							if (tmp_link.size() <= FIRSTCHAIN_MAX_CONNECTION) {
+								ok = true;
+								break;
+							}
+
 						}
 					}
 					if (ok) break;
@@ -354,20 +380,14 @@ bool NomiThink::SetLink(const Field& f, FieldIndex fi, std::vector<FieldIndex>* 
 ChainRate NomiThink::ComplementedChain(Field * deleted_f,
  const Field& pre_field, const std::vector<FieldIndex>& pre_link,
 	int chain_num, Score pre_score, Frame pre_frame, int pre_needs, const PutIndex first_pi, Score fatal_dose) {
+
+	// 補完を行う最低連結数
+	const int IMPLEMENTABLE_MIN_CONNECTION_PUYO = 2;
+
 	Field& f = *deleted_f;
 	bool used[Field::FIELD_SIZE] = {};
 
 	std::array<bool, Field::FIELD_SIZE> pre_used = {};
-
-	// 各列の落下段数
-	std::vector<Row> drop_row_columns(Field::COLUMN, 0);
-	// 最初のフィールドに対する補完位置がこのindex以上の位置でないと不正
-	// でもそれって補完するぷよが落下する側の時だけでしょ？いらないのでは？
-	std::vector<FieldIndex> drop_fi(Field::COLUMN, Field::FIELD_SIZE);
-	for (FieldIndex li : pre_link) {
-		drop_row_columns[li % Field::COLUMN]++;
-		drop_fi[li % Field::COLUMN] = std::min(drop_fi[li % Field::COLUMN], li);
-	}
 
 	std::vector<FieldIndex> link;
 	std::vector<FieldIndex> pre_links;
@@ -381,10 +401,10 @@ ChainRate NomiThink::ComplementedChain(Field * deleted_f,
 			if (used[start_fi]) continue;
 			link.clear();
 			if (SetLink(f, start_fi, &link, used)) {
-				if (link.size() < 3) continue;
+				if (link.size() < IMPLEMENTABLE_MIN_CONNECTION_PUYO) continue;
 				// 補完するぷよとして使用できるかチェック
 				bool ok = false;
-				int complemented_count = 0;
+				int complemented_count = PUYO_DELETE_NUMBER - link.size();
 				for (FieldIndex li : link) {
 					for (int d : {-1, 1, Field::COLUMN}) {
 						FieldIndex n_fi = li + d;
@@ -396,14 +416,13 @@ ChainRate NomiThink::ComplementedChain(Field * deleted_f,
 							) {
 							// ぷよ補完
 							f[n_fi] = f[start_fi];
-							complemented_count++;
 
 							// 発火前のフィールドに対して補完後、その時点で消えないことを調べる
 							pre_links.clear();
 							pre_used.fill(false);
 							SetLink(pre_field, n_fi, &pre_links, pre_used.data());
 							// 4連結以下
-							if (pre_links.size() < 4) {
+							if (pre_links.size() < PUYO_DELETE_NUMBER) {
 								ok = true;
 								break;
 							}

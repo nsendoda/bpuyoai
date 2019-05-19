@@ -7,6 +7,8 @@
 // Debug::Print—LŒø‰»
 // #define DEBUG_PRINT
 
+#define TYPE_CHAIN
+
 #include "ai.h"
 #include "../../puyo_ai.h"
 #include "bitdatabase.h"

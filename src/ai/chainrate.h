@@ -9,6 +9,7 @@ public:
 
 	static constexpr int REQUIRED_PENALTY = 200;
 	static constexpr int FRAME_PENALTY = 5;
+	static constexpr int NUMBER2_BONUS = 1000;
 
 	Chain c;
 	
@@ -30,7 +31,11 @@ public:
 	{}
 
 	inline int Rate() const {
+#ifdef TYPE_CHAIN
 		return c.score - REQUIRED_PENALTY * required_puyo - c.frame * FRAME_PENALTY;
+#else
+		return c.score - REQUIRED_PENALTY * required_puyo - c.frame * FRAME_PENALTY + c.number == 2 ? NUMBER2_BONUS : 0;
+#endif
 	}
 	
 

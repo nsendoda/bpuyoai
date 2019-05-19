@@ -300,7 +300,7 @@ ChainRate NomiThink::ChainThirdThink(const Field& pre_field, Frame pre_frame, co
 					for (int d : {-1, 1, Field::COLUMN}) {
 						FieldIndex n_fi = li + d;
 						// 空マスであり、下に床があって、置ける列なら補完
-						if (f[n_fi] == Color::EMPTY && f[n_fi - Field::COLUMN] != Color::EMPTY
+						if (f[n_fi] == Color::EMPTY && (f[n_fi - Field::COLUMN] != Color::EMPTY || f[n_fi - 2*Field::COLUMN] != Color::EMPTY)
 							&& Simulator::CanPut(PutType(n_fi%Field::COLUMN, RotateType::ROTATE_0), f)) {
 
 							// ただし、補完後が4連結以下であること。

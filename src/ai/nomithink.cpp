@@ -267,26 +267,27 @@ struct MyVector {
 ChainRate NomiThink::ChainThirdThink(const Field& pre_field, Frame pre_frame, const PutIndex first_pi, Score fatal_dose) {
 
 	MyVector rates;
-	Field field(pre_field);
 	bool used[Field::FIELD_SIZE] = {};
 
 	std::vector<FieldIndex> links[50];
 	int c_i = 0;
 
+//	auto Complement
 
 	for (Column c = 1; c <= Field::VISIBLE_COLUMN; c++) {
 		for (Row r = 1; r <= Field::VISIBLE_ROW; r++) {
-			FieldIndex fi = r * Field::COLUMN + c;
-			if (field[fi] == EMPTY) break;
-			if (used[fi]) continue;
-			if (SetLink(field, fi, &links[c_i], used)) {
+			FieldIndex start_fi = r * Field::COLUMN + c;
+			if (pre_field[start_fi] == EMPTY) break;
+			if (used[start_fi]) continue;
+			if (SetLink(pre_field, start_fi, &links[c_i], used)) {
 
-				Field f(field);
+				Field f(pre_field);
 
+				// 発火点として使用できるかチェック
 				bool ok = false;
 				for (FieldIndex li : links[c_i]) {
 					for (int d : {-1, 1, Field::COLUMN}) {
-						FieldIndex n_fi = fi + d;
+						FieldIndex n_fi = li + d;
 						// 空マスであり、下に床があって、置ける列なら補完
 						if (f[n_fi] == Color::EMPTY && f[n_fi - Field::COLUMN] != Color::EMPTY
 							&& Simulator::CanPut(PutType(n_fi%Field::COLUMN, RotateType::ROTATE_0), f)) {
@@ -303,31 +304,33 @@ ChainRate NomiThink::ChainThirdThink(const Field& pre_field, Frame pre_frame, co
 					}
 					Simulator::FallAll(&f);
 
+
+
+					int required_puyo = 4 - links[c_i].size();
+
+					Field complemented(f);
+					const int FIRST_SCORE = 40;
+					ChainRate complemented_cr(ComplementedChain(&complemented, pre_field, links[c_i], 1, FIRST_SCORE, pre_frame, required_puyo, first_pi, fatal_dose));
+
 					Chain ch = Simulator::Simulate(&f, -1, -1, 1);
-					ch.score += 40;
+					ch.score += FIRST_SCORE;
 					ch.frame += pre_frame;
+
 					Row crisis_height = std::max(Field::AVAILABLE_ROW - f.GetLowestEmptyRows(3),
 						std::min(Field::AVAILABLE_ROW - f.GetLowestEmptyRows(2), Field::AVAILABLE_ROW - f.GetLowestEmptyRows(4)));
 
 					int empty_count = f.CountEmptyPuyos();
 
-					rates.Push(ChainRate(ch, fatal_dose, crisis_height, empty_count, first_pi));
-					/*Field second_f(f);
-
-					for (Column c = 1; c <= Field::VISIBLE_COLUMN; c++) {
-		for (Row r = 1; r <= Field::VISIBLE_ROW; r++) {
-			FieldIndex fi = r * Field::COLUMN + c;
-		}
-	}*/
+					ChainRate cr(ChainRate(ch, required_puyo, crisis_height, empty_count, first_pi, fatal_dose));
+					if(ChainRate::Compare(cr, complemented_cr)) rates.Push(cr);
+					else rates.Push(complemented_cr);
 				}
-
-
 				c_i++;
 			}
 		}
 	}
 
-	if (rates.empty()) return ChainRate(Chain(), 100000,15,0,0);
+	if (rates.empty()) return ChainRate();
 	std::sort(rates.crs, rates.crs + rates._size, ChainRate::Compare);
 	return rates.crs[0];
 }
@@ -348,7 +351,85 @@ bool NomiThink::SetLink(const Field& f, FieldIndex fi, std::vector<FieldIndex>* 
 	return linked;
 }
 
+ChainRate NomiThink::ComplementedChain(Field * deleted_f,
+ const Field& pre_field, const std::vector<FieldIndex>& pre_link,
+	int chain_num, Score pre_score, Frame pre_frame, int pre_needs, const PutIndex first_pi, Score fatal_dose) {
+	Field& f = *deleted_f;
+	bool used[Field::FIELD_SIZE] = {};
 
+	std::array<bool, Field::FIELD_SIZE> pre_used = {};
+
+	// 各列の落下段数
+	std::vector<Row> drop_row_columns(Field::COLUMN, 0);
+	// 最初のフィールドに対する補完位置がこのindex以上の位置でないと不正
+	// でもそれって補完するぷよが落下する側の時だけでしょ？いらないのでは？
+	std::vector<FieldIndex> drop_fi(Field::COLUMN, Field::FIELD_SIZE);
+	for (FieldIndex li : pre_link) {
+		drop_row_columns[li % Field::COLUMN]++;
+		drop_fi[li % Field::COLUMN] = std::min(drop_fi[li % Field::COLUMN], li);
+	}
+
+	std::vector<FieldIndex> link;
+	std::vector<FieldIndex> pre_links;
+	int c_i = 0;
+
+	//	auto Complement
+	for (Column c = 1; c <= Field::VISIBLE_COLUMN; c++) {
+		for (Row r = 1; r <= Field::VISIBLE_ROW; r++) {
+			FieldIndex start_fi = r * Field::COLUMN + c;
+			if (f[start_fi] == EMPTY) break;
+			if (used[start_fi]) continue;
+			link.clear();
+			if (SetLink(f, start_fi, &link, used)) {
+				if (link.size() < 3) continue;
+				// 補完するぷよとして使用できるかチェック
+				bool ok = false;
+				int complemented_count = 0;
+				for (FieldIndex li : link) {
+					for (int d : {-1, 1, Field::COLUMN}) {
+						FieldIndex n_fi = li + d;
+						// #現在補完するフィールドに対して.. 空マスであり、下に床がある
+						// #発火前のフィールドに対して..     空マスであり、下に床があって、置ける列であり、その時点で消えない
+						if (f[n_fi] == Color::EMPTY &&         f[n_fi - Field::COLUMN] != Color::EMPTY
+							&& pre_field[n_fi] == Color::EMPTY && pre_field[n_fi - Field::COLUMN] != Color::EMPTY
+							&& Simulator::CanPut(PutType(n_fi%Field::COLUMN, RotateType::ROTATE_0), pre_field)
+							) {
+							// ぷよ補完
+							f[n_fi] = f[start_fi];
+							complemented_count++;
+
+							// 発火前のフィールドに対して補完後、その時点で消えないことを調べる
+							pre_links.clear();
+							pre_used.fill(false);
+							SetLink(pre_field, n_fi, &pre_links, pre_used.data());
+							// 4連結以下
+							if (pre_links.size() < 4) {
+								ok = true;
+								break;
+							}
+							// 失敗時補完UNDO
+							f[n_fi] = Color::EMPTY;
+						}
+					}
+					if (ok) break;
+				}
+
+				if (ok) {
+					Chain ch = Simulator::Simulate(&f, -1, -1, chain_num);
+					ch.frame += pre_frame;
+					ch.score += pre_score;
+					Row crisis_height = std::max(Field::AVAILABLE_ROW - f.GetLowestEmptyRows(3),
+						std::min(Field::AVAILABLE_ROW - f.GetLowestEmptyRows(2), Field::AVAILABLE_ROW - f.GetLowestEmptyRows(4)));
+
+					int empty_count = f.CountEmptyPuyos();
+
+					return ChainRate(ch, pre_needs + complemented_count, crisis_height, empty_count, first_pi, fatal_dose);
+				}
+			}
+		}
+	}
+	return ChainRate();
+}
 
 
 ChainRate NomiThink::ChainThirdThink2(const Field& pre_field, Frame pre_frame, const PutIndex first_pi, Score fatal_dose) {
@@ -380,7 +461,7 @@ ChainRate NomiThink::ChainThirdThink2(const Field& pre_field, Frame pre_frame, c
 				empty_count++;
 			}
 
-			ChainRate cr(third_chain, fatal_dose, crisis_height, empty_count, first_pi);
+			ChainRate cr(third_chain, 0, fatal_dose, crisis_height, empty_count, first_pi);
 
 			rates.Push(cr);
 

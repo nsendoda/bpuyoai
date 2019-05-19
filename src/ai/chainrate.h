@@ -6,43 +6,44 @@
 class ChainRate {
 public:
 	Chain c;
-	int fatal_dose;
+	
+	int required_puyo;
 	Row puyoappear_row;
 	int empty_count;
 
 	PutIndex first_pi;
+	int fatal_dose;
 
-	ChainRate() {}
-	ChainRate(Chain c, int fatal_dose, Row puyoappear_row, int empty_count, PutIndex first_pi)
+	ChainRate() : c(), required_puyo(100), first_pi(0), fatal_dose(1000000) {}
+	ChainRate(Chain c, int required_puyo, Row puyoappear_row, int empty_count, PutIndex first_pi, int fatal_dose)
 		: c(c.number, c.score, c.frame),
-		fatal_dose(fatal_dose),
+		required_puyo(required_puyo),
 		puyoappear_row(puyoappear_row),
 		empty_count(empty_count),
+		fatal_dose(fatal_dose),
 		first_pi(first_pi)
 	{}
+	
 
-	bool operator < (const ChainRate& b) const {
-//		return this->first_pi < b.first_pi;
-		if (this->c.score > this->fatal_dose && b.c.score > b.fatal_dose) {
-			if (this->c.frame != b.c.frame) return this->c.frame < b.c.frame;
-			if (this->puyoappear_row != b.puyoappear_row) return this->puyoappear_row > b.puyoappear_row;
-			else return this->empty_count > b.empty_count;
+	static bool Compare(const ChainRate& a, const ChainRate& b) {
+		if (a.c.score > a.fatal_dose && b.c.score > b.fatal_dose) {
+			if (a.required_puyo != b.required_puyo) return a.required_puyo < b.required_puyo;
+			if (a.c.frame != b.c.frame) return a.c.frame < b.c.frame;
+			if (a.puyoappear_row != b.puyoappear_row) return a.puyoappear_row > b.puyoappear_row;
+			else return a.empty_count > b.empty_count;
 		}
-		if (this->c.score > this->fatal_dose || b.c.score > b.fatal_dose)
-			return this->c.score > b.c.score;
+		if (a.c.score > a.fatal_dose || b.c.score > b.fatal_dose)
+			return a.c.score > b.c.score;
 
 		// ˆÈ‰º’vŽ€–¢–ž
 		// 2˜A½ˆÈã“¯Žm‚Ì‚Ýscore”äŠr
-		if (this->c.number > 1 && b.c.number > 1) {
-			if (this->c.score != b.c.score) return this->c.score > b.c.score;
+		if (a.c.number > 1 && b.c.number > 1) {
+			if (a.c.score != b.c.score) return a.c.score > b.c.score;
+			if (a.required_puyo != b.required_puyo) return a.required_puyo < b.required_puyo;
 		}
 		//  ‚Ç‚¿‚ç‚©1˜A½‚È‚çA1˜A½‚Í‘I‚Î‚È‚¢
-		if (this->c.number != b.c.number) return this->c.number > b.c.number;
-		 return this->c.frame < b.c.frame;
-	}
-
-	static bool Compare(const ChainRate& a, const ChainRate& b) {
-		return a < b;
+		if (a.c.number != b.c.number) return a.c.number > b.c.number;
+		return a.c.frame < b.c.frame;
 	};
 };
 

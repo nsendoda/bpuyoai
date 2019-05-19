@@ -13,6 +13,8 @@
 
 #include <vector>
 #include <queue>
+#include <set>
+#include <array>
 #include <functional>
 
 
@@ -33,6 +35,8 @@ private:
 	static ChainRate ChainThirdThink(const Field & pre_field, Frame pre_frame, const PutIndex first_pi, Score fatal_dose);
 
 	static bool SetLink(const Field & f, FieldIndex fi, std::vector<FieldIndex>* links, bool * used);
+
+	static ChainRate ComplementedChain(Field * deleted_f, const Field & pre_field, const std::vector<FieldIndex>& pre_link, int chain_num, Score pre_score, Frame pre_frame, int pre_needs, const PutIndex first_pi, Score fatal_dose);
 
 	static ChainRate ChainThirdThink2(const Field & pre_field, Frame pre_frame, const PutIndex first_pi, Score fatal_dose);
 

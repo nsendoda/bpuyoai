@@ -111,7 +111,7 @@ void Nomi::Decide() {
 	}
 
 	Score temporary_fatal_dose = NomiThink::CalculateFatalDose(enemy, enemy.ojamas.SumOjama());
-	Score fatal_dose = UPPER_FATAL_DOSE;
+	Score fatal_dose = 4550; // 65
 
 	FieldIndex kill_index;
 	if (NomiThink::KillThink(state, fatal_dose, &kill_index)) {
@@ -135,9 +135,16 @@ void Nomi::Decide() {
 void Nomi::PadDecide() {
 	pad_orders = PadSearch::DropOrder(state.now_kumipuyo, state.field, my_pad, false);
 
-		Row row_3 = state.field.GetLowestEmptyRows(Field::PUYO_APPEAR_COLUMN);
+	Row row_3 = state.field.GetLowestEmptyRows(Field::PUYO_APPEAR_COLUMN);
+	Row row_2 = state.field.GetLowestEmptyRows(Field::PUYO_APPEAR_COLUMN - 1);
+	Row row_4 = state.field.GetLowestEmptyRows(Field::PUYO_APPEAR_COLUMN + 1);
+	Column dc = state.now_kumipuyo.desirable_put.column;
 		Row put_row = state.field.GetLowestEmptyRows(state.now_kumipuyo.desirable_put.column);
-		if (put_row < 10 && row_3 < 12) {
+		if (
+			(put_row < 10
+				&& (dc >= Field::PUYO_APPEAR_COLUMN || row_2 < 11)
+				&& (dc <= Field::PUYO_APPEAR_COLUMN || row_4 < 11)
+				&& row_3 < 12  ) ) {
 			pad_orders = PadSearch::DropOrder(state.now_kumipuyo, state.field, my_pad, true);
 		}
 }

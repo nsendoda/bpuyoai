@@ -3,10 +3,13 @@
 
 #include "../chain.h"
 
-static constexpr int REQUIRED_PENALTY = 200;
 
 class ChainRate {
 public:
+
+	static constexpr int REQUIRED_PENALTY = 200;
+	static constexpr int FRAME_PENALTY = 5;
+
 	Chain c;
 	
 	int required_puyo;
@@ -27,7 +30,7 @@ public:
 	{}
 
 	inline int Rate() const {
-		return c.score;
+		return c.score - REQUIRED_PENALTY * required_puyo - c.frame * FRAME_PENALTY;
 	}
 	
 

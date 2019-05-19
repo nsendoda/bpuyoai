@@ -239,7 +239,6 @@ std::vector<Pad> PadSearch::DropOrder(const Kumipuyo &kumipuyo_,
 		if (node.dist > MAX_DISTANCE) continue;
 
 		// USED CHECK
-//		int ct = dist.count(node);
 		auto it = dist.find(node);
 		if (it != dist.end()) { continue; }
 

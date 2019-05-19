@@ -302,7 +302,7 @@ ChainRate NomiThink::ChainThirdThink(const Field& pre_field, Frame pre_frame, co
 						// 空マスであり、下に床があって、置ける列なら補完
 						if (f[n_fi] == Color::EMPTY && f[n_fi - Field::COLUMN] != Color::EMPTY
 							&& Simulator::CanPut(PutType(n_fi%Field::COLUMN, RotateType::ROTATE_0), f)) {
-							ok = true;
+
 							// ただし、補完後が4連結以下であること。
 
 							// ぷよ補完
@@ -387,7 +387,7 @@ ChainRate NomiThink::ComplementedChain(Field * deleted_f,
 	int chain_num, Score pre_score, Frame pre_frame, int pre_needs, const PutIndex first_pi, Score fatal_dose) {
 
 	// 補完を行う最低連結数
-	const int IMPLEMENTABLE_MIN_CONNECTION_PUYO = 3;
+	const int IMPLEMENTABLE_MIN_CONNECTION_PUYO = 2;
 
 	Field& f = *deleted_f;
 	bool used[Field::FIELD_SIZE] = {};
@@ -422,6 +422,7 @@ ChainRate NomiThink::ComplementedChain(Field * deleted_f,
 							) {
 							// ぷよ補完
 							f[n_fi] = f[start_fi];
+							if (link.size() == 2) f[n_fi + Field::COLUMN] = f[start_fi];
 
 							// 発火前のフィールドに対して補完後、その時点で消えないことを調べる
 							pre_links.clear();

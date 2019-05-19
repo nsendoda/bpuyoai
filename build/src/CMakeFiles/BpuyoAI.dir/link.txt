@@ -1,2 +1,0 @@
-/usr/bin/ar qc libBpuyoAI.a  CMakeFiles/BpuyoAI.dir/kumipuyo.cpp.o CMakeFiles/BpuyoAI.dir/field.cpp.o CMakeFiles/BpuyoAI.dir/puttype.cpp.o CMakeFiles/BpuyoAI.dir/chain.cpp.o CMakeFiles/BpuyoAI.dir/state.cpp.o CMakeFiles/BpuyoAI.dir/simulator.cpp.o CMakeFiles/BpuyoAI.dir/search_until_next.cpp.o CMakeFiles/BpuyoAI.dir/fin.cpp.o CMakeFiles/BpuyoAI.dir/tomlhelper.cpp.o
-/usr/bin/ranlib libBpuyoAI.a

@@ -1,2 +1,0 @@
-/usr/bin/ar qc libutil.a  CMakeFiles/util.dir/kumipuyo.cpp.o CMakeFiles/util.dir/field.cpp.o CMakeFiles/util.dir/puttype.cpp.o
-/usr/bin/ranlib libutil.a

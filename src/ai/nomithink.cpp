@@ -51,18 +51,18 @@ std::vector<PutType> NomiThink::FirstConstants(const std::string& p) {
 	return NomiMemory::first_const_puts.at(p);
 }
 
-Score NomiThink::CalculateFatalDose(const State& state_, int enemy_all_ojama) {
+Score NomiThink::CalculateFatalDose(const State& enemy_, int enemy_all_ojama) {
 	// [11, ..] 落下ボーナスを考慮に入れてない分1段甘めに見積もっている。
 	auto OjamaRow = [](Row emptyrow, Row ojamarow) {
 		return Field::VISIBLE_ROW - emptyrow - ojamarow;
 	};
 	Row ojama_row = enemy_all_ojama / Field::VISIBLE_COLUMN;
-	Row max_need_ojamarow = OjamaRow(state_.field.GetLowestEmptyRows(Field::PUYO_APPEAR_COLUMN), ojama_row);
+	Row max_need_ojamarow = OjamaRow(enemy_.field.GetLowestEmptyRows(Field::PUYO_APPEAR_COLUMN), ojama_row);
 	for (PutIndex pi = 0; pi < PUTTYPE_PATTERN; pi++) {
 		PutType first_put(pi);
-		if (!Simulator::CanPut(first_put, state_.field)) continue;
-		Field first_field(state_.field);
-		Simulator::Put(state_.now_kumipuyo, &first_field, first_put);
+		if (!Simulator::CanPut(first_put, enemy_.field)) continue;
+		Field first_field(enemy_.field);
+		Simulator::Put(enemy_.now_kumipuyo, &first_field, first_put);
 		Chain first_chain = Simulator::Simulate(&first_field);
 
 		for (PutIndex pj = 0; pj < PUTTYPE_PATTERN; pj++) {
@@ -70,7 +70,7 @@ Score NomiThink::CalculateFatalDose(const State& state_, int enemy_all_ojama) {
 			if (!Simulator::CanPut(second_put, first_field)) continue;
 
 			Field second_field(first_field);
-			Simulator::Put(state_.next_kumipuyo, &second_field, second_put);
+			Simulator::Put(enemy_.next_kumipuyo, &second_field, second_put);
 			Chain second_chain = Simulator::Simulate(&second_field);
 
 			// 最もお邪魔が必要となる3列目の高さを代入
@@ -103,7 +103,7 @@ bool NomiThink::KillThink(const State& state, Score fatal_dose, FieldIndex * fi)
 		}
 	};
 
-	std::priority_queue<KillRate, std::vector<KillRate>, CompareKillRate> first_que;
+	std::vector<KillRate> first_que;
 	for (PutIndex pi = 0; pi < PUTTYPE_PATTERN; pi++) {
 		PutType first_put(pi);
 		if (!Simulator::CanPut(first_put, state.field)) continue;
@@ -115,7 +115,7 @@ bool NomiThink::KillThink(const State& state, Score fatal_dose, FieldIndex * fi)
 		// DEATH
 		if (first_field[Field::FIELD_DEATH] != Color::EMPTY)  continue;
 
-		first_que.push({ first_chain.score, first_frame, true, pi, fatal_dose });
+		first_que.push_back({ first_chain.score, first_frame, true, pi, fatal_dose });
 
 		std::priority_queue<KillRate, std::vector<KillRate>, CompareKillRate> second_que;
 		for (PutIndex pj = 0; pj < PUTTYPE_PATTERN; pj++) {
@@ -133,11 +133,14 @@ bool NomiThink::KillThink(const State& state, Score fatal_dose, FieldIndex * fi)
 
 			second_que.push({ first_chain.score + second_chain.score, first_frame + second_frame, false, pi, fatal_dose });
 		}
-		if (!second_que.empty()) first_que.push(second_que.top());
+		if (!second_que.empty()) first_que.push_back(second_que.top());
 	}
-	if (!first_que.empty() && first_que.top().score >= fatal_dose) {
-		(*fi) = first_que.top().pi;
-		return true;
+	if (!first_que.empty()) {
+		std::sort(first_que.begin(), first_que.end(), CompareKillRate());
+		if (first_que.back().score >= fatal_dose) {
+			(*fi) = first_que.back().pi;
+			return true;
+		}
 	}
 	return false;
 }
@@ -377,12 +380,14 @@ bool NomiThink::SetLink(const Field& f, FieldIndex fi, std::vector<FieldIndex>* 
 	return linked;
 }
 
+// deleted_fには1連鎖目が消されて、落下した直後のFieldが渡される。
+// 2連鎖目がこれから行われるため、4連結以上も含まれている。
 ChainRate NomiThink::ComplementedChain(Field * deleted_f,
  const Field& pre_field, const std::vector<FieldIndex>& pre_link,
 	int chain_num, Score pre_score, Frame pre_frame, int pre_needs, const PutIndex first_pi, Score fatal_dose) {
 
 	// 補完を行う最低連結数
-	const int IMPLEMENTABLE_MIN_CONNECTION_PUYO = 2;
+	const int IMPLEMENTABLE_MIN_CONNECTION_PUYO = 3;
 
 	Field& f = *deleted_f;
 	bool used[Field::FIELD_SIZE] = {};
@@ -401,7 +406,8 @@ ChainRate NomiThink::ComplementedChain(Field * deleted_f,
 			if (used[start_fi]) continue;
 			link.clear();
 			if (SetLink(f, start_fi, &link, used)) {
-				if (link.size() < IMPLEMENTABLE_MIN_CONNECTION_PUYO) continue;
+				// 4連結以上と規定連結未満は補完しない
+				if (link.size() < IMPLEMENTABLE_MIN_CONNECTION_PUYO || link.size() >= PUYO_DELETE_NUMBER) continue;
 				// 補完するぷよとして使用できるかチェック
 				bool ok = false;
 				int complemented_count = PUYO_DELETE_NUMBER - link.size();

@@ -1,6 +1,12 @@
 #ifndef BPUYOAI_NOMI_H_
 #define BPUYOAI_NOMI_H_
 
+// データベース使用（凍結）
+// #define USE_DATABASE
+
+// Debug::Print有効化
+// #define DEBUG_PRINT
+
 #include "ai.h"
 #include "../../puyo_ai.h"
 #include "bitdatabase.h"
@@ -20,6 +26,7 @@
 #endif
 
 #include <string>
+#include <queue>
 #include <iostream>
 #include <Windows.h>
 
@@ -55,6 +62,7 @@ private:
 	Mawashi mawashi;
 
   std::vector<Pad> pad_orders;
+	std::queue<Pad> cancel_que;
 
 	BitDatabase database[DATABASE_SIZE];
 

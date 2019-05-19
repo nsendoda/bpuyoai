@@ -3,6 +3,7 @@
 void BpuyoPad::Press(const std::initializer_list<Command>& commands) {
 	// 0   1      2     3     4            5
 	// up, right, down, left, rotate_left, rotate_right
+	Neutral();
 	for (Command c : commands) {
 		UpdateButton(pad, c);
 	}
@@ -10,6 +11,7 @@ void BpuyoPad::Press(const std::initializer_list<Command>& commands) {
 }
 
 void BpuyoPad::Press(Command c) {
+	Neutral();
 	UpdateButton(pad, c);
 	ai_SetPad(pad[0], pad[1], pad[2], pad[3], pad[4], pad[5]);
 }

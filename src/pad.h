@@ -33,6 +33,7 @@ struct Pad {
 	void SetRight(bool flag) { pad[Command::RIGHT] = flag; }
 	void SetRotateRight(bool flag) { pad[Command::ROTATE_RIGHT] = flag; }
 	void SetRotateLeft(bool flag) { pad[Command::ROTATE_LEFT] = flag; }
+	void SetNeutral() { std::fill_n(pad, PAD_SIZE, false);}
 
 	void CopyTo(bool* new_pad) const {
 		std::copy(pad, pad + PAD_SIZE, new_pad);

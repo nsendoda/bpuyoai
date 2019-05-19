@@ -28,14 +28,13 @@ bool Mawashi::ShouldMawashi(const State & state, const State & enemy)
   int enemy_count = CountMinMawashi(enemy);
 	if (my_count == MAX_MAWASHI_COUNT) {
 		if (enemy_count == MAX_MAWASHI_COUNT) {
-			CountMawashi(state);
 			return false;
 		}
 		return true;
 	}
 
 	// FATALDOSE‚ÉŒü‚¯‚Ä’ÇŒ‚
-	if (enemy_count == MAX_MAWASHI_COUNT || my_count < enemy_count) {
+	if (enemy_count == MAX_MAWASHI_COUNT || my_count < enemy_count - 1) {
 		return false;
 	}
 	return true;

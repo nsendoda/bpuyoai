@@ -105,6 +105,10 @@ public:
 		const Field &field,
 		const Pad& previous_pad, bool always_down);
 
+	static std::queue<Pad> CancelDrop(const Kumipuyo &kumipuyo,
+		const Field &field,
+		const Pad& previous_pad);
+
 private:
 
 	PadSearch();

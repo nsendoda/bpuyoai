@@ -286,3 +286,55 @@ std::vector<Pad> PadSearch::DropOrder(const Kumipuyo &kumipuyo_,
 	}
 	return std::vector<Pad>();
 }
+
+// @note 必ずDropOrderが全て実行された後で呼ぶこと。
+std::queue<Pad> PadSearch::CancelDrop(const Kumipuyo & kumipuyo, const Field & field, const Pad & previous_pad)
+{
+	if (kumipuyo.now_rotate != RotateType::ROTATE_0 || ! kumipuyo.IsDesirablePut()) {
+		return std::queue<Pad>();
+	}
+	FieldIndex parent_fi, _;
+	std::tie(parent_fi, _) = Simulator::CalculatePutIndex(kumipuyo.desirable_put, field);
+	if (field[parent_fi + 1] != Color::EMPTY && field[parent_fi - 1] != Color::EMPTY) {
+		return std::queue<Pad>();
+	}
+	// キーをリセットするために0.5段落とす
+	std::queue<Pad> que;
+	Pad redundant_pad;
+	redundant_pad.SetDown(true);
+	que.push(redundant_pad);
+	Kumipuyo k(kumipuyo);
+	k.Down();
+
+	while (k.Y() > static_cast<float>(parent_fi / Field::COLUMN - 1) + 1.0f) {
+		que.push(redundant_pad);
+		k.Down();
+	}
+	if (k.Y() != static_cast<float>(parent_fi / Field::COLUMN - 1) + 1.0f) return que;
+	// 右方向へキャンセル
+	bool right_cancel = field[parent_fi + 1] == Color::EMPTY;
+		Pad pad;
+
+		if(right_cancel) pad.SetLeft(true);
+		else             pad.SetRight(true);
+		pad.SetDown(true);
+		que.push(pad); pad.SetNeutral();
+
+		pad.SetDown(true);
+		if(right_cancel) pad.SetRotateRight(true);
+		else             pad.SetRotateLeft(true);
+		que.push(pad); pad.SetNeutral();
+
+		if(right_cancel) pad.SetRight(true);
+		else             pad.SetLeft(true);
+		que.push(pad); pad.SetNeutral();
+
+		if (right_cancel) pad.SetRotateLeft(true); 
+		else              pad.SetRotateRight(true);
+		pad.SetDown(true);
+		que.push(pad); pad.SetNeutral();
+
+		pad.SetDown(true);
+		que.push(pad); pad.SetNeutral();
+		return que;
+}

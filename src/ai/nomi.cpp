@@ -9,17 +9,18 @@ Nomi::Nomi() :
 
 void Nomi::Init() {
 
+	ai_SetName("NOMI");
+
 	ai_SetBMainMode(1);
 	ai_SetMainMode(1);
 
-
-//	ai_SetTable(1, 0, "GR GR GG YG YY YP PP");
-
-//	ai_SetTable(1, 0, "GR YG");
 #ifdef USE_DATABASE
 	for (int i = 0; i < DATABASE_SIZE; i++)
 		RawData::SetDatabase(i, &database[i]);
 #endif
+
+	//	ai_SetTable(1, 0, "GY YY RG PR RR GR GG YY PR RY YP PP YR RP");
+
 }
 
 void Nomi::PreProcess() {
@@ -81,7 +82,8 @@ void Nomi::Main() {
 void Nomi::Decide() {
 
 
-/*	int color_count = ColorPuyoCount();
+#ifdef USE_DATABASE
+	int color_count = ColorPuyoCount();
 	if (color_count < DATABASE_SIZE) {
 		PutIndex database_put = database[color_count].BestIndex(state);
 	Debug::Print("data: %d", database_put);
@@ -91,7 +93,9 @@ void Nomi::Decide() {
 			return;
 		}
 		ai_SetName("NOT FOUND");
-	}*/
+	}
+#endif
+
 
 	if (state.turn <= 3) {
 		static std::vector<PutType> ans;
@@ -106,7 +110,8 @@ void Nomi::Decide() {
 		return;
 	}
 
-	Score fatal_dose = NomiThink::CalculateFatalDose(state, enemy.ojamas.SumOjama());
+	Score temporary_fatal_dose = NomiThink::CalculateFatalDose(enemy, enemy.ojamas.SumOjama());
+	Score fatal_dose = UPPER_FATAL_DOSE;
 
 	FieldIndex kill_index;
 	if (NomiThink::KillThink(state, fatal_dose, &kill_index)) {
@@ -115,7 +120,8 @@ void Nomi::Decide() {
 		return;
 	}
 
-	if (NomiThink::ReactJab(state, fatal_dose, &kill_index)) {
+	// 相手は発火を決定したため、発火後の形は既に見えているので、その発火後の致死を送れば良い
+	if (NomiThink::ReactJab(state, temporary_fatal_dose, &kill_index)) {
 		state.now_kumipuyo.desirable_put = PutType(kill_index);
 		Debug::Print("react decide. turn:%d, c:%d, rotate:%d\n", state.turn, state.now_kumipuyo.desirable_put.column, state.now_kumipuyo.desirable_put.rotate);
 		return;
@@ -140,10 +146,19 @@ void Nomi::Operate() {
 	// この式はframe_ct==1の時にpad_ordersを求めてる場合のみ有効なことに注意
 	if (state.hand_frame < pad_orders.size()) {
 		my_pad.Press(pad_orders[state.hand_frame]);
+		return;
+	}
+	// 1ターン遅らせる
+	if (state.hand_frame == pad_orders.size() + 1){
+		cancel_que = PadSearch::CancelDrop(state.now_kumipuyo, state.field, my_pad);
+	}
+	
+	if(cancel_que.empty()){
+		my_pad.Press(DOWN);
 	}
 	else {
-		my_pad.Neutral();
-		my_pad.Press(DOWN);
+		my_pad.Press(cancel_que.front());
+		cancel_que.pop();
 	}
 }
 

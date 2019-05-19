@@ -3,6 +3,8 @@
 
 #include "../chain.h"
 
+static constexpr int REQUIRED_PENALTY = 200;
+
 class ChainRate {
 public:
 	Chain c;
@@ -23,6 +25,10 @@ public:
 		fatal_dose(fatal_dose),
 		first_pi(first_pi)
 	{}
+
+	inline int Rate() const {
+		return c.score;
+	}
 	
 
 	static bool Compare(const ChainRate& a, const ChainRate& b) {
@@ -38,7 +44,7 @@ public:
 		// ˆÈ‰º’v€–¢–
 		// 2˜A½ˆÈã“¯m‚Ì‚İscore”äŠr
 		if (a.c.number > 1 && b.c.number > 1) {
-			if (a.c.score != b.c.score) return a.c.score > b.c.score;
+			if (a.Rate() != b.Rate()) return a.Rate() > b.Rate();
 			if (a.required_puyo != b.required_puyo) return a.required_puyo < b.required_puyo;
 		}
 		//  ‚Ç‚¿‚ç‚©1˜A½‚È‚çA1˜A½‚Í‘I‚Î‚È‚¢

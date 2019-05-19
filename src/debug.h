@@ -14,6 +14,7 @@ public:
 		printf(format, args...);
   }
 	static void Print(const char *pFormat, ...) {
+#ifdef DEBUG_PRINT
 		char    szBuff[1024];
 		va_list argptr;
 
@@ -22,6 +23,8 @@ public:
 		va_end(argptr);
 
 		OutputDebugString(szBuff);
+#endif
+
 	}
 };
 

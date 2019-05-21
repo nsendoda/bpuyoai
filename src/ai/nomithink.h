@@ -29,14 +29,22 @@ public:
 
 private:
 
+	// 発火点として使う最低連結数
+	static const int IMPLEMENTABLE_MIN_CONNECTION = 2;
+
+	// 発火点として使った場合の最大として許す連結数
+	static const int FIRSTCHAIN_MAX_CONNECTION = 4;
+
 	static std::vector<PutType> FirstConstants(const std::string & p);
 
 	static ChainRate ChainSecondThink(const Field & pre_field, const Kumipuyo & next, Frame pre_frame, const PutIndex first_pi, Score fatal_dose);
 	static ChainRate ChainThirdThink(const Field & pre_field, Frame pre_frame, const PutIndex first_pi, Score fatal_dose);
 
-	static bool SetLink(const Field & f, FieldIndex fi, std::vector<FieldIndex>* links, bool * used);
+	static void SetLinkInfo(const Field & pre_field, const std::vector<FieldIndex>& delete_link, ChainRate * cr);
 
-	static ChainRate ComplementedChain(Field * deleted_f, const Field & pre_field, const std::vector<FieldIndex>& pre_link, int chain_num, Score pre_score, Frame pre_frame, int pre_needs, const PutIndex first_pi, Score fatal_dose);
+	static bool SearchLinks(const Field & f, FieldIndex fi, std::vector<FieldIndex>* links, bool * used);
+
+	static ChainRate ComplementedChain(Field * deleted_f, const Field & pre_field, const std::vector<FieldIndex>& pre_link, int chain_num, Score pre_score, Frame pre_frame, int pre_needs, const PutIndex first_pi, Score fatal_dose, const int c_i);
 
 	static ChainRate ChainThirdThink2(const Field & pre_field, Frame pre_frame, const PutIndex first_pi, Score fatal_dose);
 

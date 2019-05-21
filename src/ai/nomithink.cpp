@@ -278,8 +278,7 @@ ChainRate NomiThink::ChainThirdThink(const Field& pre_field, Frame pre_frame, co
 	MyVector rates;
 	bool used[Field::FIELD_SIZE] = {};
 
-	const int IMPLEMENTABLE_MIN_CONNECTION = 2;
-	const int FIRSTCHAIN_MAX_CONNECTION = 4;
+
 
 	std::vector<FieldIndex> links[50];
 	int c_i = 0;
@@ -294,7 +293,7 @@ ChainRate NomiThink::ChainThirdThink(const Field& pre_field, Frame pre_frame, co
 			FieldIndex start_fi = r * Field::COLUMN + c;
 			if (pre_field[start_fi] == EMPTY) break;
 			if (used[start_fi]) continue;
-			if (SetLink(pre_field, start_fi, &links[c_i], used)) {
+			if (SearchLinks(pre_field, start_fi, &links[c_i], used)) {
 
 				if (links[c_i].size() < IMPLEMENTABLE_MIN_CONNECTION) continue;
 
@@ -317,7 +316,7 @@ ChainRate NomiThink::ChainThirdThink(const Field& pre_field, Frame pre_frame, co
 							// 補完後,何連結になるかを調べる
 							tmp_link.clear();
 							tmp_used.fill(false);
-							SetLink(f, n_fi, &tmp_link, tmp_used.data());
+							SearchLinks(f, n_fi, &tmp_link, tmp_used.data());
 
 							// 補完UNDO
 							f[n_fi] = Color::EMPTY;
@@ -345,7 +344,7 @@ ChainRate NomiThink::ChainThirdThink(const Field& pre_field, Frame pre_frame, co
 
 					Field complemented(f);
 					const int FIRST_SCORE = 40;
-					ChainRate complemented_cr(ComplementedChain(&complemented, pre_field, links[c_i], 1, FIRST_SCORE, pre_frame, required_puyo, first_pi, fatal_dose));
+					ChainRate complemented_cr(ComplementedChain(&complemented, pre_field, links[c_i], 1, FIRST_SCORE, pre_frame, required_puyo, first_pi, fatal_dose, c_i));
 
 					Chain ch = Simulator::Simulate(&f, -1, -1, 1);
 					ch.score += FIRST_SCORE;
@@ -356,7 +355,7 @@ ChainRate NomiThink::ChainThirdThink(const Field& pre_field, Frame pre_frame, co
 
 					int empty_count = f.CountEmptyPuyos();
 
-					ChainRate cr(ChainRate(ch, required_puyo, crisis_height, empty_count, first_pi, fatal_dose));
+					ChainRate cr(ChainRate(ch, required_puyo, crisis_height, empty_count, first_pi, fatal_dose, c_i));
 					if(ChainRate::Compare(cr, complemented_cr)) rates.Push(cr);
 					else rates.Push(complemented_cr);
 				}
@@ -367,17 +366,51 @@ ChainRate NomiThink::ChainThirdThink(const Field& pre_field, Frame pre_frame, co
 
 	if (rates.empty()) return ChainRate();
 	std::sort(rates.crs, rates.crs + rates._size, ChainRate::Compare);
+
+	SetLinkInfo(pre_field, links[rates.crs[0].connection_i], &rates.crs[0]);
+
 	return rates.crs[0];
 }
 
-bool NomiThink::SetLink(const Field& f, FieldIndex fi, std::vector<FieldIndex>* links, bool* used){
+// chainrateに2連結と3連結の数を収納
+void NomiThink::SetLinkInfo(const Field& pre_field, const std::vector<FieldIndex>& delete_link, ChainRate* cr) {
+	Field f(pre_field);
+	for (FieldIndex li : delete_link) {
+		f[li] = Color::EMPTY;
+	}
+	Simulator::FallAll(&f);
+	bool used[Field::FIELD_SIZE] = {};
+	std::vector<FieldIndex> links[50];
+	int c_i = 0;
+
+	for (Column c = 1; c <= Field::VISIBLE_COLUMN; c++) {
+		for (Row r = 1; r <= Field::VISIBLE_ROW; r++) {
+			FieldIndex start_fi = r * Field::COLUMN + c;
+			if (pre_field[start_fi] == EMPTY) break;
+			if (used[start_fi]) continue;
+			if (SearchLinks(pre_field, start_fi, &links[c_i], used)) {
+				c_i++;
+			}
+		}
+	}
+	for (auto& link : links) {
+		if (link.size() < NomiThink::IMPLEMENTABLE_MIN_CONNECTION) continue;
+		if (link.size() >= PUYO_DELETE_NUMBER) continue;
+		if (link.size() == 2) cr->link2_count++;
+		if (link.size() == 3) cr->link3_count++;
+	}
+}
+
+// 2連結以上の時、trueを返す
+// それ以下の時、falseを返す
+bool NomiThink::SearchLinks(const Field& f, FieldIndex fi, std::vector<FieldIndex>* links, bool* used){
 	used[fi] = true;
 	bool linked = false;
 	for (int d : {-1, 1, Field::COLUMN, -Field::COLUMN}) {
 		if (used[fi + d]) continue;
 		if (f.ColorEqual(fi, fi + d)) {
 			linked = true;
-			if ( ! SetLink(f, fi + d, links, used)) {
+			if ( ! SearchLinks(f, fi + d, links, used)) {
 				links->push_back(fi + d);
 			}
 		}
@@ -389,8 +422,10 @@ bool NomiThink::SetLink(const Field& f, FieldIndex fi, std::vector<FieldIndex>* 
 // deleted_fには1連鎖目が消されて、落下した直後のFieldが渡される。
 // 2連鎖目がこれから行われるため、4連結以上も含まれている。
 ChainRate NomiThink::ComplementedChain(Field * deleted_f,
- const Field& pre_field, const std::vector<FieldIndex>& pre_link,
-	int chain_num, Score pre_score, Frame pre_frame, int pre_needs, const PutIndex first_pi, Score fatal_dose) {
+
+ const Field& pre_field,
+ const std::vector<FieldIndex>& pre_link,
+	int chain_num, Score pre_score, Frame pre_frame, int pre_needs, const PutIndex first_pi, Score fatal_dose, const int c_i) {
 
 	// 補完を行う最低連結数
 	const int IMPLEMENTABLE_MIN_CONNECTION_PUYO = 2;
@@ -402,17 +437,16 @@ ChainRate NomiThink::ComplementedChain(Field * deleted_f,
 
 	std::vector<FieldIndex> link;
 	std::vector<FieldIndex> pre_links;
-	int c_i = 0;
 
 	//	auto Complement
 	// 中央に近いものを優先
-	for (Column c : {3, 4, 5, 2, 6, 1}) {
+	for (Column c = 1; c <= Field::VISIBLE_COLUMN; c++) {
 		for (Row r = 1; r <= Field::VISIBLE_ROW; r++) {
 			FieldIndex start_fi = r * Field::COLUMN + c;
 			if (f[start_fi] == EMPTY) break;
 			if (used[start_fi]) continue;
 			link.clear();
-			if (SetLink(f, start_fi, &link, used)) {
+			if (SearchLinks(f, start_fi, &link, used)) {
 				// 4連結以上と規定連結未満は補完しない
 				if (link.size() < IMPLEMENTABLE_MIN_CONNECTION_PUYO || link.size() >= PUYO_DELETE_NUMBER) continue;
 				// 補完するぷよとして使用できるかチェック
@@ -434,7 +468,7 @@ ChainRate NomiThink::ComplementedChain(Field * deleted_f,
 							// 発火前のフィールドに対して補完後、その時点で消えないことを調べる
 							pre_links.clear();
 							pre_used.fill(false);
-							SetLink(pre_field, n_fi, &pre_links, pre_used.data());
+							SearchLinks(pre_field, n_fi, &pre_links, pre_used.data());
 							// 4連結以下
 							if (pre_links.size() < PUYO_DELETE_NUMBER) {
 								ok = true;
@@ -456,7 +490,7 @@ ChainRate NomiThink::ComplementedChain(Field * deleted_f,
 
 					int empty_count = f.CountEmptyPuyos();
 
-					return ChainRate(ch, pre_needs + complemented_count, crisis_height, empty_count, first_pi, fatal_dose);
+					return ChainRate(ch, pre_needs + complemented_count, crisis_height, empty_count, first_pi, fatal_dose, c_i);
 				}
 			}
 		}
@@ -494,7 +528,7 @@ ChainRate NomiThink::ChainThirdThink2(const Field& pre_field, Frame pre_frame, c
 				empty_count++;
 			}
 
-			ChainRate cr(third_chain, 0, fatal_dose, crisis_height, empty_count, first_pi);
+			ChainRate cr(third_chain, 0, fatal_dose, crisis_height, empty_count, first_pi, 0);
 
 			rates.Push(cr);
 

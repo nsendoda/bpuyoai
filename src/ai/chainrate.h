@@ -9,29 +9,45 @@ public:
 
 	static constexpr int REQUIRED_PENALTY = 200;
 	static constexpr int FRAME_PENALTY = 5;
-	static constexpr int NUMBER2_BONUS = 1000;
+
+	static constexpr int CRISIS_PENALTY = 20;
+	static constexpr int LINK2_BONUS = 200;
+	static constexpr int LINK3_BONUS = 450;
 
 	Chain c;
 	
 	int required_puyo;
 	Row puyoappear_row;
 	int empty_count;
+	int link2_count;
+	int link3_count;
 
 	PutIndex first_pi;
 	int fatal_dose;
 
-	ChainRate() : c(), required_puyo(100), first_pi(0), fatal_dose(1000000) {}
-	ChainRate(Chain c, int required_puyo, Row puyoappear_row, int empty_count, PutIndex first_pi, int fatal_dose)
+	// Ç«ÇÃòAåãÇè¡ÇµÇΩÇ©ÇÃIndex
+	int connection_i;
+
+	ChainRate() : c(), required_puyo(100), puyoappear_row(0), empty_count(0), link2_count(0), link3_count(0), first_pi(0), fatal_dose(1000000) {}
+	ChainRate(Chain c, int required_puyo, Row puyoappear_row, int empty_count, PutIndex first_pi, int fatal_dose, int c_i)
 		: c(c.number, c.score, c.frame),
 		required_puyo(required_puyo),
 		puyoappear_row(puyoappear_row),
 		empty_count(empty_count),
 		fatal_dose(fatal_dose),
-		first_pi(first_pi)
+		first_pi(first_pi),
+		connection_i(c_i),
+		link2_count(0),
+		link3_count(0)
 	{}
 
 	inline int Rate() const {
-		return c.score - REQUIRED_PENALTY * required_puyo - c.frame * FRAME_PENALTY;
+		return c.score
+			- REQUIRED_PENALTY * required_puyo
+			- c.frame * FRAME_PENALTY
+			- puyoappear_row * CRISIS_PENALTY
+			+ link2_count * LINK2_BONUS
+			+ link3_count * LINK3_BONUS;
 	}
 	
 

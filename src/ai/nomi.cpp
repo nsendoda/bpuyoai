@@ -122,7 +122,7 @@ void Nomi::Decide() {
 	if (enemy_field_ojama >= EFFECTIVE_OJAMA) fatal_dose -= enemy_field_ojama * Ojama::ONE_SCORE;
 
 	// Ç∆ÇËÇ†Ç¶Ç∏è¡ÇµÇ…çsÇ©Ç»Ç´Ç·Ç¢ÇØÇ»Ç¢ãÛÇ´Ç’ÇÊ
-	const int DEADLY_EMPTY = 15;
+	const int DEADLY_EMPTY = 24;
 
 	FieldIndex kill_index;
 	if (NomiThink::KillThink(state, fatal_dose, &kill_index)) {

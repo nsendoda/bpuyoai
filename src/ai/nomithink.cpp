@@ -405,7 +405,8 @@ ChainRate NomiThink::ComplementedChain(Field * deleted_f,
 	int c_i = 0;
 
 	//	auto Complement
-	for (Column c = 1; c <= Field::VISIBLE_COLUMN; c++) {
+	// ’†‰›‚É‹ß‚¢‚à‚Ì‚ð—Dæ
+	for (Column c : {3, 4, 5, 2, 6, 1}) {
 		for (Row r = 1; r <= Field::VISIBLE_ROW; r++) {
 			FieldIndex start_fi = r * Field::COLUMN + c;
 			if (f[start_fi] == EMPTY) break;

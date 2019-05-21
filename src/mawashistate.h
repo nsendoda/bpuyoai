@@ -30,7 +30,8 @@ public:
 		// 7 -> 3
 		_drop_frame = drop_speed_ / 2;
 		// 落下速度が8より大きいなら
-		const Frame NORMAL_DELAY_PUT = 43;
+		// 43が最大だが余裕のために42にする
+		const Frame NORMAL_DELAY_PUT = 42;
 		// 落下速度が8以下なら
 		const Frame FAST_DELAY_PUT = 39;
 		// 落下速度が8以下だと、回転を入れるタイミングを遅らせた方が延命できる

@@ -50,7 +50,7 @@ public:
 			- puyoappear_row * CRISIS_PENALTY
 			+ link2_count * LINK2_BONUS
 			+ link3_count * LINK3_BONUS
-			;
+			- ((first_pi <= 6 || first_pi >= 19) ? EDGE_PENALTY : 0);
 	}
 	
 

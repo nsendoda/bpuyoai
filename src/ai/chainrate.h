@@ -11,8 +11,10 @@ public:
 	static constexpr int FRAME_PENALTY = 5;
 
 	static constexpr int CRISIS_PENALTY = 20;
-	static constexpr int LINK2_BONUS = 200;
-	static constexpr int LINK3_BONUS = 450;
+	static constexpr int LINK2_BONUS = 300;
+	static constexpr int LINK3_BONUS = 550;
+
+	static constexpr int EDGE_PENALTY = 600;
 
 	Chain c;
 	
@@ -47,7 +49,8 @@ public:
 			- c.frame * FRAME_PENALTY
 			- puyoappear_row * CRISIS_PENALTY
 			+ link2_count * LINK2_BONUS
-			+ link3_count * LINK3_BONUS;
+			+ link3_count * LINK3_BONUS
+			;
 	}
 	
 

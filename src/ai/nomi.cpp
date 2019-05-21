@@ -22,7 +22,7 @@ void Nomi::Init() {
 		RawData::SetDatabase(i, &database[i]);
 #endif
 
-	//	ai_SetTable(1, 0, "GY YY RG PR RR GR GG YY PR RY YP PP YR RP");
+//	ai_SetTable(1, 0, "PY RR GY PP RR PP RG RR PY PR RR RY RY YG RR GR RG RG PY PP YR PP ");
 
 }
 

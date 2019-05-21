@@ -356,8 +356,14 @@ ChainRate NomiThink::ChainThirdThink(const Field& pre_field, Frame pre_frame, co
 					int empty_count = f.CountEmptyPuyos();
 
 					ChainRate cr(ChainRate(ch, required_puyo, crisis_height, empty_count, first_pi, fatal_dose, c_i));
-					if(ChainRate::Compare(cr, complemented_cr)) rates.Push(cr);
-					else rates.Push(complemented_cr);
+					if (ChainRate::Compare(cr, complemented_cr)) {
+						SetLinkInfo(pre_field, links[c_i], &cr);
+						rates.Push(cr);
+					}
+					else {
+						SetLinkInfo(pre_field, links[c_i], &complemented_cr);
+						rates.Push(complemented_cr);
+					}
 				}
 				c_i++;
 			}
@@ -367,7 +373,6 @@ ChainRate NomiThink::ChainThirdThink(const Field& pre_field, Frame pre_frame, co
 	if (rates.empty()) return ChainRate();
 	std::sort(rates.crs, rates.crs + rates._size, ChainRate::Compare);
 
-	SetLinkInfo(pre_field, links[rates.crs[0].connection_i], &rates.crs[0]);
 
 	return rates.crs[0];
 }
@@ -394,7 +399,6 @@ void NomiThink::SetLinkInfo(const Field& pre_field, const std::vector<FieldIndex
 		}
 	}
 	for (auto& link : links) {
-		if (link.size() < NomiThink::IMPLEMENTABLE_MIN_CONNECTION) continue;
 		if (link.size() >= PUYO_DELETE_NUMBER) continue;
 		if (link.size() == 2) cr->link2_count++;
 		if (link.size() == 3) cr->link3_count++;

@@ -6,11 +6,13 @@ void Mawashi::Execute(const State& state_, BpuyoPad* bpuyopad_) {
 }
 
 bool Mawashi::DecideAdjustPut(const State& state) {
+	const int PUT_MARGIN = 10;
+
 	PutType put_type = MawashiSimulator::BestMawashi(state, Bpuyo::GetDropSpeed(state.GetPlayer()));
 	Field tmp(state.field);
 	Frame normal_put_frame = Simulator::Put(state.now_kumipuyo, &tmp, put_type);
 	normal_put_frame += Simulator::Simulate(&tmp).frame;
-	Frame until_put_frame = normal_put_frame - state.now_kumipuyo.Y() * 2;
+	Frame until_put_frame = normal_put_frame + state.now_kumipuyo.Y() * 2;
 	if (state.ojamas.instant_quantity >= Ojama::MAX_ONCE) {
 		return false;
 	}
@@ -34,7 +36,7 @@ bool Mawashi::ShouldMawashi(const State & state, const State & enemy)
 	}
 
 	// FATALDOSE‚ÉŒü‚¯‚Ä’ÇŒ‚
-	if (enemy_count == MAX_MAWASHI_COUNT || my_count < enemy_count - 1) {
+	if (enemy_count == MAX_MAWASHI_COUNT || my_count < enemy_count) {
 		return false;
 	}
 	return true;

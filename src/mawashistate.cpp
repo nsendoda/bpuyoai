@@ -172,7 +172,7 @@ MawashiState::MawashiStateType MawashiState::MawashiWait() {
 
 		Pad pad;
 		// ‰ñ‚µŠJŽn
-		if (_mawashi_delay_frame == DELAY_FRAMELIMIT - 2) {
+		if (_mawashi_delay_frame == DELAY_FRAMELIMIT - 3) {
 			if (_start_right_side) {
 				pad.SetRotateRight(true);
 			}
@@ -180,7 +180,7 @@ MawashiState::MawashiStateType MawashiState::MawashiWait() {
 				pad.SetRotateLeft(true);
 			}
 		}
-		if (_mawashi_delay_frame == DELAY_FRAMELIMIT - 1){
+		if (_mawashi_delay_frame == DELAY_FRAMELIMIT - 2){
 			if (_start_right_side) {
 				pad.SetRotateLeft(true);
 			}

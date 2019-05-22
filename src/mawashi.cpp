@@ -49,9 +49,9 @@ int Mawashi::CountMawashi(const State& state) const {
 	// 何段のお邪魔で確定死するか
 	Row fatal_row_ojama = std::min(Field::VISIBLE_ROW - (state.field.GetLowestEmptyRows(3) - 1)
 		, std::max(Field::VISIBLE_ROW - (state.field.GetLowestEmptyRows(2) - 1), Field::VISIBLE_ROW - (state.field.GetLowestEmptyRows(4) - 1)));
-	int ojama_change = state.ojamas.Change(state.field);
+	int ojama_change = state.ojamas.AllChange(state.field);
 	int rest = state.ojamas.SumOjama();
-	if (fatal_row_ojama - Divide(rest, Field::VISIBLE_COLUMN) - Divide(ojama_change, Field::VISIBLE_COLUMN) > 0) return MAX_MAWASHI_COUNT;
+	if (fatal_row_ojama - Ceil(rest, Field::VISIBLE_COLUMN) - Ceil(ojama_change, Field::VISIBLE_COLUMN) > 0) return MAX_MAWASHI_COUNT;
 	int ans = 0;
 	while (fatal_row_ojama > 0) {
 
@@ -75,16 +75,31 @@ int Mawashi::CountMawashi(const State& state) const {
 // 最小回し回数
 int Mawashi::CountMinMawashi(const State& state) const {
 	// 何段のお邪魔で確定死するか
-	Row row_4 = Field::VISIBLE_ROW - (state.field.GetLowestEmptyRows(3) - 1);
-	Row row_deathtwin = std::max(Field::VISIBLE_ROW - (state.field.GetLowestEmptyRows(2) - 1), Field::VISIBLE_ROW - (state.field.GetLowestEmptyRows(4) - 1));
+	const Row row_4 = Field::VISIBLE_ROW - (state.field.GetLowestEmptyRows(3) - 1);
+	const Row row_deathtwin = std::max(Field::VISIBLE_ROW - (state.field.GetLowestEmptyRows(2) - 1), Field::VISIBLE_ROW - (state.field.GetLowestEmptyRows(4) - 1));
 	Row fatal_row_ojama = std::min(row_4, row_deathtwin);
 	bool flat_penalty = false;
+	int ojama_change = state.ojamas.MaxAkadamaChange(state.field);
+	int rest = state.ojamas.SumOjama();
+
+	// 自分が待機中ならば、既にお邪魔が一回分降ったとする
+	if (state.GetMode() == Mode::CHAIN_CHECK || state.GetMode() == Mode::CHAIN
+		|| state.GetMode() == Mode::OJAMA_DROP || state.GetMode() == Mode::WAIT_5 || state.GetMode() == Mode::WAIT_6
+		|| state.GetMode() == Mode::QUICK_WAIT) {
+		ojama_change -= state.ojamas.OneChange(state.field);
+		rest -= state.ojamas.OneDrop();
+
+		// 各列の補正
+		Row drop_row = state.ojamas.OneDrop() / Field::VISIBLE_COLUMN;
+		fatal_row_ojama -= drop_row;
+	}
+
 	if (row_4 == row_deathtwin) {
 		flat_penalty = true;
 	}
-	int ojama_change = state.ojamas.AkadamaChange(state.field);
-	int rest = state.ojamas.SumOjama();
-	if (fatal_row_ojama - Divide(rest, Field::VISIBLE_COLUMN) - Divide(ojama_change, Field::VISIBLE_COLUMN) > 0) return MAX_MAWASHI_COUNT;
+
+
+	if (fatal_row_ojama - Ceil(rest, Field::VISIBLE_COLUMN) - Ceil(ojama_change, Field::VISIBLE_COLUMN) > 0) return MAX_MAWASHI_COUNT;
 	int ans = 0;
 	while (fatal_row_ojama > 0) {
 
@@ -107,6 +122,6 @@ int Mawashi::CountMinMawashi(const State& state) const {
 	return ans;
 }
 
-int Mawashi::Divide(int a, int b) const {
+int Mawashi::Ceil(int a, int b) const {
 	return (a + b - 1) / b;
 }

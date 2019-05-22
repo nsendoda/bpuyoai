@@ -11,7 +11,9 @@ enum Mode : int {
 	LOSE = 8,
 	WIN = 9,
 	LEVEL = 10,
-	LEVEL_AFTER = 11
+	LEVEL_AFTER = 11,
+	// クイック後の短縮されたWAIT_6
+	QUICK_WAIT = 12
 };
 
 #endif

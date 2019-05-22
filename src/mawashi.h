@@ -28,7 +28,7 @@ private:
 	MawashiState mawashistate;
 	int CountMawashi(const State & state) const;
 	int CountMinMawashi(const State & state) const;
-	int Divide(int a, int b) const;
+	int Ceil(int a, int b) const;
 
 };
 

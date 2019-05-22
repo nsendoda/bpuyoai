@@ -41,8 +41,8 @@ public:
 		return instant_quantity + pre_ojama.quantity;
 	}
 
-	// 最低限発生する御釣りを返す
-	int Change(const Field& field) const {
+	// 予告にある全てのお邪魔ぷよが落ちた時、最低限発生する御釣りを返す
+	int AllChange(const Field& field) const {
 		int change = 0;
 		Row min_ojama_drop = SumOjama() / Field::VISIBLE_COLUMN;
 		for (Column c = 1; c <= Field::COLUMN; c++) {
@@ -54,7 +54,7 @@ public:
 
 	// 赤玉で発生するぷよまでの御釣りを返す
 	// 赤玉以下のお邪魔落下（最後のお邪魔落下）の御釣りは含まない
-	int AkadamaChange(const Field& field) const{
+	int MaxAkadamaChange(const Field& field) const{
 				int change = 0;
 		Row min_ojama_drop = (SumOjama() - SumOjama() % Ojama::MAX_ONCE) / Field::VISIBLE_COLUMN;
 		for (Column c = 1; c <= Field::COLUMN; c++) {
@@ -62,6 +62,21 @@ public:
 			if (rest_capa < 0) change += std::abs(rest_capa);
 		}
 		return change;
+	}
+
+	// 1回で発生する御釣りを返す
+	int OneChange(const Field& field) const {
+		int change = 0;
+		Row min_ojama_drop = std::min(SumOjama(), Ojama::MAX_ONCE) / Field::VISIBLE_COLUMN;
+		for (Column c = 1; c <= Field::COLUMN; c++) {
+			int rest_capa = Field::AVAILABLE_ROW - (field.GetLowestEmptyRows(c) - 1) - min_ojama_drop;
+			if (rest_capa < 0) change += std::abs(rest_capa);
+		}
+		return change;
+	}
+
+	int OneDrop() const {
+		return std::min(Ojama::MAX_ONCE, SumOjama());
 	}
 };
 
